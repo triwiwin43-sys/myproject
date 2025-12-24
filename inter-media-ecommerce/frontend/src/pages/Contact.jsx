@@ -54,19 +54,23 @@ const Contact = () => {
     {
       icon: FiPhone,
       title: 'Telepon',
-      details: ['+62 812-3456-7890', '+62 21-1234-5678'],
+      details: ['0895-3339-61424', '+62 21-1234-5678'],
       description: 'Hubungi kami untuk konsultasi'
     },
     {
       icon: FiMail,
       title: 'Email',
-      details: ['info@intermedia.com', 'service@intermedia.com'],
+      details: ['medyyes.krps@gmail.com', 'info@intermedia.com'],
       description: 'Kirim email untuk pertanyaan'
     },
     {
       icon: FiMapPin,
       title: 'Alamat',
-      details: ['Jl. Teknologi No. 123', 'Jakarta Selatan 12345'],
+      details: [
+        'Jalan Klingkit Dalam Blok C No. 22',
+        'RT 010 / RW 011 Kelurahan Rawa Buaya',
+        'Kecamatan Cengkareng, Jakarta Barat 11470'
+      ],
       description: 'Kunjungi toko kami'
     },
     {
@@ -269,15 +273,20 @@ const Contact = () => {
           <div className="p-6 border-b">
             <h2 className="text-2xl font-bold text-gray-900">Lokasi Toko</h2>
             <p className="text-gray-600 mt-2">
-              Kunjungi toko kami untuk melihat langsung produk dan konsultasi
+              Jalan Klingkit Dalam Blok C No. 22, RT 010/RW 011, Rawa Buaya, Cengkareng, Jakarta Barat 11470
             </p>
           </div>
-          <div className="h-64 bg-gray-200 flex items-center justify-center">
-            <div className="text-center">
-              <FiMapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-              <p className="text-gray-500">Peta Lokasi Toko</p>
-              <p className="text-sm text-gray-400">Jl. Teknologi No. 123, Jakarta Selatan</p>
-            </div>
+          <div className="h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8123456789!2d106.7234567!3d-6.1654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8abcdef1234%3A0x1234567890abcdef!2sJl.%20Klingkit%20Dalam%2C%20Rawa%20Buaya%2C%20Kec.%20Cengkareng%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Inter Medi-A Location"
+            ></iframe>
           </div>
         </div>
 
@@ -288,11 +297,11 @@ const Contact = () => {
             Untuk kebutuhan service darurat di luar jam operasional
           </p>
           <a 
-            href="tel:+628123456789" 
+            href="tel:+6289533396142" 
             className="inline-flex items-center bg-white text-red-600 px-6 py-3 rounded-lg font-medium hover:bg-red-50 transition-colors"
           >
             <FiPhone className="w-5 h-5 mr-2" />
-            0812-3456-7890
+            0895-3339-61424
           </a>
         </div>
       </div>

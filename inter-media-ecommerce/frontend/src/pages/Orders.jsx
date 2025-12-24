@@ -12,14 +12,26 @@ import {
 } from 'react-icons/fi';
 import ProductImage from '../components/ProductImage';
 import useAuthStore from '../context/authStore';
+import useOrderStore from '../context/orderStore';
+import toast from 'react-hot-toast';
 
 const Orders = () => {
   const { user } = useAuthStore();
+  const { orders: allOrders, getOrdersByRole, receiveOrder } = useOrderStore();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('all');
+  const [showTrackingModal, setShowTrackingModal] = useState(false);
+  const [showRefundModal, setShowRefundModal] = useState(false);
+  const [showRatingModal, setShowRatingModal] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState('');
+  const [refundReason, setRefundReason] = useState('');
 
-  // Mock orders data
+  // Get orders for current user
+  // const orders = getOrdersByRole(user?.id, user?.role || 'customer');
+
   useEffect(() => {
     const mockOrders = [
       {
@@ -128,6 +140,77 @@ const Orders = () => {
     setOrders(mockOrders);
     setLoading(false);
   }, []);
+
+  // Handler functions
+  const handleTrackOrder = (order) => {
+    setSelectedOrder(order);
+    setShowTrackingModal(true);
+  };
+
+  const handleRefundRequest = (order) => {
+    setSelectedOrder(order);
+    setShowRefundModal(true);
+  };
+
+  const handleSubmitRefund = () => {
+    if (!refundReason.trim()) {
+      toast.error('Mohon berikan alasan refund');
+      return;
+    }
+    
+    // Update order status
+    setOrders(orders.map(order => 
+      order.id === selectedOrder.id 
+        ? { ...order, status: 'refund_requested', refundReason }
+        : order
+    ));
+    
+    toast.success('Permintaan refund berhasil dikirim');
+    setShowRefundModal(false);
+    setRefundReason('');
+    setSelectedOrder(null);
+  };
+
+  const handleRateOrder = (order) => {
+    setSelectedOrder(order);
+    setShowRatingModal(true);
+  };
+
+  const handleSubmitRating = () => {
+    if (rating === 0) {
+      toast.error('Mohon berikan rating');
+      return;
+    }
+    
+    // Update order with rating
+    setOrders(orders.map(order => 
+      order.id === selectedOrder.id 
+        ? { ...order, rating, review, canReview: false }
+        : order
+    ));
+    
+    toast.success('Rating berhasil diberikan');
+    setShowRatingModal(false);
+    setRating(0);
+    setReview('');
+    setSelectedOrder(null);
+  };
+
+  const handleReceiveOrder = (orderId) => {
+    receiveOrder(orderId);
+    toast.success('Pesanan berhasil diterima');
+  };
+
+  const handleCancelOrder = (orderId) => {
+    if (window.confirm('Yakin ingin membatalkan pesanan ini?')) {
+      setOrders(orders.map(order => 
+        order.id === orderId 
+          ? { ...order, status: 'cancelled', canCancel: false }
+          : order
+      ));
+      toast.success('Pesanan berhasil dibatalkan');
+    }
+  };
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -310,40 +393,52 @@ const Orders = () => {
                     </Link>
                     
                     {order.shipping?.trackingNumber && (
-                      <Link
-                        to={`/orders/${order.orderNumber}/tracking`}
+                      <button
+                        onClick={() => handleTrackOrder(order)}
                         className="btn btn-outline btn-sm"
                       >
                         <FiTruck className="w-4 h-4 mr-2" />
                         Lacak
-                      </Link>
+                      </button>
                     )}
                   </div>
                   
                   <div className="flex space-x-2">
                     {order.canCancel && (
-                      <button className="btn btn-outline btn-sm text-red-600 border-red-600 hover:bg-red-50">
+                      <button 
+                        onClick={() => handleCancelOrder(order.id)}
+                        className="btn btn-outline btn-sm text-red-600 border-red-600 hover:bg-red-50"
+                      >
                         <FiX className="w-4 h-4 mr-2" />
                         Batalkan
                       </button>
                     )}
                     
                     {order.canRefund && (
-                      <button className="btn btn-outline btn-sm text-orange-600 border-orange-600 hover:bg-orange-50">
+                      <button 
+                        onClick={() => handleRefundRequest(order)}
+                        className="btn btn-outline btn-sm text-orange-600 border-orange-600 hover:bg-orange-50"
+                      >
                         <FiRefreshCw className="w-4 h-4 mr-2" />
                         Refund
                       </button>
                     )}
                     
                     {order.canReview && (
-                      <button className="btn btn-primary btn-sm">
+                      <button 
+                        onClick={() => handleRateOrder(order)}
+                        className="btn btn-primary btn-sm"
+                      >
                         <FiStar className="w-4 h-4 mr-2" />
                         Beri Rating
                       </button>
                     )}
                     
                     {order.status === 'delivered' && (
-                      <button className="btn btn-primary btn-sm">
+                      <button 
+                        onClick={() => handleReceiveOrder(order.id)}
+                        className="btn btn-primary btn-sm"
+                      >
                         <FiCheck className="w-4 h-4 mr-2" />
                         Terima Pesanan
                       </button>
@@ -355,6 +450,149 @@ const Orders = () => {
           </div>
         )}
       </div>
+
+      {/* Tracking Modal */}
+      {showTrackingModal && selectedOrder && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+            <h3 className="text-lg font-semibold mb-4">Lacak Pesanan</h3>
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm text-gray-600">Nomor Resi</p>
+                <p className="font-medium">{selectedOrder.shipping?.trackingNumber}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Kurir</p>
+                <p className="font-medium">{selectedOrder.shipping?.courier.name} - {selectedOrder.shipping?.courier.service}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-600">Status Pengiriman</p>
+                <div className="mt-2 space-y-2">
+                  <div className="flex items-center text-sm">
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <span>Paket telah dikirim dari gudang</span>
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <span>Paket dalam perjalanan</span>
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <div className="w-3 h-3 bg-gray-300 rounded-full mr-3"></div>
+                    <span>Paket akan segera tiba</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex gap-2 mt-6">
+              <button
+                onClick={() => setShowTrackingModal(false)}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Refund Modal */}
+      {showRefundModal && selectedOrder && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+            <h3 className="text-lg font-semibold mb-4">Ajukan Refund</h3>
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm text-gray-600 mb-2">Pesanan: {selectedOrder.orderNumber}</p>
+                <p className="text-sm text-gray-600 mb-4">Total: Rp {selectedOrder.total?.toLocaleString()}</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Alasan Refund *
+                </label>
+                <textarea
+                  value={refundReason}
+                  onChange={(e) => setRefundReason(e.target.value)}
+                  placeholder="Jelaskan alasan mengapa Anda ingin refund..."
+                  rows={4}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+            <div className="flex gap-2 mt-6">
+              <button
+                onClick={() => setShowRefundModal(false)}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50"
+              >
+                Batal
+              </button>
+              <button
+                onClick={handleSubmitRefund}
+                className="flex-1 px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700"
+              >
+                Ajukan Refund
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Rating Modal */}
+      {showRatingModal && selectedOrder && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+            <h3 className="text-lg font-semibold mb-4">Beri Rating & Ulasan</h3>
+            <div className="space-y-4">
+              <div>
+                <p className="text-sm text-gray-600 mb-2">Pesanan: {selectedOrder.orderNumber}</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Rating *
+                </label>
+                <div className="flex space-x-1">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <button
+                      key={star}
+                      onClick={() => setRating(star)}
+                      className={`text-2xl ${
+                        star <= rating ? 'text-yellow-400' : 'text-gray-300'
+                      }`}
+                    >
+                      ★
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Ulasan (Opsional)
+                </label>
+                <textarea
+                  value={review}
+                  onChange={(e) => setReview(e.target.value)}
+                  placeholder="Bagikan pengalaman Anda dengan produk ini..."
+                  rows={4}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+            <div className="flex gap-2 mt-6">
+              <button
+                onClick={() => setShowRatingModal(false)}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50"
+              >
+                Batal
+              </button>
+              <button
+                onClick={handleSubmitRating}
+                className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              >
+                Kirim Rating
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

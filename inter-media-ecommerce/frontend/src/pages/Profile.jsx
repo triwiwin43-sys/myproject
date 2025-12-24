@@ -13,7 +13,8 @@ import {
   FiShield,
   FiShoppingBag,
   FiPackage,
-  FiSettings
+  FiSettings,
+  FiHeart
 } from 'react-icons/fi';
 import useAuthStore from '../context/authStore';
 import toast from 'react-hot-toast';
@@ -174,6 +175,9 @@ const Profile = () => {
   const tabs = [
     { id: 'profile', name: 'Profil Pribadi', icon: FiUser },
     { id: 'addresses', name: 'Alamat', icon: FiMapPin },
+    ...(user?.role === 'customer' ? [
+      { id: 'wishlist', name: 'Wishlist', icon: FiHeart }
+    ] : []),
     ...(user?.role === 'seller' || user?.role === 'admin' ? [
       { id: 'seller', name: 'Info Seller', icon: FiShoppingBag }
     ] : []),
@@ -632,6 +636,35 @@ const Profile = () => {
                         />
                       </div>
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Wishlist Tab */}
+              {activeTab === 'wishlist' && user?.role === 'customer' && (
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-xl font-semibold text-gray-900">Wishlist Saya</h2>
+                    <a
+                      href="/wishlist"
+                      className="text-blue-600 hover:text-blue-700 text-sm"
+                    >
+                      Lihat Semua
+                    </a>
+                  </div>
+                  
+                  <div className="text-center py-8">
+                    <FiHeart className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                    <p className="text-gray-600 mb-4">
+                      Wishlist Anda akan ditampilkan di sini
+                    </p>
+                    <a
+                      href="/wishlist"
+                      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                    >
+                      <FiHeart className="w-4 h-4 mr-2" />
+                      Kelola Wishlist
+                    </a>
                   </div>
                 </div>
               )}

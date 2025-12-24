@@ -1,6 +1,21 @@
+// Manage Products with Full Dashboard
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { 
+  FiHome, 
+  FiPackage, 
+  FiShoppingCart, 
+  FiUsers, 
+  FiTool, 
+  FiActivity, 
+  FiStar, 
+  FiCreditCard, 
+  FiSettings, 
+  FiMenu, 
+  FiX, 
+  FiBell, 
+  FiUser,
+  FiLogOut,
   FiPlus, 
   FiEdit, 
   FiTrash2, 
@@ -8,97 +23,63 @@ import {
   FiSearch,
   FiFilter,
   FiMoreVertical,
-  FiToggleLeft,
-  FiToggleRight
+  FiDollarSign
 } from 'react-icons/fi';
-import ProductImage from '../../components/ProductImage';
-import useAuthStore from '../../context/authStore';
-import toast from 'react-hot-toast';
 
 const ManageProducts = () => {
-  const { user } = useAuthStore();
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('all');
   const [filterStatus, setFilterStatus] = useState('all');
+  const location = useLocation();
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // Navigation menu items
+  const navigation = [
+    { name: 'Dashboard', href: '/seller/dashboard', icon: FiHome, current: location.pathname === '/seller/dashboard' },
+    { name: 'Produk', href: '/seller/products', icon: FiPackage, current: location.pathname.includes('/seller/products') },
+    { name: 'Pesanan', href: '/seller/orders', icon: FiShoppingCart, current: location.pathname.includes('/seller/orders') },
+    { name: 'Pelanggan', href: '/seller/customers', icon: FiUsers, current: location.pathname.includes('/seller/customers') },
+    { name: 'Layanan', href: '/seller/services', icon: FiTool, current: location.pathname.includes('/seller/services') },
+    { name: 'Laporan', href: '/seller/reports', icon: FiActivity, current: location.pathname.includes('/seller/reports') },
+    { name: 'Ulasan', href: '/seller/reviews', icon: FiStar, current: location.pathname.includes('/seller/reviews') },
+    { name: 'Metode Pembayaran', href: '/seller/payment-methods', icon: FiCreditCard, current: location.pathname.includes('/seller/payment-methods') },
+    { name: 'Pengaturan', href: '/seller/settings', icon: FiSettings, current: location.pathname.includes('/seller/settings') },
+  ];
 
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      // Simulate API call - replace with actual API
-      const mockProducts = [
-        {
-          id: 1,
-          name: 'HP LaserJet Pro M404n',
-          category: 'Printer',
-          price: 2500000,
-          stock: 15,
-          status: 'active',
-          image: '/api/placeholder/100/100',
-          createdAt: '2024-12-20',
-          views: 45,
-          orders: 8
-        },
-        {
-          id: 2,
-          name: 'Canon Pixma G2010',
-          category: 'Printer',
-          price: 1200000,
-          stock: 8,
-          status: 'active',
-          image: '/api/placeholder/100/100',
-          createdAt: '2024-12-18',
-          views: 32,
-          orders: 5
-        },
-        {
-          id: 3,
-          name: 'Service Laptop Premium',
-          category: 'Service',
-          price: 250000,
-          stock: 999,
-          status: 'active',
-          image: '/api/placeholder/100/100',
-          createdAt: '2024-12-15',
-          views: 78,
-          orders: 12
-        }
-      ];
-      setProducts(mockProducts);
-    } catch (error) {
-      toast.error('Gagal memuat produk');
-    } finally {
-      setLoading(false);
-    }
+  const handleLogout = () => {
+    localStorage.removeItem('sellerToken');
+    window.location.href = '/login';
   };
 
-  const toggleProductStatus = async (productId, currentStatus) => {
-    try {
-      const newStatus = currentStatus === 'active' ? 'inactive' : 'active';
-      setProducts(products.map(p => 
-        p.id === productId ? { ...p, status: newStatus } : p
-      ));
-      toast.success(`Produk ${newStatus === 'active' ? 'diaktifkan' : 'dinonaktifkan'}`);
-    } catch (error) {
-      toast.error('Gagal mengubah status produk');
+  const [products] = useState([
+    {
+      id: 1,
+      name: 'HP LaserJet Pro M404n',
+      category: 'Printer',
+      price: 2500000,
+      stock: 15,
+      status: 'active',
+      image: '/api/placeholder/100/100'
+    },
+    {
+      id: 2,
+      name: 'Canon Pixma G2010',
+      category: 'Printer',
+      price: 1800000,
+      stock: 8,
+      status: 'active',
+      image: '/api/placeholder/100/100'
+    },
+    {
+      id: 3,
+      name: 'Tinta Canon GI-790',
+      category: 'Tinta',
+      price: 85000,
+      stock: 50,
+      status: 'active',
+      image: '/api/placeholder/100/100'
     }
-  };
-
-  const deleteProduct = async (productId) => {
-    if (window.confirm('Yakin ingin menghapus produk ini?')) {
-      try {
-        setProducts(products.filter(p => p.id !== productId));
-        toast.success('Produk berhasil dihapus');
-      } catch (error) {
-        toast.error('Gagal menghapus produk');
-      }
-    }
-  };
+  ]);
 
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -107,247 +88,205 @@ const ManageProducts = () => {
     return matchesSearch && matchesCategory && matchesStatus;
   });
 
-  const categories = ['all', 'Printer', 'Laptop', 'PC', 'Service', 'Aksesoris'];
+  const categories = ['all', 'Printer', 'Tinta', 'Komputer', 'Aksesoris'];
   const statuses = ['all', 'active', 'inactive'];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">Kelola Produk</h1>
-              <p className="text-gray-600">Kelola produk dan layanan yang Anda jual</p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Mobile sidebar overlay */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
+        </div>
+      )}
+
+      {/* Sidebar */}
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
+        <div className="flex items-center justify-between h-16 px-6 bg-blue-600">
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
+              <h1 className="text-xl font-bold text-white">Inter Medi-A</h1>
             </div>
-            <Link to="/seller/products/add" className="btn btn-primary">
-              <FiPlus className="w-5 h-5 mr-2" />
-              Tambah Produk
-            </Link>
+          </div>
+          <button
+            className="lg:hidden text-white hover:text-gray-200"
+            onClick={() => setSidebarOpen(false)}
+          >
+            <FiX className="w-6 h-6" />
+          </button>
+        </div>
+
+        <nav className="mt-8 px-4">
+          <div className="space-y-2">
+            {navigation.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                    item.current
+                      ? 'bg-blue-100 text-blue-700'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                  }`}
+                >
+                  <Icon className={`mr-3 h-5 w-5 ${item.current ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}`} />
+                  {item.name}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+
+        {/* Logout button */}
+        <div className="absolute bottom-0 w-full p-4">
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center px-3 py-2 text-sm font-medium text-red-600 rounded-md hover:bg-red-50 transition-colors"
+          >
+            <FiLogOut className="mr-3 h-5 w-5" />
+            Keluar
+          </button>
+        </div>
+      </div>
+
+      {/* Main content */}
+      <div className="lg:pl-64">
+        {/* Top navigation */}
+        <div className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
+          <div className="flex items-center justify-between h-16 px-6">
+            <button
+              className="lg:hidden text-gray-500 hover:text-gray-700"
+              onClick={() => setSidebarOpen(true)}
+            >
+              <FiMenu className="w-6 h-6" />
+            </button>
+
+            <div className="flex items-center space-x-4">
+              <button className="text-gray-500 hover:text-gray-700">
+                <FiBell className="w-6 h-6" />
+              </button>
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                  <FiUser className="w-5 h-5 text-gray-600" />
+                </div>
+                <span className="text-sm font-medium text-gray-700">Seller</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Filters */}
-        <div className="bg-white rounded-lg shadow-sm border p-6 mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Cari Produk
-              </label>
-              <div className="relative">
-                <FiSearch className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  placeholder="Nama produk..."
-                  className="input pl-10"
-                />
+        {/* Page content */}
+        <main className="p-6">
+          <div className="space-y-6">
+            {/* Header */}
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">Kelola Produk</h1>
+                <p className="text-gray-600">Kelola produk yang Anda jual</p>
+              </div>
+              <Link
+                to="/seller/products/add"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center"
+              >
+                <FiPlus className="w-4 h-4 mr-2" />
+                Tambah Produk
+              </Link>
+            </div>
+
+            {/* Filters */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="relative">
+                  <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <input
+                    type="text"
+                    placeholder="Cari produk..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+                <select
+                  value={filterCategory}
+                  onChange={(e) => setFilterCategory(e.target.value)}
+                  className="border border-gray-300 rounded-lg px-3 py-2"
+                >
+                  {categories.map(category => (
+                    <option key={category} value={category}>
+                      {category === 'all' ? 'Semua Kategori' : category}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  value={filterStatus}
+                  onChange={(e) => setFilterStatus(e.target.value)}
+                  className="border border-gray-300 rounded-lg px-3 py-2"
+                >
+                  {statuses.map(status => (
+                    <option key={status} value={status}>
+                      {status === 'all' ? 'Semua Status' : status === 'active' ? 'Aktif' : 'Nonaktif'}
+                    </option>
+                  ))}
+                </select>
+                <button className="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 flex items-center justify-center">
+                  <FiFilter className="w-4 h-4 mr-2" />
+                  Filter
+                </button>
               </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Kategori
-              </label>
-              <select
-                value={filterCategory}
-                onChange={(e) => setFilterCategory(e.target.value)}
-                className="input"
-              >
-                {categories.map(cat => (
-                  <option key={cat} value={cat}>
-                    {cat === 'all' ? 'Semua Kategori' : cat}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Status
-              </label>
-              <select
-                value={filterStatus}
-                onChange={(e) => setFilterStatus(e.target.value)}
-                className="input"
-              >
-                {statuses.map(status => (
-                  <option key={status} value={status}>
-                    {status === 'all' ? 'Semua Status' : 
-                     status === 'active' ? 'Aktif' : 'Nonaktif'}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex items-end">
-              <button className="btn btn-outline w-full">
-                <FiFilter className="w-5 h-5 mr-2" />
-                Reset Filter
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Products Table */}
-        <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Produk
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Kategori
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Harga
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Stok
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Statistik
-                  </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Aksi
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {loading ? (
-                  <tr>
-                    <td colSpan="7" className="px-6 py-4 text-center">
-                      <div className="flex justify-center">
-                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-                      </div>
-                    </td>
-                  </tr>
-                ) : filteredProducts.length === 0 ? (
-                  <tr>
-                    <td colSpan="7" className="px-6 py-4 text-center text-gray-500">
-                      Tidak ada produk ditemukan
-                    </td>
-                  </tr>
-                ) : (
-                  filteredProducts.map((product) => (
-                    <tr key={product.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="flex items-center">
-                          <div className="h-12 w-12 bg-gray-200 rounded-lg mr-4">
-                            <ProductImage
-                              src={product.image}
-                              alt={product.name}
-                              category={product.category}
-                              className="h-12 w-12 rounded-lg object-cover"
-                            />
-                          </div>
-                          <div>
-                            <div className="text-sm font-medium text-gray-900">
-                              {product.name}
-                            </div>
-                            <div className="text-sm text-gray-500">
-                              Dibuat: {product.createdAt}
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
-                          {product.category}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        Rp {product.price.toLocaleString()}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        {product.stock === 999 ? 'Unlimited' : product.stock}
-                        {product.stock < 10 && product.stock !== 999 && (
-                          <span className="text-red-600 text-xs ml-1">⚠️</span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <button
-                          onClick={() => toggleProductStatus(product.id, product.status)}
-                          className="flex items-center"
-                        >
-                          {product.status === 'active' ? (
-                            <>
-                              <FiToggleRight className="w-6 h-6 text-green-600 mr-2" />
-                              <span className="text-green-600 text-sm">Aktif</span>
-                            </>
-                          ) : (
-                            <>
-                              <FiToggleLeft className="w-6 h-6 text-gray-400 mr-2" />
-                              <span className="text-gray-400 text-sm">Nonaktif</span>
-                            </>
-                          )}
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProducts.map((product) => (
+                <div key={product.id} className="bg-white rounded-lg shadow-sm border overflow-hidden">
+                  <div className="aspect-w-1 aspect-h-1 bg-gray-200">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-48 object-cover"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-medium text-gray-900 mb-2">{product.name}</h3>
+                    <p className="text-sm text-gray-500 mb-2">{product.category}</p>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-lg font-bold text-blue-600">
+                        Rp {product.price.toLocaleString('id-ID')}
+                      </span>
+                      <span className="text-sm text-gray-500">
+                        Stok: {product.stock}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                        product.status === 'active' 
+                          ? 'bg-green-100 text-green-800' 
+                          : 'bg-red-100 text-red-800'
+                      }`}>
+                        {product.status === 'active' ? 'Aktif' : 'Nonaktif'}
+                      </span>
+                      <div className="flex space-x-2">
+                        <button className="text-blue-600 hover:text-blue-800">
+                          <FiEye className="w-4 h-4" />
                         </button>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        <div>👁️ {product.views} views</div>
-                        <div>🛒 {product.orders} orders</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <div className="flex items-center justify-end space-x-2">
-                          <Link
-                            to={`/products/${product.id}`}
-                            className="text-blue-600 hover:text-blue-900"
-                          >
-                            <FiEye className="w-4 h-4" />
-                          </Link>
-                          <Link
-                            to={`/seller/products/edit/${product.id}`}
-                            className="text-green-600 hover:text-green-900"
-                          >
-                            <FiEdit className="w-4 h-4" />
-                          </Link>
-                          <button
-                            onClick={() => deleteProduct(product.id)}
-                            className="text-red-600 hover:text-red-900"
-                          >
-                            <FiTrash2 className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Summary Stats */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white p-4 rounded-lg shadow-sm border">
-            <div className="text-2xl font-bold text-blue-600">{products.length}</div>
-            <div className="text-sm text-gray-600">Total Produk</div>
-          </div>
-          <div className="bg-white p-4 rounded-lg shadow-sm border">
-            <div className="text-2xl font-bold text-green-600">
-              {products.filter(p => p.status === 'active').length}
+                        <Link
+                          to={`/seller/products/edit/${product.id}`}
+                          className="text-green-600 hover:text-green-800"
+                        >
+                          <FiEdit className="w-4 h-4" />
+                        </Link>
+                        <button className="text-red-600 hover:text-red-800">
+                          <FiTrash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="text-sm text-gray-600">Produk Aktif</div>
           </div>
-          <div className="bg-white p-4 rounded-lg shadow-sm border">
-            <div className="text-2xl font-bold text-yellow-600">
-              {products.filter(p => p.stock < 10 && p.stock !== 999).length}
-            </div>
-            <div className="text-sm text-gray-600">Stok Menipis</div>
-          </div>
-          <div className="bg-white p-4 rounded-lg shadow-sm border">
-            <div className="text-2xl font-bold text-purple-600">
-              {products.reduce((sum, p) => sum + p.orders, 0)}
-            </div>
-            <div className="text-sm text-gray-600">Total Pesanan</div>
-          </div>
-        </div>
+        </main>
       </div>
     </div>
   );

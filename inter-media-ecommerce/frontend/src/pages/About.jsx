@@ -210,8 +210,9 @@ const About = () => {
                   <div>
                     <h3 className="font-semibold text-gray-900">Alamat Toko</h3>
                     <p className="text-gray-600">
-                      Jl. Teknologi No. 123, Kelurahan IT<br />
-                      Kecamatan Digital, Jakarta Selatan 12345
+                      Jalan Klingkit Dalam Blok C No. 22<br />
+                      RT 010/RW 011, Rawa Buaya, Cengkareng<br />
+                      Jakarta Barat 11470
                     </p>
                   </div>
                 </div>
@@ -228,9 +229,33 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-              <p className="text-gray-500">Peta Lokasi</p>
+            <div className="bg-gray-200 rounded-lg h-64 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8123456789!2d106.7234567!3d-6.1654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8abcdef1234%3A0x1234567890abcdef!2sJl.%20Klingkit%20Dalam%2C%20Rawa%20Buaya%2C%20Kec.%20Cengkareng%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Inter Medi-A Location"
+              ></iframe>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Creator Section */}
+      <div className="py-12 bg-gray-100 border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Aplikasi E-Commerce</h3>
+            <p className="text-gray-600">
+              Dikembangkan oleh <span className="font-medium text-blue-600">Sapto Prawiro Utomo</span>
+            </p>
+            <p className="text-sm text-gray-500 mt-1">
+              © 2024 Inter Medi-A. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ const ProductImage = ({ src, alt, className = "w-full h-full object-cover", cate
 
   return (
     <div className="relative w-full h-full bg-gray-100 rounded-lg overflow-hidden">
-      {src && src !== '/api/placeholder/300/300' && src !== '/api/placeholder/100/100' ? (
+      {src ? (
         <>
           <img
             src={src}

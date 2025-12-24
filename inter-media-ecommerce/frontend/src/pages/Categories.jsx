@@ -26,7 +26,7 @@ const Categories = () => {
       name: 'Komputer & PC',
       icon: FiMonitor,
       description: 'Desktop PC, All-in-One, Mini PC',
-      productCount: 45,
+      productCount: 3,
       image: '/api/placeholder/300/200',
       subcategories: ['Desktop PC', 'All-in-One', 'Mini PC', 'Workstation']
     },
@@ -35,7 +35,7 @@ const Categories = () => {
       name: 'Laptop & Notebook',
       icon: FiMonitor,
       description: 'Laptop gaming, bisnis, ultrabook',
-      productCount: 38,
+      productCount: 3,
       image: '/api/placeholder/300/200',
       subcategories: ['Gaming Laptop', 'Business Laptop', 'Ultrabook', 'Chromebook']
     },
@@ -44,7 +44,7 @@ const Categories = () => {
       name: 'Printer & Scanner',
       icon: FiPrinter,
       description: 'Printer inkjet, laser, multifungsi',
-      productCount: 52,
+      productCount: 5,
       image: '/api/placeholder/300/200',
       subcategories: ['Inkjet Printer', 'Laser Printer', 'Multifungsi', 'Scanner', 'Plotter']
     },
@@ -53,7 +53,7 @@ const Categories = () => {
       name: 'Storage & Memory',
       icon: FiHardDrive,
       description: 'HDD, SSD, RAM, Flash Drive',
-      productCount: 67,
+      productCount: 0,
       image: '/api/placeholder/300/200',
       subcategories: ['HDD', 'SSD', 'RAM', 'Flash Drive', 'Memory Card']
     },
@@ -62,7 +62,7 @@ const Categories = () => {
       name: 'Aksesoris Komputer',
       icon: FiHeadphones,
       description: 'Mouse, keyboard, headset, webcam',
-      productCount: 89,
+      productCount: 3,
       image: '/api/placeholder/300/200',
       subcategories: ['Mouse', 'Keyboard', 'Headset', 'Webcam', 'Speaker']
     },
@@ -71,7 +71,7 @@ const Categories = () => {
       name: 'Networking',
       icon: FiRadio,
       description: 'Router, switch, access point',
-      productCount: 34,
+      productCount: 3,
       image: '/api/placeholder/300/200',
       subcategories: ['Router', 'Switch', 'Access Point', 'Modem', 'Cable']
     },
@@ -80,7 +80,7 @@ const Categories = () => {
       name: 'Mobile & Tablet',
       icon: FiPhone,
       description: 'Smartphone, tablet, aksesoris',
-      productCount: 28,
+      productCount: 3,
       image: '/api/placeholder/300/200',
       subcategories: ['Smartphone', 'Tablet', 'Power Bank', 'Case & Cover']
     },
@@ -89,7 +89,7 @@ const Categories = () => {
       name: 'Kamera & Fotografi',
       icon: FiCamera,
       description: 'DSLR, mirrorless, action cam',
-      productCount: 23,
+      productCount: 3,
       image: '/api/placeholder/300/200',
       subcategories: ['DSLR', 'Mirrorless', 'Action Camera', 'Lens', 'Tripod']
     },
@@ -98,7 +98,7 @@ const Categories = () => {
       name: 'Layanan Service',
       icon: FiTool,
       description: 'Service laptop, PC, printer',
-      productCount: 15,
+      productCount: 3,
       image: '/api/placeholder/300/200',
       subcategories: ['Service Laptop', 'Service PC', 'Service Printer', 'Data Recovery']
     },
@@ -107,7 +107,7 @@ const Categories = () => {
       name: 'Perlengkapan Kantor',
       icon: FiPackage,
       description: 'ATK, furniture, supplies',
-      productCount: 41,
+      productCount: 3,
       image: '/api/placeholder/300/200',
       subcategories: ['ATK', 'Furniture', 'Supplies', 'Software']
     }

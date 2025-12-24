@@ -2,12 +2,17 @@ import { Link } from 'react-router-dom';
 import { FiShoppingCart, FiHeart, FiStar, FiEye } from 'react-icons/fi';
 import ProductImage from './ProductImage';
 import useCartStore from '../context/cartStore';
+import useWishlistStore from '../context/wishlistStore';
 import useAuthStore from '../context/authStore';
 import toast from 'react-hot-toast';
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCartStore();
-  const { isAuthenticated } = useAuthStore();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlistStore();
+  const { isAuthenticated, user } = useAuthStore();
+  
+  const isCustomer = user?.role === 'customer';
+  const inWishlist = isInWishlist(product.id);
 
   const handleAddToCart = async (e) => {
     e.preventDefault();
@@ -18,8 +23,30 @@ const ProductCard = ({ product }) => {
       return;
     }
     
-    // Use the simple addToCart method
     addToCart(product);
+  };
+
+  const handleWishlistToggle = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (!isAuthenticated) {
+      toast.error('Please login to use wishlist');
+      return;
+    }
+    
+    if (!isCustomer) {
+      toast.error('Wishlist only available for customers');
+      return;
+    }
+    
+    if (inWishlist) {
+      removeFromWishlist(product.id);
+      toast.success('Removed from wishlist');
+    } else {
+      addToWishlist(product);
+      toast.success('Added to wishlist');
+    }
   };
 
   const formatPrice = (price) => {
@@ -31,7 +58,7 @@ const ProductCard = ({ product }) => {
   };
 
   const getMainImage = () => {
-    return product.images?.[0] || '/api/placeholder/300/300';
+    return product.images?.[0] || 'https://via.placeholder.com/300x300/6B7280/FFFFFF?text=No+Image';
   };
 
   const discountPercentage = product.originalPrice 
@@ -76,16 +103,19 @@ const ProductCard = ({ product }) => {
 
           {/* Action Buttons */}
           <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                // Add to wishlist logic
-              }}
-              className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors"
-            >
-              <FiHeart className="w-4 h-4 text-gray-600" />
-            </button>
+            {/* Wishlist Button - Only for customers */}
+            {isAuthenticated && isCustomer && (
+              <button
+                onClick={handleWishlistToggle}
+                className={`w-8 h-8 rounded-full flex items-center justify-center shadow-md transition-colors ${
+                  inWishlist 
+                    ? 'bg-red-500 text-white hover:bg-red-600' 
+                    : 'bg-white text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                <FiHeart className={`w-4 h-4 ${inWishlist ? 'fill-current' : ''}`} />
+              </button>
+            )}
             <Link
               to={`/products/${product._id}`}
               className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors"

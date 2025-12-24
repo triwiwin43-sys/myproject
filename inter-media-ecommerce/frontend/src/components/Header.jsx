@@ -12,6 +12,7 @@ import {
 } from 'react-icons/fi';
 import useAuthStore from '../context/authStore';
 import useCartStore from '../context/cartStore';
+import useWishlistStore from '../context/wishlistStore';
 import QuickTrackingModal from './QuickTrackingModal';
 
 const Header = () => {
@@ -23,8 +24,10 @@ const Header = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated, logout } = useAuthStore();
   const { getCartItemCount } = useCartStore();
+  const { getWishlistCount } = useWishlistStore();
   
   const cartItemCount = getCartItemCount();
+  const wishlistCount = getWishlistCount();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -56,8 +59,8 @@ const Header = () => {
         <div className="container-custom">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-4">
-              <span>📞 +62 21 1234 5678</span>
-              <span>✉️ info@intermedia.com</span>
+              <span>📞 0895-3339-61424</span>
+              <span>✉️ medyyes.krps@gmail.com</span>
             </div>
             <div className="flex items-center space-x-4">
               <span>Free shipping on orders over Rp 500,000</span>
@@ -125,13 +128,18 @@ const Header = () => {
               )}
             </Link>
 
-            {/* Wishlist */}
-            {isAuthenticated && (
+            {/* Wishlist - Only for customers */}
+            {isAuthenticated && user?.role === 'customer' && (
               <Link
                 to="/wishlist"
-                className="p-2 text-gray-600 hover:text-primary-700 transition-colors"
+                className="relative p-2 text-gray-600 hover:text-primary-700 transition-colors"
               >
                 <FiHeart className="w-6 h-6" />
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {wishlistCount}
+                  </span>
+                )}
               </Link>
             )}
 

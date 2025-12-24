@@ -111,12 +111,16 @@ const Home = () => {
             </div>
 
             <div className="relative">
-              <div className="relative z-10">
-                <img
-                  src="/hero-office.jpg"
-                  alt="Modern Office Setup"
-                  className="rounded-2xl shadow-2xl"
-                />
+              <div className="relative z-10 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="text-center">
+                  <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <FiPackage className="w-16 h-16 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Modern Office Setup</h3>
+                  <p className="text-primary-100">
+                    Complete solutions for your modern office needs with premium equipment and professional services.
+                  </p>
+                </div>
               </div>
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/20 to-blue-600/20 rounded-2xl transform rotate-3"></div>
             </div>
@@ -159,13 +163,11 @@ const Home = () => {
                 to={`/products?category=${category._id}`}
                 className="card card-hover group"
               >
-                <div className="aspect-video relative overflow-hidden rounded-t-xl">
-                  <img
-                    src={category.image || '/placeholder-category.jpg'}
-                    alt={category.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                <div className="aspect-video relative overflow-hidden rounded-t-xl bg-gradient-to-br from-blue-500 to-purple-600">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <FiPackage className="w-16 h-16 text-white/80" />
+                  </div>
                   <div className="absolute bottom-4 left-4 text-white">
                     <h3 className="text-xl font-semibold">{category.name}</h3>
                     <p className="text-sm opacity-90">{category.description}</p>

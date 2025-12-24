@@ -196,9 +196,14 @@ const Footer = () => {
       <div className="border-t border-gray-800 py-6">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} Inter Medi-A. All rights reserved.
-            </p>
+            <div className="flex flex-col items-center md:items-start">
+              <p className="text-gray-400 text-sm">
+                © {currentYear} Inter Medi-A. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-xs mt-1">
+                Developed by Sapto Prawiro Utomo
+              </p>
+            </div>
             
             <div className="flex items-center space-x-6 mt-4 md:mt-0">
               {footerLinks.legal.map((link) => (
