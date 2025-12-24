@@ -1,0 +1,29 @@
+{
+  "name": "Inter Media E-commerce",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "forwardPorts": [5000, 5173, 5174],
+  "portsAttributes": {
+    "5000": {
+      "label": "Backend API",
+      "visibility": "public"
+    },
+    "5173": {
+      "label": "Frontend Dev",
+      "visibility": "public"
+    },
+    "5174": {
+      "label": "Frontend Alt",
+      "visibility": "public"
+    }
+  },
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-json",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
