@@ -9,6 +9,7 @@ import Cart from '../pages/Cart';
 import Checkout from '../pages/Checkout';
 import Profile from '../pages/Profile';
 import Orders from '../pages/Orders';
+import OrderDetail from '../pages/OrderDetail';
 import Services from '../pages/Services';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
@@ -16,7 +17,9 @@ import Categories from '../pages/Categories';
 import SellerDashboard from '../pages/seller/Dashboard';
 import ManageProducts from '../pages/seller/ManageProducts';
 import AddEditProduct from '../pages/seller/AddEditProduct';
+import SellerOrders from '../pages/seller/SellerOrders';
 import AdminDashboard from '../pages/admin/Dashboard';
+import AdminLogs from '../pages/admin/AdminLogs';
 import ProtectedRoute from '../components/ProtectedRoute';
 
 const router = createBrowserRouter([
@@ -59,7 +62,7 @@ const router = createBrowserRouter([
       {
         path: 'checkout',
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute allowedRoles={['customer']}>
             <Checkout />
           </ProtectedRoute>
         )
@@ -75,8 +78,16 @@ const router = createBrowserRouter([
       {
         path: 'orders',
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute allowedRoles={['customer']}>
             <Orders />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: 'orders/:orderNumber',
+        element: (
+          <ProtectedRoute allowedRoles={['customer']}>
+            <OrderDetail />
           </ProtectedRoute>
         )
       },
@@ -113,10 +124,26 @@ const router = createBrowserRouter([
         )
       },
       {
+        path: 'seller/orders',
+        element: (
+          <ProtectedRoute allowedRoles={['seller', 'admin']}>
+            <SellerOrders />
+          </ProtectedRoute>
+        )
+      },
+      {
         path: 'admin/dashboard',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
             <AdminDashboard />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: 'admin/logs',
+        element: (
+          <ProtectedRoute allowedRoles={['admin']}>
+            <AdminLogs />
           </ProtectedRoute>
         )
       }

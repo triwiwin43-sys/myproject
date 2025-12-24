@@ -12,7 +12,8 @@ import {
   FiTrash2,
   FiShield,
   FiShoppingBag,
-  FiPackage
+  FiPackage,
+  FiSettings
 } from 'react-icons/fi';
 import useAuthStore from '../context/authStore';
 import toast from 'react-hot-toast';
@@ -21,6 +22,7 @@ const Profile = () => {
   const { user, updateProfile } = useAuthStore();
   const [isEditing, setIsEditing] = useState(false);
   const [activeTab, setActiveTab] = useState('profile');
+  const [uploadingAvatar, setUploadingAvatar] = useState(false);
   const [profileData, setProfileData] = useState({
     name: '',
     email: '',
@@ -79,6 +81,46 @@ const Profile = () => {
     });
   };
 
+  const handleAvatarUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      toast.error('File harus berupa gambar');
+      return;
+    }
+
+    // Validate file size (max 2MB)
+    if (file.size > 2 * 1024 * 1024) {
+      toast.error('Ukuran file maksimal 2MB');
+      return;
+    }
+
+    setUploadingAvatar(true);
+
+    try {
+      // Create preview URL
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setProfileData(prev => ({
+          ...prev,
+          avatar: e.target.result
+        }));
+      };
+      reader.readAsDataURL(file);
+
+      // Simulate upload delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast.success('Foto profil berhasil diupload');
+    } catch (error) {
+      toast.error('Gagal mengupload foto');
+    } finally {
+      setUploadingAvatar(false);
+    }
+  };
+
   const handleSaveProfile = async () => {
     try {
       await updateProfile(profileData);
@@ -132,7 +174,12 @@ const Profile = () => {
   const tabs = [
     { id: 'profile', name: 'Profil Pribadi', icon: FiUser },
     { id: 'addresses', name: 'Alamat', icon: FiMapPin },
-    { id: 'seller', name: 'Info Seller', icon: FiShoppingBag },
+    ...(user?.role === 'seller' || user?.role === 'admin' ? [
+      { id: 'seller', name: 'Info Seller', icon: FiShoppingBag }
+    ] : []),
+    ...(user?.role === 'admin' ? [
+      { id: 'admin', name: 'Admin Settings', icon: FiSettings }
+    ] : []),
     { id: 'security', name: 'Keamanan', icon: FiShield }
   ];
 
@@ -151,16 +198,27 @@ const Profile = () => {
               {/* Profile Summary */}
               <div className="text-center mb-6">
                 <div className="relative inline-block">
-                  <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-3 overflow-hidden">
                     {profileData.avatar ? (
                       <img src={profileData.avatar} alt="Avatar" className="w-20 h-20 rounded-full object-cover" />
                     ) : (
                       <FiUser className="w-10 h-10 text-gray-400" />
                     )}
                   </div>
-                  <button className="absolute bottom-0 right-0 p-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
-                    <FiCamera className="w-4 h-4" />
-                  </button>
+                  <label className="absolute bottom-0 right-0 p-1 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors cursor-pointer">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleAvatarUpload}
+                      className="hidden"
+                      disabled={uploadingAvatar}
+                    />
+                    {uploadingAvatar ? (
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    ) : (
+                      <FiCamera className="w-4 h-4" />
+                    )}
+                  </label>
                 </div>
                 <h3 className="font-semibold text-gray-900">{profileData.name || 'Nama Pengguna'}</h3>
                 <p className="text-sm text-gray-600">{profileData.email}</p>
@@ -218,6 +276,56 @@ const Profile = () => {
                         </>
                       )}
                     </button>
+                  </div>
+
+                  {/* Profile Photo Section */}
+                  <div className="mb-8 p-6 bg-gray-50 rounded-lg">
+                    <h3 className="text-lg font-medium text-gray-900 mb-4">Foto Profil</h3>
+                    <div className="flex items-center space-x-6">
+                      <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                        {profileData.avatar ? (
+                          <img src={profileData.avatar} alt="Avatar" className="w-24 h-24 rounded-full object-cover" />
+                        ) : (
+                          <FiUser className="w-12 h-12 text-gray-400" />
+                        )}
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm text-gray-600 mb-3">
+                          Upload foto profil Anda. File harus berformat JPG, PNG dengan ukuran maksimal 2MB.
+                        </p>
+                        <div className="flex space-x-3">
+                          <label className="btn btn-outline btn-sm cursor-pointer">
+                            <input
+                              type="file"
+                              accept="image/*"
+                              onChange={handleAvatarUpload}
+                              className="hidden"
+                              disabled={uploadingAvatar}
+                            />
+                            {uploadingAvatar ? (
+                              <>
+                                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-2"></div>
+                                Uploading...
+                              </>
+                            ) : (
+                              <>
+                                <FiCamera className="w-4 h-4 mr-2" />
+                                Ganti Foto
+                              </>
+                            )}
+                          </label>
+                          {profileData.avatar && (
+                            <button
+                              onClick={() => setProfileData(prev => ({ ...prev, avatar: '' }))}
+                              className="btn btn-outline btn-sm text-red-600 border-red-600 hover:bg-red-50"
+                            >
+                              <FiTrash2 className="w-4 h-4 mr-2" />
+                              Hapus
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -522,6 +630,111 @@ const Profile = () => {
                           className="input"
                           placeholder="Nama sesuai rekening"
                         />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Admin Tab */}
+              {activeTab === 'admin' && user?.role === 'admin' && (
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-xl font-semibold text-gray-900">Admin Settings</h2>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="border rounded-lg p-4">
+                        <h3 className="font-medium text-gray-900 mb-2">System Management</h3>
+                        <p className="text-sm text-gray-600 mb-4">
+                          Kelola pengaturan sistem dan konfigurasi
+                        </p>
+                        <div className="space-y-2">
+                          <Link to="/admin/logs" className="w-full btn btn-outline btn-sm text-left">
+                            System Logs & Activity
+                          </Link>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Kelola User & Roles
+                          </button>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            System Configuration
+                          </button>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Database Management
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="border rounded-lg p-4">
+                        <h3 className="font-medium text-gray-900 mb-2">Content Management</h3>
+                        <p className="text-sm text-gray-600 mb-4">
+                          Kelola konten dan moderasi platform
+                        </p>
+                        <div className="space-y-2">
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Moderasi Produk
+                          </button>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Kelola Kategori
+                          </button>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Review Management
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="border rounded-lg p-4">
+                        <h3 className="font-medium text-gray-900 mb-2">Analytics & Reports</h3>
+                        <p className="text-sm text-gray-600 mb-4">
+                          Lihat laporan dan analitik sistem
+                        </p>
+                        <div className="space-y-2">
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Sales Report
+                          </button>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            User Analytics
+                          </button>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            System Logs
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="border rounded-lg p-4">
+                        <h3 className="font-medium text-gray-900 mb-2">Platform Settings</h3>
+                        <p className="text-sm text-gray-600 mb-4">
+                          Pengaturan global platform
+                        </p>
+                        <div className="space-y-2">
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Payment Settings
+                          </button>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Shipping Configuration
+                          </button>
+                          <button className="w-full btn btn-outline btn-sm text-left">
+                            Email Templates
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="border-t pt-6">
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                        <h3 className="font-medium text-red-900 mb-2">Danger Zone</h3>
+                        <p className="text-sm text-red-700 mb-4">
+                          Aksi berbahaya yang memerlukan konfirmasi khusus
+                        </p>
+                        <div className="space-y-2">
+                          <button className="btn btn-outline btn-sm text-red-600 border-red-600 hover:bg-red-50">
+                            Backup Database
+                          </button>
+                          <button className="btn btn-outline btn-sm text-red-600 border-red-600 hover:bg-red-50">
+                            System Maintenance Mode
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

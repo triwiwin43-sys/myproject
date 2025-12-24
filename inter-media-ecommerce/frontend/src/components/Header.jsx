@@ -7,14 +7,17 @@ import {
   FiMenu, 
   FiX,
   FiHeart,
-  FiPackage
+  FiPackage,
+  FiTruck
 } from 'react-icons/fi';
 import useAuthStore from '../context/authStore';
 import useCartStore from '../context/cartStore';
+import QuickTrackingModal from './QuickTrackingModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isTrackingModalOpen, setIsTrackingModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   
   const navigate = useNavigate();
@@ -100,6 +103,15 @@ const Header = () => {
 
           {/* Right Side */}
           <div className="flex items-center space-x-4">
+            {/* Quick Track */}
+            <button
+              onClick={() => setIsTrackingModalOpen(true)}
+              className="hidden md:flex items-center px-3 py-2 text-sm text-gray-600 hover:text-primary-700 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              <FiTruck className="w-4 h-4 mr-2" />
+              Cek Pesanan
+            </button>
+
             {/* Cart */}
             <Link
               to="/cart"
@@ -272,6 +284,12 @@ const Header = () => {
           </nav>
         </div>
       )}
+
+      {/* Quick Tracking Modal */}
+      <QuickTrackingModal 
+        isOpen={isTrackingModalOpen}
+        onClose={() => setIsTrackingModalOpen(false)}
+      />
     </header>
   );
 };

@@ -13,6 +13,7 @@ import {
 import ProductCard from '../components/ProductCard';
 import { LoadingGrid } from '../components/Loading';
 import useProductStore from '../context/productStore';
+import useAuthStore from '../context/authStore';
 
 const Home = () => {
   const { featuredProducts, getFeaturedProducts, categories, getCategories } = useProductStore();
