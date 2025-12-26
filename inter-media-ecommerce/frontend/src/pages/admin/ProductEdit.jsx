@@ -2,86 +2,52 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FiSave, FiArrowLeft, FiUpload, FiX, FiPlus } from 'react-icons/fi';
 import ProductImage from '../../components/ProductImage';
+import useProductStore from '../../context/productStoreNew';
 import toast from 'react-hot-toast';
 
 const AdminProductEdit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { getProductById, updateProduct, addProduct } = useProductStore();
   
   const [product, setProduct] = useState({
     name: '',
     description: '',
-    price: 0,
-    originalPrice: 0,
+    price: '',
+    originalPrice: '',
     category: '',
     brand: '',
-    stock: 0,
+    stock: '',
     status: 'active',
     condition: 'new',
     images: [],
     features: [],
     specifications: {},
-    seller: { name: '', rating: 0, location: '' }
+    seller: { name: 'Inter Medi-A Store', rating: 4.8, location: 'Jakarta' }
   });
   
   const [newFeature, setNewFeature] = useState('');
   const [newSpecKey, setNewSpecKey] = useState('');
   const [newSpecValue, setNewSpecValue] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    // Load product data based on ID
-    const loadProduct = () => {
-      // Check if there's saved data in localStorage first
-      const savedProduct = localStorage.getItem(`product_edit_${id}`);
-      if (savedProduct) {
-        setProduct(JSON.parse(savedProduct));
-        return;
+    if (id && id !== 'add') {
+      // Load existing product
+      const existingProduct = getProductById(id);
+      if (existingProduct) {
+        setProduct({
+          ...existingProduct,
+          specifications: existingProduct.specifications || {},
+          features: existingProduct.features || []
+        });
+        setIsEditing(true);
+      } else {
+        toast.error('Product not found');
+        navigate('/admin/products');
       }
-      
-      // Mock data - replace with API call
-      const mockProduct = {
-        id: parseInt(id),
-        name: 'HP LaserJet Pro M404n',
-        description: 'Printer laser monokrom berkualitas tinggi untuk kebutuhan kantor dengan kecepatan cetak hingga 38 halaman per menit.',
-        price: 2500000,
-        originalPrice: 2800000,
-        category: 'printers',
-        brand: 'HP',
-        stock: 15,
-        status: 'active',
-        condition: 'new',
-        images: ['/api/placeholder/400/400'],
-        features: [
-          'Kecepatan cetak hingga 38 ppm',
-          'Resolusi cetak 4800 x 600 dpi',
-          'Konektivitas USB dan Ethernet',
-          'Kapasitas kertas 250 lembar'
-        ],
-        specifications: {
-          'Print Speed': '38 ppm',
-          'Print Resolution': '4800 x 600 dpi',
-          'Paper Size': 'A4, Letter, Legal',
-          'Connectivity': 'USB 2.0, Ethernet',
-          'Memory': '256 MB'
-        },
-        seller: {
-          name: 'Inter Medi-A Store',
-          rating: 4.8,
-          location: 'Jakarta'
-        }
-      };
-      setProduct(mockProduct);
-    };
-    
-    loadProduct();
-  }, [id]);
-
-  // Save to localStorage whenever product changes
-  useEffect(() => {
-    if (product.name) { // Only save if product is loaded
-      localStorage.setItem(`product_edit_${id}`, JSON.stringify(product));
     }
-  }, [product, id]);
+  }, [id, getProductById, navigate]);
 
   const handleSave = () => {
     if (!product.name || !product.price || !product.category) {
@@ -89,28 +55,68 @@ const AdminProductEdit = () => {
       return;
     }
     
-    // Clear localStorage after successful save
-    localStorage.removeItem(`product_edit_${id}`);
-    toast.success('Product updated successfully');
+    // Convert string values to numbers for saving
+    const productToSave = {
+      ...product,
+      price: parseFloat(product.price) || 0,
+      originalPrice: parseFloat(product.originalPrice) || 0,
+      stock: parseInt(product.stock) || 0
+    };
+    
+    if (isEditing) {
+      // Update existing product
+      updateProduct(id, productToSave);
+      toast.success('Product updated successfully');
+    } else {
+      // Add new product
+      addProduct(productToSave);
+      toast.success('Product added successfully');
+    }
+    
     navigate('/admin/products');
   };
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     const files = Array.from(e.target.files);
     
-    files.forEach(file => {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        const imageUrl = event.target.result;
-        setProduct(prev => ({
-          ...prev,
-          images: [...prev.images, imageUrl]
-        }));
-      };
-      reader.readAsDataURL(file);
-    });
+    if (files.length === 0) return;
     
-    toast.success(`${files.length} image(s) uploaded`);
+    for (const file of files) {
+      try {
+        // Use FileReader as fallback for demo purposes
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const imageUrl = event.target.result;
+          setProduct(prev => ({
+            ...prev,
+            images: [...prev.images, imageUrl]
+          }));
+          toast.success(`${file.name} uploaded successfully`);
+        };
+        reader.readAsDataURL(file);
+        
+        // Also try backend upload in background
+        const formData = new FormData();
+        formData.append('image', file);
+        
+        fetch(`http://localhost:5000/api/upload`, {
+          method: 'POST',
+          body: formData,
+        }).then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              console.log('Backend upload successful:', data.imageUrl);
+            }
+          })
+          .catch(error => {
+            console.log('Backend upload failed, using local preview');
+          });
+          
+      } catch (error) {
+        console.error('Upload error:', error);
+        toast.error(`Failed to upload ${file.name}`);
+      }
+    }
   };
 
   const removeImage = (index) => {
@@ -170,8 +176,12 @@ const AdminProductEdit = () => {
             <FiArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Edit Product</h1>
-            <p className="text-gray-600">Product ID: {id}</p>
+            <h1 className="text-2xl font-bold text-gray-900">
+              {isEditing ? 'Edit Product' : 'Add New Product'}
+            </h1>
+            <p className="text-gray-600">
+              Product ID: {isEditing ? id : 'New'}
+            </p>
           </div>
         </div>
 
@@ -253,7 +263,7 @@ const AdminProductEdit = () => {
                   <input
                     type="number"
                     value={product.price}
-                    onChange={(e) => setProduct({...product, price: parseInt(e.target.value)})}
+                    onChange={(e) => setProduct({...product, price: e.target.value})}
                     className="input"
                     required
                   />
@@ -266,7 +276,7 @@ const AdminProductEdit = () => {
                   <input
                     type="number"
                     value={product.originalPrice}
-                    onChange={(e) => setProduct({...product, originalPrice: parseInt(e.target.value)})}
+                    onChange={(e) => setProduct({...product, originalPrice: e.target.value})}
                     className="input"
                   />
                 </div>
@@ -278,7 +288,7 @@ const AdminProductEdit = () => {
                   <input
                     type="number"
                     value={product.stock}
-                    onChange={(e) => setProduct({...product, stock: parseInt(e.target.value)})}
+                    onChange={(e) => setProduct({...product, stock: e.target.value})}
                     className="input"
                     required
                   />
@@ -445,7 +455,7 @@ const AdminProductEdit = () => {
               className="btn btn-primary"
             >
               <FiSave className="w-4 h-4 mr-2" />
-              Save Changes
+              {isEditing ? 'Save Changes' : 'Add Product'}
             </button>
           </div>
         </div>

@@ -14,11 +14,18 @@ import {
   FiList,
   FiSearch
 } from 'react-icons/fi';
+import useProductStore from '../context/productStoreNew';
 
 const Categories = () => {
+  const { products } = useProductStore();
   const [viewMode, setViewMode] = useState('grid');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+
+  // Calculate product counts dynamically
+  const getProductCount = (categoryId) => {
+    return products.filter(product => product.category === categoryId).length;
+  };
 
   const categories = [
     {
@@ -26,8 +33,8 @@ const Categories = () => {
       name: 'Komputer & PC',
       icon: FiMonitor,
       description: 'Desktop PC, All-in-One, Mini PC',
-      productCount: 3,
-      image: '/api/placeholder/300/200',
+      productCount: getProductCount('computers'),
+      image: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=300&h=200&fit=crop',
       subcategories: ['Desktop PC', 'All-in-One', 'Mini PC', 'Workstation']
     },
     {
@@ -35,8 +42,8 @@ const Categories = () => {
       name: 'Laptop & Notebook',
       icon: FiMonitor,
       description: 'Laptop gaming, bisnis, ultrabook',
-      productCount: 3,
-      image: '/api/placeholder/300/200',
+      productCount: getProductCount('laptops'),
+      image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop',
       subcategories: ['Gaming Laptop', 'Business Laptop', 'Ultrabook', 'Chromebook']
     },
     {
@@ -44,72 +51,27 @@ const Categories = () => {
       name: 'Printer & Scanner',
       icon: FiPrinter,
       description: 'Printer inkjet, laser, multifungsi',
-      productCount: 5,
-      image: '/api/placeholder/300/200',
+      productCount: getProductCount('printers'),
+      image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=300&h=200&fit=crop',
       subcategories: ['Inkjet Printer', 'Laser Printer', 'Multifungsi', 'Scanner', 'Plotter']
-    },
-    {
-      id: 'storage',
-      name: 'Storage & Memory',
-      icon: FiHardDrive,
-      description: 'HDD, SSD, RAM, Flash Drive',
-      productCount: 0,
-      image: '/api/placeholder/300/200',
-      subcategories: ['HDD', 'SSD', 'RAM', 'Flash Drive', 'Memory Card']
     },
     {
       id: 'accessories',
       name: 'Aksesoris Komputer',
       icon: FiHeadphones,
       description: 'Mouse, keyboard, headset, webcam',
-      productCount: 3,
-      image: '/api/placeholder/300/200',
+      productCount: getProductCount('accessories'),
+      image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=200&fit=crop',
       subcategories: ['Mouse', 'Keyboard', 'Headset', 'Webcam', 'Speaker']
     },
     {
-      id: 'networking',
-      name: 'Networking',
-      icon: FiRadio,
-      description: 'Router, switch, access point',
-      productCount: 3,
-      image: '/api/placeholder/300/200',
-      subcategories: ['Router', 'Switch', 'Access Point', 'Modem', 'Cable']
-    },
-    {
-      id: 'mobile',
-      name: 'Mobile & Tablet',
-      icon: FiPhone,
-      description: 'Smartphone, tablet, aksesoris',
-      productCount: 3,
-      image: '/api/placeholder/300/200',
-      subcategories: ['Smartphone', 'Tablet', 'Power Bank', 'Case & Cover']
-    },
-    {
-      id: 'camera',
-      name: 'Kamera & Fotografi',
-      icon: FiCamera,
-      description: 'DSLR, mirrorless, action cam',
-      productCount: 3,
-      image: '/api/placeholder/300/200',
-      subcategories: ['DSLR', 'Mirrorless', 'Action Camera', 'Lens', 'Tripod']
-    },
-    {
       id: 'services',
-      name: 'Layanan Service',
+      name: 'Layanan & Service',
       icon: FiTool,
-      description: 'Service laptop, PC, printer',
-      productCount: 3,
-      image: '/api/placeholder/300/200',
-      subcategories: ['Service Laptop', 'Service PC', 'Service Printer', 'Data Recovery']
-    },
-    {
-      id: 'office',
-      name: 'Perlengkapan Kantor',
-      icon: FiPackage,
-      description: 'ATK, furniture, supplies',
-      productCount: 3,
-      image: '/api/placeholder/300/200',
-      subcategories: ['ATK', 'Furniture', 'Supplies', 'Software']
+      description: 'Service laptop, instalasi, maintenance',
+      productCount: getProductCount('services'),
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&h=200&fit=crop',
+      subcategories: ['Service Laptop', 'Instalasi OS', 'Maintenance', 'Repair']
     }
   ];
 

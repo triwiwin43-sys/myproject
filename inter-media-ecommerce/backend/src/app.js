@@ -27,7 +27,12 @@ app.use('/api/', limiter);
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
     ? ['https://your-domain.com'] 
-    : ['http://localhost:5173', 'http://localhost:3000'],
+    : [
+        'http://localhost:5173', 
+        'http://localhost:3000', 
+        'https://opulent-sniffle-v69jvqjx5566hx445-5173.app.github.dev',
+        'https://opulent-sniffle-v69jvqjx5566hx445-5000.app.github.dev'
+      ],
   credentials: true
 }));
 
@@ -44,6 +49,7 @@ app.use('/api/products', require('./routes/products'));
 app.use('/api/categories', require('./routes/categories'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/cart', require('./routes/cart'));
+app.use('/api/upload', require('./routes/upload'));
 
 // Health check
 app.get('/api/health', (req, res) => {

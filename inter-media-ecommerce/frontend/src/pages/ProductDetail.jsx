@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { 
   FiShoppingCart, 
   FiHeart, 
@@ -13,49 +13,111 @@ import ProductImage from '../components/ProductImage';
 import useCartStore from '../context/cartStore';
 import useWishlistStore from '../context/wishlistStore';
 import useAuthStore from '../context/authStore';
+import useProductStore from '../context/productStoreNew';
 import toast from 'react-hot-toast';
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { addToCart } = useCartStore();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlistStore();
   const { isAuthenticated, user } = useAuthStore();
+  const { getProductById } = useProductStore();
   
   const [quantity, setQuantity] = useState(1);
-  
-  // Mock product data - replace with API call
-  const product = {
-    id: parseInt(id),
-    name: 'HP LaserJet Pro M404n',
-    description: 'Printer laser monokrom berkualitas tinggi untuk kebutuhan kantor dengan kecepatan cetak hingga 38 halaman per menit.',
-    price: 2500000,
-    originalPrice: 2800000,
-    category: 'Printer',
-    brand: 'HP',
-    rating: 4.5,
-    reviewCount: 28,
-    stock: 15,
-    images: ['/api/placeholder/400/400', '/api/placeholder/400/400'],
-    seller: {
-      name: 'Inter Medi-A Store',
-      rating: 4.8,
-      location: 'Jakarta'
-    },
-    features: [
-      'Kecepatan cetak hingga 38 ppm',
-      'Resolusi cetak 4800 x 600 dpi',
-      'Konektivitas USB dan Ethernet',
-      'Kapasitas kertas 250 lembar',
-      'Garansi resmi 1 tahun'
-    ],
-    specifications: {
-      'Print Speed': '38 ppm',
-      'Print Resolution': '4800 x 600 dpi',
-      'Paper Size': 'A4, Letter, Legal',
-      'Connectivity': 'USB 2.0, Ethernet',
-      'Memory': '256 MB'
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Validate ID
+    if (!id || id === 'undefined' || isNaN(parseInt(id))) {
+      navigate('/products');
+      return;
     }
-  };
+
+    // Load product data
+    const loadProduct = () => {
+      const foundProduct = getProductById(id);
+      
+      if (!foundProduct) {
+        setProduct(null);
+      } else {
+        // Add detailed specifications based on category
+        const productWithSpecs = {
+          ...foundProduct,
+          specifications: getProductSpecifications(foundProduct)
+        };
+        setProduct(productWithSpecs);
+      }
+      setLoading(false);
+    };
+
+    const getProductSpecifications = (product) => {
+      switch (product.category) {
+        case 'printers':
+          return {
+            'Print Speed': product.id === 1 ? '38 ppm' : '15 ppm',
+            'Print Resolution': '4800 x 600 dpi',
+            'Paper Size': 'A4, Letter, Legal',
+            'Connectivity': 'USB 2.0, Ethernet',
+            'Memory': '256 MB'
+          };
+        case 'computers':
+          return {
+            'Processor': product.features[0],
+            'RAM': product.features[1],
+            'Storage': product.features[2],
+            'Graphics': product.features[3] || 'Integrated',
+            'OS': 'Windows 11 Pro'
+          };
+        case 'laptops':
+          return {
+            'Processor': product.features[0],
+            'RAM': product.features[1],
+            'Storage': product.features[2],
+            'Display': '14" Full HD IPS',
+            'Weight': '1.4kg'
+          };
+        case 'accessories':
+          return {
+            'Connectivity': 'Bluetooth, USB-C',
+            'Battery': '70 days',
+            'DPI': '4000 DPI',
+            'Buttons': '7 Buttons',
+            'Weight': '141g'
+          };
+        default:
+          return {};
+      }
+    };
+
+    loadProduct();
+  }, [id, navigate, getProductById]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading product...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h2>
+          <p className="text-gray-600 mb-6">The product you're looking for doesn't exist.</p>
+          <Link to="/products" className="btn btn-primary">
+            Back to Products
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   const inWishlist = isInWishlist(product.id);
   const isCustomer = user?.role === 'customer';

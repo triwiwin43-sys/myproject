@@ -41,7 +41,7 @@ const upload = multer({
 });
 
 // Upload single image
-router.post('/upload', upload.single('image'), (req, res) => {
+router.post('/', upload.single('image'), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ success: false, message: 'No file uploaded' });
@@ -52,6 +52,7 @@ router.post('/upload', upload.single('image'), (req, res) => {
     res.json({
       success: true,
       message: 'Image uploaded successfully',
+      imageUrl: imageUrl,
       data: {
         filename: req.file.filename,
         originalName: req.file.originalname,

@@ -15,19 +15,30 @@ const ProductImage = ({ src, alt, className = "w-full h-full object-cover", cate
     }
   };
 
+  const getImageUrl = (imagePath) => {
+    if (!imagePath) return null;
+    if (imagePath.startsWith('http') || imagePath.startsWith('data:')) return imagePath;
+    if (imagePath.startsWith('/uploads')) {
+      const baseUrl = import.meta.env.VITE_UPLOAD_URL || 'http://localhost:5000/uploads';
+      return `${baseUrl.replace('/uploads', '')}${imagePath}`;
+    }
+    return imagePath;
+  };
+
   const handleImageError = (e) => {
     e.target.style.display = 'none';
     e.target.nextSibling.style.display = 'flex';
   };
 
   const IconComponent = getDefaultIcon(category);
+  const imageUrl = getImageUrl(src);
 
   return (
     <div className="relative w-full h-full bg-gray-100 rounded-lg overflow-hidden">
-      {src ? (
+      {imageUrl ? (
         <>
           <img
-            src={src}
+            src={imageUrl}
             alt={alt}
             className={className}
             onError={handleImageError}

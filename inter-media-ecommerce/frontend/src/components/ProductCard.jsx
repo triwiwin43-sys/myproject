@@ -67,7 +67,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="card card-hover group">
-      <Link to={`/products/${product._id}`} className="block">
+      <Link to={`/products/${product.id}`} className="block">
         {/* Image Container */}
         <div className="relative overflow-hidden aspect-square">
           <ProductImage
@@ -117,7 +117,7 @@ const ProductCard = ({ product }) => {
               </button>
             )}
             <Link
-              to={`/products/${product._id}`}
+              to={`/products/${product.id}`}
               className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition-colors"
               onClick={(e) => e.stopPropagation()}
             >

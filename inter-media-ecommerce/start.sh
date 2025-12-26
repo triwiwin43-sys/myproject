@@ -21,8 +21,8 @@ mkdir -p backend/uploads/{avatars,products,categories,reviews,misc}
 echo "✅ Setup complete!"
 echo ""
 echo "🌐 Frontend: http://localhost:5173"
-echo "🔧 Backend: http://localhost:3001"
-echo "📚 API Health: http://localhost:3001/api/health"
+echo "🔧 Backend: http://localhost:5000"
+echo "📚 API Health: http://localhost:5000/api/health"
 echo ""
 echo "Starting development servers..."
 

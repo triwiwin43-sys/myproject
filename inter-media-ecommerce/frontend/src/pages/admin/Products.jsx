@@ -10,80 +10,35 @@ import {
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import ProductImage from '../../components/ProductImage';
+import useProductStore from '../../context/productStoreNew';
 import toast from 'react-hot-toast';
 
 const AdminProducts = () => {
+  const { products, deleteProduct, updateProduct } = useProductStore();
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
 
-  const [products] = useState([
-    // PRINTERS (5 products)
-    { id: 1, name: 'HP LaserJet Pro M404n', category: 'printers', price: 2500000, stock: 15, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-20' },
-    { id: 2, name: 'Canon Pixma G2010', category: 'printers', price: 1200000, stock: 8, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-18' },
-    { id: 3, name: 'Epson EcoTank L3210', category: 'printers', price: 1800000, stock: 12, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-17' },
-    { id: 4, name: 'Brother DCP-T520W', category: 'printers', price: 1650000, stock: 6, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-16' },
-    { id: 5, name: 'HP DeskJet 2720', category: 'printers', price: 950000, stock: 20, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-15' },
-    
-    // COMPUTERS (3 products)
-    { id: 6, name: 'PC Desktop Intel Core i5', category: 'computers', price: 8500000, stock: 12, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-22' },
-    { id: 7, name: 'PC Gaming AMD Ryzen 5', category: 'computers', price: 12500000, stock: 8, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-21' },
-    { id: 8, name: 'Mini PC Intel NUC', category: 'computers', price: 4500000, stock: 15, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-19' },
-    
-    // LAPTOPS (3 products)
-    { id: 9, name: 'ASUS VivoBook 14', category: 'laptops', price: 6500000, stock: 5, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-10' },
-    { id: 10, name: 'Lenovo ThinkPad E14', category: 'laptops', price: 8900000, stock: 7, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-12' },
-    { id: 11, name: 'Acer Aspire 5', category: 'laptops', price: 5800000, stock: 10, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-11' },
-    
-    // ACCESSORIES (3 products)
-    { id: 12, name: 'Logitech MX Master 3', category: 'accessories', price: 1200000, stock: 25, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-20' },
-    { id: 13, name: 'Mechanical Keyboard RGB', category: 'accessories', price: 850000, stock: 18, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-19' },
-    { id: 14, name: 'Webcam HD 1080p', category: 'accessories', price: 450000, stock: 30, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-18' },
-    
-    // SERVICES (3 products)
-    { id: 15, name: 'Service Laptop Premium', category: 'services', price: 250000, stock: 999, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-15' },
-    { id: 16, name: 'Instalasi Software & OS', category: 'services', price: 150000, stock: 999, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-14' },
-    { id: 17, name: 'Maintenance PC Berkala', category: 'services', price: 200000, stock: 999, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-13' },
-    
-    // NETWORKING (3 products)
-    { id: 18, name: 'TP-Link Archer C6 Router', category: 'networking', price: 450000, stock: 20, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-20' },
-    { id: 19, name: 'Ubiquiti UniFi Access Point', category: 'networking', price: 1200000, stock: 12, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-19' },
-    { id: 20, name: 'Netgear 24-Port Switch', category: 'networking', price: 2800000, stock: 8, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-18' },
-    
-    // MOBILE (3 products)
-    { id: 21, name: 'Samsung Galaxy Tab A8', category: 'mobile', price: 3200000, stock: 15, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-17' },
-    { id: 22, name: 'iPad 9th Generation', category: 'mobile', price: 5200000, stock: 8, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-16' },
-    { id: 23, name: 'Power Bank Xiaomi 20000mAh', category: 'mobile', price: 280000, stock: 35, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-15' },
-    
-    // CAMERA (3 products)
-    { id: 24, name: 'Canon EOS M50 Mark II', category: 'camera', price: 8500000, stock: 6, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-14' },
-    { id: 25, name: 'GoPro Hero 11 Black', category: 'camera', price: 6800000, stock: 10, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-13' },
-    { id: 26, name: 'Manfrotto Tripod Compact', category: 'camera', price: 850000, stock: 18, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-12' },
-    
-    // OFFICE (3 products)
-    { id: 27, name: 'Paket ATK Lengkap Kantor', category: 'office', price: 350000, stock: 25, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-11' },
-    { id: 28, name: 'Kursi Kantor Ergonomis', category: 'office', price: 1200000, stock: 12, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-10' },
-    { id: 29, name: 'Microsoft Office 2021 Home', category: 'office', price: 1800000, stock: 50, status: 'active', seller: 'Inter Medi-A Store', image: '/api/placeholder/300/300', createdAt: '2024-12-09' }
-  ]);
-
   const handleDelete = (productId) => {
     if (confirm('Hapus produk ini?')) {
+      deleteProduct(productId);
       toast.success('Produk berhasil dihapus');
     }
   };
 
   const handleStatusChange = (productId, newStatus) => {
+    updateProduct(productId, { status: newStatus });
     toast.success(`Status produk diubah ke ${newStatus}`);
   };
 
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = categoryFilter === 'all' || product.category === categoryFilter;
-    const matchesStatus = statusFilter === 'all' || product.status === statusFilter;
+    const matchesStatus = statusFilter === 'all' || (product.status || 'active') === statusFilter;
     return matchesSearch && matchesCategory && matchesStatus;
   });
 
-  const getStatusBadge = (status) => {
+  const getStatusBadge = (status = 'active') => {
     const badges = {
       active: { color: 'green', text: 'Aktif' },
       inactive: { color: 'red', text: 'Nonaktif' },
@@ -251,7 +206,7 @@ const AdminProducts = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <ProductImage
-                          src={product.image}
+                          src={product.images?.[0] || '/api/placeholder/300/300'}
                           alt={product.name}
                           className="w-12 h-12 rounded-lg mr-4"
                         />
@@ -278,7 +233,7 @@ const AdminProducts = () => {
                       {getStatusBadge(product.status)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {product.seller}
+                      {product.seller?.name || 'Inter Medi-A Store'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex space-x-2">

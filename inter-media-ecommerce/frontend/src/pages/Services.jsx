@@ -11,10 +11,25 @@ import {
   FiCheckCircle,
   FiPhone,
   FiMail,
-  FiTrendingUp
+  FiTrendingUp,
+  FiX,
+  FiUser,
+  FiCalendar
 } from 'react-icons/fi';
+import toast from 'react-hot-toast';
 
 const Services = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+    description: '',
+    preferredDate: ''
+  });
+
   const [services] = useState([
     {
       id: 1,
@@ -81,6 +96,42 @@ const Services = () => {
     'Training Komputer'
   ]);
 
+  const handleOrderService = (service) => {
+    setSelectedService(service);
+    setShowModal(true);
+  };
+
+  const handleSubmitOrder = (e) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.phone || !formData.email) {
+      toast.error('Mohon lengkapi data yang diperlukan');
+      return;
+    }
+
+    // Simulate order submission
+    toast.success(`Pesanan ${selectedService.title} berhasil dikirim! Kami akan menghubungi Anda segera.`);
+    
+    // Reset form and close modal
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      address: '',
+      description: '',
+      preferredDate: ''
+    });
+    setShowModal(false);
+    setSelectedService(null);
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -129,7 +180,10 @@ const Services = () => {
                     ))}
                   </div>
 
-                  <button className="w-full btn btn-primary">
+                  <button 
+                    onClick={() => handleOrderService(service)}
+                    className="w-full btn btn-primary"
+                  >
                     Pesan Sekarang
                   </button>
                 </div>
@@ -204,6 +258,138 @@ const Services = () => {
           </div>
         </div>
       </div>
+
+      {/* Order Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Pesan {selectedService?.title}
+                </h3>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <FiX className="w-6 h-6" />
+                </button>
+              </div>
+
+              <form onSubmit={handleSubmitOrder} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Nama Lengkap *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="input"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Nomor Telepon *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="input"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="input"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Alamat
+                  </label>
+                  <textarea
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    rows={2}
+                    className="input resize-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Tanggal Diinginkan
+                  </label>
+                  <input
+                    type="date"
+                    name="preferredDate"
+                    value={formData.preferredDate}
+                    onChange={handleInputChange}
+                    className="input"
+                    min={new Date().toISOString().split('T')[0]}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Deskripsi Masalah
+                  </label>
+                  <textarea
+                    name="description"
+                    value={formData.description}
+                    onChange={handleInputChange}
+                    rows={3}
+                    className="input resize-none"
+                    placeholder="Jelaskan masalah yang dialami..."
+                  />
+                </div>
+
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-blue-900 mb-2">Detail Layanan:</h4>
+                  <p className="text-sm text-blue-800 mb-1">{selectedService?.title}</p>
+                  <p className="text-sm text-blue-700 mb-2">{selectedService?.description}</p>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-blue-600">Harga: {selectedService?.price}</span>
+                    <span className="text-blue-600">Durasi: {selectedService?.duration}</span>
+                  </div>
+                </div>
+
+                <div className="flex space-x-3 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="flex-1 btn btn-secondary"
+                  >
+                    Batal
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 btn btn-primary"
+                  >
+                    Kirim Pesanan
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

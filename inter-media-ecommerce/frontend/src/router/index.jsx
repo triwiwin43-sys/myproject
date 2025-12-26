@@ -266,6 +266,14 @@ const router = createBrowserRouter([
         )
       },
       {
+        path: 'admin/products/add',
+        element: (
+          <ProtectedRoute allowedRoles={['admin']}>
+            <AdminProductEdit />
+          </ProtectedRoute>
+        )
+      },
+      {
         path: 'admin/products/edit/:id',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
