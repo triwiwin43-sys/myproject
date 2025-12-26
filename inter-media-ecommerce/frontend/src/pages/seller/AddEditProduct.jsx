@@ -8,11 +8,13 @@ import {
   FiTrash2
 } from 'react-icons/fi';
 import ProductImage from '../../components/ProductImage';
+import useProductStore from '../../context/productStore';
 import toast from 'react-hot-toast';
 
 const AddEditProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const { products, addProduct, updateProduct, getProductById } = useProductStore();
   const isEdit = Boolean(id);
   
   const [formData, setFormData] = useState({
@@ -50,40 +52,35 @@ const AddEditProduct = () => {
   ];
 
   useEffect(() => {
-    if (isEdit) {
-      fetchProduct();
+    if (isEdit && id) {
+      const product = getProductById(parseInt(id));
+      if (product) {
+        setFormData({
+          name: product.name || '',
+          description: product.description || '',
+          category: product.category || '',
+          price: product.price?.toString() || '',
+          stock: product.stock?.toString() || '',
+          sku: product.sku || '',
+          brand: product.brand || '',
+          condition: product.condition || 'new',
+          originalPrice: product.originalPrice?.toString() || '',
+          discount: product.discount?.toString() || '',
+          minimumStock: product.minimumStock?.toString() || '',
+          weight: product.weight?.toString() || '',
+          dimensions: product.dimensions || '',
+          warranty: product.warranty || '',
+          image: product.image || '',
+          images: product.images || [],
+          features: product.features || [],
+          specifications: product.specifications || {},
+          metaTitle: product.metaTitle || '',
+          metaDescription: product.metaDescription || '',
+          keywords: product.keywords || []
+        });
+      }
     }
-  }, [id, isEdit]);
-
-  const fetchProduct = async () => {
-    try {
-      // Simulate API call - replace with actual API
-      const mockProduct = {
-        name: 'HP LaserJet Pro M404n',
-        description: 'Printer laser monokrom berkualitas tinggi untuk kebutuhan kantor',
-        category: 'Printer',
-        price: '2500000',
-        stock: '15',
-        sku: 'HP-M404N-001',
-        weight: '8.9',
-        dimensions: '35.9 x 36.0 x 18.3 cm',
-        warranty: '12 bulan',
-        brand: 'HP',
-        condition: 'new',
-        status: 'active',
-        images: ['/api/placeholder/300/300'],
-        specifications: [
-          { key: 'Kecepatan Cetak', value: '38 ppm' },
-          { key: 'Resolusi', value: '4800 x 600 dpi' },
-          { key: 'Konektivitas', value: 'USB, Ethernet' }
-        ],
-        tags: 'printer, laser, hp, kantor'
-      };
-      setFormData(mockProduct);
-    } catch (error) {
-      toast.error('Gagal memuat data produk');
-    }
-  };
+  }, [id, isEdit, getProductById]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -121,13 +118,15 @@ const AddEditProduct = () => {
     const files = Array.from(e.target.files);
     setImageFiles(prev => [...prev, ...files]);
     
-    // Create preview URLs
+    // Create preview URLs and update form data
     files.forEach(file => {
       const reader = new FileReader();
       reader.onload = (e) => {
+        const imageUrl = e.target.result;
         setFormData(prev => ({
           ...prev,
-          images: [...prev.images, e.target.result]
+          images: [...prev.images, imageUrl],
+          image: prev.images.length === 0 ? imageUrl : prev.image // Set as main image if first
         }));
       };
       reader.readAsDataURL(file);
@@ -153,8 +152,28 @@ const AddEditProduct = () => {
         return;
       }
 
+      // Prepare product data
+      const productData = {
+        ...formData,
+        price: parseFloat(formData.price),
+        originalPrice: parseFloat(formData.originalPrice) || parseFloat(formData.price),
+        stock: parseInt(formData.stock) || 0,
+        minimumStock: parseInt(formData.minimumStock) || 0,
+        discount: parseFloat(formData.discount) || 0,
+        status: 'active',
+        sellerId: 1, // Mock seller ID
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      if (isEdit) {
+        updateProduct(parseInt(id), productData);
+      } else {
+        addProduct(productData);
+      }
       
       toast.success(`Produk berhasil ${isEdit ? 'diperbarui' : 'ditambahkan'}`);
       navigate('/seller/products');
