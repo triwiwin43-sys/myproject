@@ -1,4 +1,3 @@
-// Seller Layout Wrapper
 import React, { useState } from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
 import { 
@@ -14,183 +13,159 @@ import {
   FiTool,
   FiFileText,
   FiLogOut,
-  FiStar,
-  FiMessageSquare,
-  FiHelpCircle
+  FiStar
 } from 'react-icons/fi';
-import useAuthStore from '../../context/authStore';
 
 const SellerLayout = () => {
-  const { user } = useAuthStore();
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-  // Navigation menu items
-  const navigation = [
-    { name: 'Dashboard', href: '/seller/dashboard', icon: FiHome, current: location.pathname === '/seller/dashboard' },
-    { name: 'Produk', href: '/seller/products', icon: FiPackage, current: location.pathname.includes('/seller/products') },
-    { name: 'Pesanan', href: '/seller/orders', icon: FiShoppingCart, current: location.pathname.includes('/seller/orders') },
-    { name: 'Pelanggan', href: '/seller/customers', icon: FiUsers, current: location.pathname.includes('/seller/customers') },
-    { name: 'Layanan', href: '/seller/services', icon: FiTool, current: location.pathname.includes('/seller/services') },
-    { name: 'Laporan', href: '/seller/reports', icon: FiActivity, current: location.pathname.includes('/seller/reports') },
-    { name: 'Ulasan', href: '/seller/reviews', icon: FiStar, current: location.pathname.includes('/seller/reviews') },
-    { name: 'Pesan', href: '/seller/messages', icon: FiMessageSquare, current: location.pathname.includes('/seller/messages') },
-    { name: 'Metode Pembayaran', href: '/seller/payment-methods', icon: FiCreditCard, current: location.pathname.includes('/seller/payment-methods') },
-    { name: 'Pengaturan', href: '/seller/settings', icon: FiSettings, current: location.pathname.includes('/seller/settings') },
+  const sidebarMenus = [
+    { icon: FiHome, title: 'Dashboard', link: '/seller/dashboard', description: 'Overview toko Anda' },
+    { icon: FiPackage, title: 'Product Management', link: '/seller/products', description: 'Kelola produk toko' },
+    { icon: FiShoppingCart, title: 'Order Management', link: '/seller/orders', description: 'Kelola pesanan masuk' },
+    { icon: FiUsers, title: 'Customer Management', link: '/seller/customers', description: 'Data pelanggan' },
+    { icon: FiTool, title: 'Service Management', link: '/seller/services', description: 'Kelola layanan' },
+    { icon: FiActivity, title: 'Reports & Analytics', link: '/seller/reports', description: 'Laporan penjualan' },
+    { icon: FiStar, title: 'Review Management', link: '/seller/reviews', description: 'Kelola ulasan produk' },
+    { icon: FiCreditCard, title: 'Payment Methods', link: '/seller/payment-methods', description: 'Metode pembayaran' },
+    { icon: FiSettings, title: 'Settings', link: '/seller/settings', description: 'Pengaturan toko' },
   ];
-
-  const handleLogout = () => {
-    localStorage.removeItem('sellerToken');
-    window.location.href = '/login';
-  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
-      {/* Mobile sidebar overlay */}
-      {sidebarOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
+      {/* Desktop Sidebar */}
+      <div className={`${sidebarCollapsed ? 'w-16' : 'w-64'} bg-white shadow-lg transition-all duration-300 ease-in-out hidden lg:block`}>
+        <div className="flex items-center justify-between h-16 px-4 border-b">
+          {!sidebarCollapsed && <h2 className="text-lg font-semibold text-gray-900">Seller Panel</h2>}
+          <button
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            className="p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+          >
+            <FiMenu className="w-5 h-5" />
+          </button>
         </div>
-      )}
-
-      {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 bg-white shadow-lg transform transition-all duration-300 ease-in-out lg:static lg:inset-0 ${
-        sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-      } lg:translate-x-0 ${
-        sidebarCollapsed ? 'lg:w-16' : 'lg:w-64'
-      } w-64`}>
-        <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200">
-          <div className={`flex items-center ${sidebarCollapsed ? 'lg:justify-center lg:px-0' : ''}`}>
-            <FiFileText className="w-8 h-8 text-blue-600" />
-            {!sidebarCollapsed && (
-              <span className="ml-2 text-xl font-bold text-gray-900">Seller Panel</span>
-            )}
-          </div>
-          <div className="flex items-center space-x-2">
-            {/* Desktop toggle button */}
-            <button
-              onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-              className="hidden lg:block p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
-              title={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-            >
-              <FiMenu className="w-5 h-5" />
-            </button>
-            {/* Mobile close button */}
-            <button
-              onClick={() => setSidebarOpen(false)}
-              className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500"
-            >
-              <FiX className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-
-        {/* User Info */}
-        {!sidebarCollapsed && (
-          <div className="px-6 py-4 border-b border-gray-200">
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                <span className="text-blue-600 font-semibold">
-                  {user?.name?.charAt(0) || 'S'}
-                </span>
-              </div>
-              <div className="ml-3">
-                <p className="text-sm font-medium text-gray-900">{user?.name || 'Seller'}</p>
-                <p className="text-xs text-gray-500">Seller Account</p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Collapsed User Avatar */}
-        {sidebarCollapsed && (
-          <div className="hidden lg:flex justify-center py-4 border-b border-gray-200">
-            <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-              <span className="text-blue-600 font-semibold">
-                {user?.name?.charAt(0) || 'S'}
-              </span>
-            </div>
-          </div>
-        )}
-
-        <nav className="mt-6 px-3">
-          <div className="space-y-1">
-            {navigation.map((item) => {
-              const Icon = item.icon;
+        
+        <nav className="mt-6 px-2">
+          <div className="space-y-2">
+            {sidebarMenus.map((menu, index) => {
+              const IconComponent = menu.icon;
+              const isActive = location.pathname === menu.link || location.pathname.includes(menu.link);
               return (
                 <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                    item.current
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-                  } ${sidebarCollapsed ? 'lg:justify-center lg:px-2' : ''}`}
-                  onClick={() => setSidebarOpen(false)}
-                  title={sidebarCollapsed ? item.name : ''}
+                  key={index}
+                  to={menu.link}
+                  className={`flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-all duration-200 group ${
+                    isActive 
+                      ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-600' 
+                      : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700'
+                  }`}
+                  title={sidebarCollapsed ? menu.title : ''}
                 >
-                  <Icon className={`w-5 h-5 ${sidebarCollapsed ? '' : 'mr-3'}`} />
+                  <IconComponent className="w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform" />
                   {!sidebarCollapsed && (
-                    <span className="lg:block">{item.name}</span>
+                    <div className="ml-3 opacity-100 transition-opacity duration-300">
+                      <div className="font-medium">{menu.title}</div>
+                      <div className="text-xs text-gray-500 mt-0.5">{menu.description}</div>
+                    </div>
                   )}
-                  <span className="lg:hidden">{item.name}</span>
                 </Link>
               );
             })}
           </div>
-
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <Link
-              to="/help"
-              className={`group flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-md hover:bg-gray-100 hover:text-gray-900 transition-colors ${
-                sidebarCollapsed ? 'lg:justify-center lg:px-2' : ''
-              }`}
-              title={sidebarCollapsed ? 'Bantuan' : ''}
-            >
-              <FiHelpCircle className={`w-5 h-5 ${sidebarCollapsed ? '' : 'mr-3'}`} />
-              {!sidebarCollapsed && (
-                <span className="lg:block">Bantuan</span>
-              )}
-              <span className="lg:hidden">Bantuan</span>
-            </Link>
-            <button
-              onClick={handleLogout}
-              className={`group flex items-center w-full px-3 py-2 text-sm font-medium text-red-600 rounded-md hover:bg-red-50 transition-colors ${
-                sidebarCollapsed ? 'lg:justify-center lg:px-2' : ''
-              }`}
-              title={sidebarCollapsed ? 'Keluar' : ''}
-            >
-              <FiLogOut className={`w-5 h-5 ${sidebarCollapsed ? '' : 'mr-3'}`} />
-              {!sidebarCollapsed && (
-                <span className="lg:block">Keluar</span>
-              )}
-              <span className="lg:hidden">Keluar</span>
-            </button>
-          </div>
         </nav>
+
+        {/* Logout Button */}
+        <div className="absolute bottom-4 left-2 right-2">
+          <button
+            onClick={() => window.location.href = '/login'}
+            className="w-full flex items-center px-3 py-3 text-sm font-medium text-red-600 rounded-lg hover:bg-red-50 transition-colors"
+          >
+            <FiLogOut className="w-5 h-5 flex-shrink-0" />
+            {!sidebarCollapsed && <span className="ml-3">Keluar</span>}
+          </button>
+        </div>
       </div>
 
-      {/* Main content */}
-      <div className="flex-1 flex flex-col">
-        {/* Top bar */}
-        <div className="bg-white shadow-sm border-b border-gray-200">
-          <div className="flex items-center justify-between h-16 px-4">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500"
-            >
-              <FiMenu className="w-6 h-6" />
-            </button>
-            <h1 className="text-lg font-semibold text-gray-900 lg:hidden">Seller Panel</h1>
-            <div className="w-10 lg:hidden" /> {/* Spacer */}
+      {/* Mobile Sidebar */}
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:hidden`}>
+        <div className="flex items-center justify-between h-16 px-6 border-b bg-gradient-to-r from-blue-600 to-blue-700">
+          <h2 className="text-lg font-semibold text-white">Seller Panel</h2>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            className="p-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800 transition-colors"
+          >
+            <FiX className="w-5 h-5" />
+          </button>
+        </div>
+        
+        <nav className="mt-6 px-3">
+          <div className="space-y-2">
+            {sidebarMenus.map((menu, index) => {
+              const IconComponent = menu.icon;
+              const isActive = location.pathname === menu.link || location.pathname.includes(menu.link);
+              return (
+                <Link
+                  key={index}
+                  to={menu.link}
+                  className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 transform hover:scale-105 ${
+                    isActive 
+                      ? 'bg-blue-50 text-blue-700' 
+                      : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700'
+                  }`}
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <IconComponent className="w-5 h-5 mr-3 flex-shrink-0" />
+                  <div>
+                    <div className="font-medium">{menu.title}</div>
+                    <div className="text-xs text-gray-500 mt-0.5">{menu.description}</div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+
+        {/* Mobile Logout */}
+        <div className="absolute bottom-4 left-3 right-3">
+          <button
+            onClick={() => window.location.href = '/login'}
+            className="w-full flex items-center px-4 py-3 text-sm font-medium text-red-600 rounded-lg hover:bg-red-50 transition-colors"
+          >
+            <FiLogOut className="w-5 h-5 mr-3" />
+            Keluar
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden transition-opacity duration-300"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
+
+      {/* Main Content */}
+      <div className="flex-1 transition-all duration-300">
+        <div className="py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-8">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <button
+                    onClick={() => setSidebarOpen(true)}
+                    className="lg:hidden p-2 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 mr-4 transition-colors"
+                  >
+                    <FiMenu className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <Outlet />
           </div>
         </div>
-
-        {/* Page content */}
-        <main className="flex-1 p-6">
-          <Outlet />
-        </main>
       </div>
     </div>
   );

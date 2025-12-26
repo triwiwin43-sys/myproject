@@ -16,9 +16,11 @@ import {
   FiUser,
   FiCalendar
 } from 'react-icons/fi';
+import useServiceStore from '../context/serviceStore';
 import toast from 'react-hot-toast';
 
 const Services = () => {
+  const { services, addServiceRequest } = useServiceStore();
   const [showModal, setShowModal] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [formData, setFormData] = useState({
@@ -29,63 +31,6 @@ const Services = () => {
     description: '',
     preferredDate: ''
   });
-
-  const [services] = useState([
-    {
-      id: 1,
-      title: 'Service Laptop & Notebook',
-      description: 'Perbaikan laptop, upgrade RAM/SSD, cleaning, install OS',
-      icon: FiMonitor,
-      price: 'Mulai Rp 150.000',
-      duration: '1-3 hari',
-      features: ['Diagnosa gratis', 'Garansi 30 hari', 'Spare part original', 'Teknisi berpengalaman']
-    },
-    {
-      id: 2,
-      title: 'Service Printer & Scanner',
-      description: 'Perbaikan printer inkjet/laser, cleaning head, refill toner',
-      icon: FiPrinter,
-      price: 'Mulai Rp 100.000',
-      duration: '1-2 hari',
-      features: ['Head cleaning', 'Kalibrasi warna', 'Refill toner/tinta', 'Test print gratis']
-    },
-    {
-      id: 3,
-      title: 'Service PC & Komputer',
-      description: 'Perbaikan PC desktop, upgrade hardware, optimasi performa',
-      icon: FiMonitor,
-      price: 'Mulai Rp 120.000',
-      duration: '1-2 hari',
-      features: ['Hardware upgrade', 'Cleaning internal', 'Install software', 'Optimasi sistem']
-    },
-    {
-      id: 4,
-      title: 'Service Mesin Fotocopy',
-      description: 'Perbaikan mesin fotocopy, maintenance rutin, spare part',
-      icon: FiCamera,
-      price: 'Mulai Rp 200.000',
-      duration: '2-5 hari',
-      features: ['Maintenance rutin', 'Spare part original', 'Kalibrasi mesin', 'Training operator']
-    },
-    {
-      id: 5,
-      title: 'Recovery Data',
-      description: 'Pemulihan data dari HDD/SSD rusak, flash drive corrupt',
-      icon: FiHardDrive,
-      price: 'Mulai Rp 300.000',
-      duration: '3-7 hari',
-      features: ['Analisa kerusakan', 'Recovery maksimal', 'Backup data', 'Konsultasi gratis']
-    },
-    {
-      id: 6,
-      title: 'Pengadaan Barang IT',
-      description: 'Pengadaan komputer, printer, software, ATK untuk kantor',
-      icon: FiPackage,
-      price: 'Sesuai kebutuhan',
-      duration: '3-14 hari',
-      features: ['Konsultasi kebutuhan', 'Harga kompetitif', 'Garansi resmi', 'After sales support']
-    }
-  ]);
 
   const [additionalServices] = useState([
     'Install & Setup Software',
@@ -109,8 +54,21 @@ const Services = () => {
       return;
     }
 
-    // Simulate order submission
-    toast.success(`Pesanan ${selectedService.title} berhasil dikirim! Kami akan menghubungi Anda segera.`);
+    // Add service request to store
+    const serviceRequest = addServiceRequest({
+      customerName: formData.name,
+      customerPhone: formData.phone,
+      customerEmail: formData.email,
+      customerAddress: formData.address,
+      serviceTitle: selectedService.title,
+      serviceDescription: selectedService.description,
+      problemDescription: formData.description,
+      preferredDate: formData.preferredDate,
+      estimatedPrice: selectedService.price,
+      estimatedDuration: selectedService.duration
+    });
+
+    toast.success(`Pesanan ${selectedService.title} berhasil dikirim! ID: ${serviceRequest.id}`);
     
     // Reset form and close modal
     setFormData({
@@ -132,6 +90,18 @@ const Services = () => {
     });
   };
 
+  const getIconComponent = (iconName) => {
+    const iconMap = {
+      'FiMonitor': FiMonitor,
+      'FiPrinter': FiPrinter,
+      'FiCamera': FiCamera,
+      'FiHardDrive': FiHardDrive,
+      'FiSettings': FiSettings,
+      'FiTool': FiTool
+    };
+    return iconMap[iconName] || FiTool;
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,7 +117,7 @@ const Services = () => {
         {/* Main Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {services.map((service) => {
-            const IconComponent = service.icon;
+            const IconComponent = getIconComponent(service.icon);
             return (
               <div key={service.id} className="bg-white rounded-lg shadow-sm border hover:shadow-lg transition-shadow">
                 <div className="p-6">

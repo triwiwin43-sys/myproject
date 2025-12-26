@@ -14,12 +14,13 @@ import {
   FiCalendar,
   FiDollarSign
 } from 'react-icons/fi';
+import useServiceStore from '../../context/serviceStore';
 import toast from 'react-hot-toast';
 
 const ServiceManagement = () => {
   const navigate = useNavigate();
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { serviceRequests, updateServiceRequest, deleteServiceRequest } = useServiceStore();
+  const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState({
     search: '',
     status: 'all',

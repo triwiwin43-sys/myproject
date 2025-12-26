@@ -1,250 +1,342 @@
-// Seller Reports with Full Dashboard
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { 
-  FiHome, 
-  FiPackage, 
-  FiShoppingCart, 
-  FiUsers, 
-  FiTool, 
-  FiActivity, 
-  FiStar, 
-  FiCreditCard, 
-  FiSettings, 
-  FiMenu, 
-  FiX, 
-  FiBell, 
-  FiUser,
-  FiLogOut,
   FiDownload,
   FiTrendingUp,
-  FiDollarSign
+  FiDollarSign,
+  FiShoppingCart,
+  FiPackage,
+  FiUsers,
+  FiCalendar,
+  FiBarChart3,
+  FiPieChart
 } from 'react-icons/fi';
 
 const SellerReports = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dateRange, setDateRange] = useState('30days');
-  const location = useLocation();
+  const [reportType, setReportType] = useState('overview');
 
-  // Navigation menu items
-  const navigation = [
-    { name: 'Dashboard', href: '/seller/dashboard', icon: FiHome, current: location.pathname === '/seller/dashboard' },
-    { name: 'Produk', href: '/seller/products', icon: FiPackage, current: location.pathname.includes('/seller/products') },
-    { name: 'Pesanan', href: '/seller/orders', icon: FiShoppingCart, current: location.pathname.includes('/seller/orders') },
-    { name: 'Pelanggan', href: '/seller/customers', icon: FiUsers, current: location.pathname.includes('/seller/customers') },
-    { name: 'Layanan', href: '/seller/services', icon: FiTool, current: location.pathname.includes('/seller/services') },
-    { name: 'Laporan', href: '/seller/reports', icon: FiActivity, current: location.pathname.includes('/seller/reports') },
-    { name: 'Ulasan', href: '/seller/reviews', icon: FiStar, current: location.pathname.includes('/seller/reviews') },
-    { name: 'Metode Pembayaran', href: '/seller/payment-methods', icon: FiCreditCard, current: location.pathname.includes('/seller/payment-methods') },
-    { name: 'Pengaturan', href: '/seller/settings', icon: FiSettings, current: location.pathname.includes('/seller/settings') },
-  ];
-
-  const handleLogout = () => {
-    localStorage.removeItem('sellerToken');
-    window.location.href = '/login';
+  const salesData = {
+    '7days': { revenue: 2400000, orders: 12, customers: 8, products: 15 },
+    '30days': { revenue: 45200000, orders: 234, customers: 89, products: 156 },
+    '90days': { revenue: 125000000, orders: 856, customers: 234, products: 445 },
+    '1year': { revenue: 580000000, orders: 3420, customers: 1234, products: 2100 }
   };
 
+  const currentData = salesData[dateRange];
+
+  const topProducts = [
+    { name: 'HP LaserJet Pro M404n', sales: 45, revenue: 112500000, growth: '+15%' },
+    { name: 'Canon Pixma G2010', sales: 32, revenue: 57600000, growth: '+8%' },
+    { name: 'Tinta Canon GI-790', sales: 128, revenue: 10880000, growth: '+22%' },
+    { name: 'Laptop Dell Inspiron', sales: 18, revenue: 153000000, growth: '+5%' },
+    { name: 'Mouse Logitech MX Master', sales: 67, revenue: 8375000, growth: '+12%' }
+  ];
+
+  const monthlyData = [
+    { month: 'Jan', revenue: 45000000, orders: 180 },
+    { month: 'Feb', revenue: 52000000, orders: 210 },
+    { month: 'Mar', revenue: 48000000, orders: 195 },
+    { month: 'Apr', revenue: 61000000, orders: 245 },
+    { month: 'May', revenue: 58000000, orders: 230 },
+    { month: 'Jun', revenue: 67000000, orders: 270 }
+  ];
+
+  const categoryData = [
+    { category: 'Printers', percentage: 35, revenue: 195000000 },
+    { category: 'Laptops', percentage: 28, revenue: 152000000 },
+    { category: 'Accessories', percentage: 20, revenue: 108000000 },
+    { category: 'Ink & Toner', percentage: 12, revenue: 65000000 },
+    { category: 'Others', percentage: 5, revenue: 27000000 }
+  ];
+
+  const handleExport = (type) => {
+    // Create CSV data based on report type
+    let csvData = '';
+    let filename = '';
+
+    switch (type) {
+      case 'sales':
+        csvData = 'Month,Revenue,Orders\n' + 
+          monthlyData.map(item => `${item.month},${item.revenue},${item.orders}`).join('\n');
+        filename = `sales-report-${dateRange}.csv`;
+        break;
+      case 'products':
+        csvData = 'Product,Sales,Revenue,Growth\n' + 
+          topProducts.map(item => `${item.name},${item.sales},${item.revenue},${item.growth}`).join('\n');
+        filename = `products-report-${dateRange}.csv`;
+        break;
+      case 'categories':
+        csvData = 'Category,Percentage,Revenue\n' + 
+          categoryData.map(item => `${item.category},${item.percentage}%,${item.revenue}`).join('\n');
+        filename = `categories-report-${dateRange}.csv`;
+        break;
+      default:
+        csvData = 'Metric,Value\n' + 
+          `Revenue,${currentData.revenue}\n` +
+          `Orders,${currentData.orders}\n` +
+          `Customers,${currentData.customers}\n` +
+          `Products Sold,${currentData.products}`;
+        filename = `overview-report-${dateRange}.csv`;
+    }
+
+    // Create and download file
+    const blob = new Blob([csvData], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+  };
+
+  const stats = [
+    { 
+      icon: FiDollarSign, 
+      label: 'Total Revenue', 
+      value: `Rp ${(currentData.revenue / 1000000).toFixed(1)}M`, 
+      change: '+12.5%', 
+      color: 'from-green-500 to-green-600' 
+    },
+    { 
+      icon: FiShoppingCart, 
+      label: 'Total Orders', 
+      value: currentData.orders.toLocaleString(), 
+      change: '+8.3%', 
+      color: 'from-blue-500 to-blue-600' 
+    },
+    { 
+      icon: FiUsers, 
+      label: 'New Customers', 
+      value: currentData.customers.toLocaleString(), 
+      change: '+15.2%', 
+      color: 'from-purple-500 to-purple-600' 
+    },
+    { 
+      icon: FiPackage, 
+      label: 'Products Sold', 
+      value: currentData.products.toLocaleString(), 
+      change: '+5.7%', 
+      color: 'from-orange-500 to-orange-600' 
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Mobile sidebar overlay */}
-      {sidebarOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
-          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" onClick={() => setSidebarOpen(false)} />
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Reports & Analytics</h1>
+          <p className="text-gray-600">Analyze your store performance and trends</p>
+        </div>
+        <div className="flex space-x-2">
+          <select
+            value={dateRange}
+            onChange={(e) => setDateRange(e.target.value)}
+            className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="7days">Last 7 Days</option>
+            <option value="30days">Last 30 Days</option>
+            <option value="90days">Last 90 Days</option>
+            <option value="1year">Last Year</option>
+          </select>
+          <button 
+            onClick={() => handleExport('overview')}
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center"
+          >
+            <FiDownload className="w-4 h-4 mr-2" />
+            Export Overview
+          </button>
+        </div>
+      </div>
+
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {stats.map((stat, index) => {
+          const IconComponent = stat.icon;
+          return (
+            <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-gray-600 mb-1">{stat.label}</p>
+                  <p className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</p>
+                  <div className="flex items-center text-sm">
+                    <FiTrendingUp className="w-4 h-4 text-green-500 mr-1" />
+                    <span className="text-green-600 font-medium">{stat.change}</span>
+                  </div>
+                </div>
+                <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
+                  <IconComponent className="w-8 h-8 text-white" />
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Report Type Selector */}
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+        <div className="flex space-x-4">
+          <button
+            onClick={() => setReportType('overview')}
+            className={`px-4 py-2 rounded-lg font-medium text-sm ${
+              reportType === 'overview' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            Overview
+          </button>
+          <button
+            onClick={() => setReportType('sales')}
+            className={`px-4 py-2 rounded-lg font-medium text-sm ${
+              reportType === 'sales' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            Sales Trends
+          </button>
+          <button
+            onClick={() => setReportType('products')}
+            className={`px-4 py-2 rounded-lg font-medium text-sm ${
+              reportType === 'products' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            Top Products
+          </button>
+          <button
+            onClick={() => setReportType('categories')}
+            className={`px-4 py-2 rounded-lg font-medium text-sm ${
+              reportType === 'categories' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            Categories
+          </button>
+        </div>
+      </div>
+
+      {/* Charts Section */}
+      {reportType === 'overview' && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">Monthly Revenue</h3>
+              <FiBarChart3 className="w-5 h-5 text-gray-400" />
+            </div>
+            <div className="h-64 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg flex items-center justify-center">
+              <p className="text-gray-500">Revenue chart will be displayed here</p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">Order Distribution</h3>
+              <FiPieChart className="w-5 h-5 text-gray-400" />
+            </div>
+            <div className="h-64 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg flex items-center justify-center">
+              <p className="text-gray-500">Order distribution chart will be displayed here</p>
+            </div>
+          </div>
         </div>
       )}
 
-      {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
-        <div className="flex items-center justify-between h-16 px-6 bg-blue-600">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-xl font-bold text-white">Inter Medi-A</h1>
-            </div>
-          </div>
-          <button
-            className="lg:hidden text-white hover:text-gray-200"
-            onClick={() => setSidebarOpen(false)}
-          >
-            <FiX className="w-6 h-6" />
-          </button>
-        </div>
-
-        <nav className="mt-8 px-4">
-          <div className="space-y-2">
-            {navigation.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                    item.current
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
-                  }`}
-                >
-                  <Icon className={`mr-3 h-5 w-5 ${item.current ? 'text-blue-500' : 'text-gray-400 group-hover:text-gray-500'}`} />
-                  {item.name}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
-
-        {/* Logout button */}
-        <div className="absolute bottom-0 w-full p-4">
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center px-3 py-2 text-sm font-medium text-red-600 rounded-md hover:bg-red-50 transition-colors"
-          >
-            <FiLogOut className="mr-3 h-5 w-5" />
-            Keluar
-          </button>
-        </div>
-      </div>
-
-      {/* Main content */}
-      <div className="lg:pl-64">
-        {/* Top navigation */}
-        <div className="sticky top-0 z-10 bg-white shadow-sm border-b border-gray-200">
-          <div className="flex items-center justify-between h-16 px-6">
-            <button
-              className="lg:hidden text-gray-500 hover:text-gray-700"
-              onClick={() => setSidebarOpen(true)}
+      {reportType === 'sales' && (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold text-gray-900">Sales Performance</h3>
+            <button 
+              onClick={() => handleExport('sales')}
+              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center text-sm"
             >
-              <FiMenu className="w-6 h-6" />
+              <FiDownload className="w-4 h-4 mr-2" />
+              Export Sales Data
             </button>
-
-            <div className="flex items-center space-x-4">
-              <button className="text-gray-500 hover:text-gray-700">
-                <FiBell className="w-6 h-6" />
-              </button>
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                  <FiUser className="w-5 h-5 text-gray-600" />
-                </div>
-                <span className="text-sm font-medium text-gray-700">Seller</span>
-              </div>
-            </div>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="min-w-full">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Month</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Revenue</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Orders</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Avg Order Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                {monthlyData.map((item, index) => (
+                  <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
+                    <td className="py-3 px-4">{item.month}</td>
+                    <td className="py-3 px-4 font-semibold">Rp {(item.revenue / 1000000).toFixed(1)}M</td>
+                    <td className="py-3 px-4">{item.orders}</td>
+                    <td className="py-3 px-4">Rp {(item.revenue / item.orders / 1000).toFixed(0)}K</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
+      )}
 
-        {/* Page content */}
-        <main className="p-6">
-          <div className="space-y-6">
-            {/* Header */}
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Laporan & Analitik</h1>
-                <p className="text-gray-600">Analisis performa penjualan Anda</p>
-              </div>
-              <div className="flex space-x-2">
-                <select
-                  value={dateRange}
-                  onChange={(e) => setDateRange(e.target.value)}
-                  className="border border-gray-300 rounded-lg px-3 py-2 text-sm"
-                >
-                  <option value="7days">7 Hari Terakhir</option>
-                  <option value="30days">30 Hari Terakhir</option>
-                  <option value="90days">90 Hari Terakhir</option>
-                  <option value="1year">1 Tahun Terakhir</option>
-                </select>
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
-                  <FiDownload className="w-4 h-4 mr-2" />
-                  Export
-                </button>
-              </div>
-            </div>
-
-            {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="flex items-center">
-                  <FiDollarSign className="w-8 h-8 text-green-600" />
-                  <div className="ml-4">
-                    <div className="text-2xl font-bold text-gray-900">Rp 45.2M</div>
-                    <div className="text-sm text-gray-600">Total Pendapatan</div>
-                    <div className="text-xs text-green-600 flex items-center mt-1">
-                      <FiTrendingUp className="w-3 h-3 mr-1" />
-                      +12.5%
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="flex items-center">
-                  <FiShoppingCart className="w-8 h-8 text-blue-600" />
-                  <div className="ml-4">
-                    <div className="text-2xl font-bold text-gray-900">1,234</div>
-                    <div className="text-sm text-gray-600">Total Pesanan</div>
-                    <div className="text-xs text-green-600 flex items-center mt-1">
-                      <FiTrendingUp className="w-3 h-3 mr-1" />
-                      +8.3%
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="flex items-center">
-                  <FiPackage className="w-8 h-8 text-purple-600" />
-                  <div className="ml-4">
-                    <div className="text-2xl font-bold text-gray-900">156</div>
-                    <div className="text-sm text-gray-600">Produk Terjual</div>
-                    <div className="text-xs text-green-600 flex items-center mt-1">
-                      <FiTrendingUp className="w-3 h-3 mr-1" />
-                      +15.2%
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="flex items-center">
-                  <FiUsers className="w-8 h-8 text-orange-600" />
-                  <div className="ml-4">
-                    <div className="text-2xl font-bold text-gray-900">89</div>
-                    <div className="text-sm text-gray-600">Pelanggan Baru</div>
-                    <div className="text-xs text-green-600 flex items-center mt-1">
-                      <FiTrendingUp className="w-3 h-3 mr-1" />
-                      +5.7%
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Charts Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Penjualan Bulanan</h3>
-                <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <p className="text-gray-500">Chart akan ditampilkan di sini</p>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Produk Terlaris</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600">HP LaserJet Pro M404n</span>
-                    <span className="text-sm font-medium text-gray-900">45 unit</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600">Canon Pixma G2010</span>
-                    <span className="text-sm font-medium text-gray-900">32 unit</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-600">Tinta Canon GI-790</span>
-                    <span className="text-sm font-medium text-gray-900">28 unit</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {reportType === 'products' && (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold text-gray-900">Top Performing Products</h3>
+            <button 
+              onClick={() => handleExport('products')}
+              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center text-sm"
+            >
+              <FiDownload className="w-4 h-4 mr-2" />
+              Export Product Data
+            </button>
           </div>
-        </main>
-      </div>
+          <div className="space-y-4">
+            {topProducts.map((product, index) => (
+              <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <div className="flex-1">
+                  <h4 className="font-semibold text-gray-900">{product.name}</h4>
+                  <p className="text-sm text-gray-600">{product.sales} units sold</p>
+                </div>
+                <div className="text-right">
+                  <p className="font-semibold text-gray-900">Rp {(product.revenue / 1000000).toFixed(1)}M</p>
+                  <p className="text-sm text-green-600">{product.growth}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {reportType === 'categories' && (
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold text-gray-900">Sales by Category</h3>
+            <button 
+              onClick={() => handleExport('categories')}
+              className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center text-sm"
+            >
+              <FiDownload className="w-4 h-4 mr-2" />
+              Export Category Data
+            </button>
+          </div>
+          <div className="space-y-4">
+            {categoryData.map((category, index) => (
+              <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <div className="flex-1">
+                  <h4 className="font-semibold text-gray-900">{category.category}</h4>
+                  <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                    <div 
+                      className="bg-blue-600 h-2 rounded-full" 
+                      style={{ width: `${category.percentage}%` }}
+                    ></div>
+                  </div>
+                </div>
+                <div className="text-right ml-4">
+                  <p className="font-semibold text-gray-900">{category.percentage}%</p>
+                  <p className="text-sm text-gray-600">Rp {(category.revenue / 1000000).toFixed(1)}M</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

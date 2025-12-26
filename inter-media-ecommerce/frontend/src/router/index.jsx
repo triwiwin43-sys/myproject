@@ -41,6 +41,7 @@ import AdminSellerApproval from '../pages/admin/SellerApproval';
 import AdminReports from '../pages/admin/Reports';
 import AdminAnalytics from '../pages/admin/Analytics';
 import AdminReviews from '../pages/admin/Reviews';
+import AdminServiceManagement from '../pages/admin/ServiceManagement';
 import Wishlist from '../pages/Wishlist';
 import ProtectedRoute from '../components/ProtectedRoute';
 
@@ -130,7 +131,15 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/dashboard',
+      }
+    ]
+  },
+  {
+    path: '/seller',
+    element: <SellerLayout />,
+    children: [
+      {
+        index: true,
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <SellerDashboard />
@@ -138,7 +147,15 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/products',
+        path: 'dashboard',
+        element: (
+          <ProtectedRoute allowedRoles={['seller', 'admin']}>
+            <SellerDashboard />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: 'products',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <ManageProducts />
@@ -146,7 +163,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/products/add',
+        path: 'products/add',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <AddEditProduct />
@@ -154,7 +171,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/products/edit/:id',
+        path: 'products/edit/:id',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <AddEditProduct />
@@ -162,7 +179,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/orders',
+        path: 'orders',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <SellerOrders />
@@ -170,7 +187,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/customers',
+        path: 'customers',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <SellerCustomers />
@@ -178,7 +195,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/services',
+        path: 'services',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <SellerServices />
@@ -186,7 +203,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/reviews',
+        path: 'reviews',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <SellerReviews />
@@ -194,7 +211,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/reports',
+        path: 'reports',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <SellerReports />
@@ -202,7 +219,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/payment-methods',
+        path: 'payment-methods',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <PaymentMethods />
@@ -210,15 +227,21 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'seller/settings',
+        path: 'settings',
         element: (
           <ProtectedRoute allowedRoles={['seller', 'admin']}>
             <SellerSettings />
           </ProtectedRoute>
         )
-      },
+      }
+    ]
+  },
+  {
+    path: '/admin',
+    element: <Layout />,
+    children: [
       {
-        path: 'admin/dashboard',
+        path: 'dashboard',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
             <AdminDashboard />
@@ -226,39 +249,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'admin/logs',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminLogs />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/payment-approval',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminPaymentApproval />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/settings',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminSettings />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/orders',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminOrders />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/products',
+        path: 'products',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
             <AdminProducts />
@@ -266,7 +257,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'admin/products/add',
+        path: 'products/add',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
             <AdminProductEdit />
@@ -274,7 +265,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'admin/products/edit/:id',
+        path: 'products/edit/:id',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
             <AdminProductEdit />
@@ -282,7 +273,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'admin/users',
+        path: 'users',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
             <AdminUsers />
@@ -290,50 +281,10 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: 'admin/security',
+        path: 'services',
         element: (
           <ProtectedRoute allowedRoles={['admin']}>
-            <AdminSecurity />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/maintenance',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminMaintenance />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/analytics',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminAnalytics />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/reports',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminReports />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/seller-approval',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminSellerApproval />
-          </ProtectedRoute>
-        )
-      },
-      {
-        path: 'admin/reviews',
-        element: (
-          <ProtectedRoute allowedRoles={['admin']}>
-            <AdminReviews />
+            <AdminServiceManagement />
           </ProtectedRoute>
         )
       }
