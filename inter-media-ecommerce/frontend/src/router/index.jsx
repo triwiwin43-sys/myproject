@@ -297,6 +297,54 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register />
+  },
+  {
+    path: '/admin',
+    element: (
+      <ProtectedRoute allowedRoles={['admin']}>
+        <AdminDashboard />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/admin/dashboard',
+    element: (
+      <ProtectedRoute allowedRoles={['admin']}>
+        <AdminDashboard />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/admin/orders',
+    element: (
+      <ProtectedRoute allowedRoles={['admin']}>
+        <AdminOrders />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/admin/products',
+    element: (
+      <ProtectedRoute allowedRoles={['admin']}>
+        <AdminProducts />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/admin/users',
+    element: (
+      <ProtectedRoute allowedRoles={['admin']}>
+        <AdminUsers />
+      </ProtectedRoute>
+    )
+  },
+  {
+    path: '/admin/settings',
+    element: (
+      <ProtectedRoute allowedRoles={['admin']}>
+        <AdminSettings />
+      </ProtectedRoute>
+    )
   }
 ]);
 
