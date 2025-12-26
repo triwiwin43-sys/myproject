@@ -1,15 +1,8 @@
 {
   "name": "inter-media-ecommerce",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
-    "build": "cd frontend && npm install && npm run build",
-    "vercel-build": "cd frontend && npm install && npm run build",
-    "start": "cd backend && npm start",
-    "install-all": "cd frontend && npm install && cd ../backend && npm install"
-  },
-  "workspaces": [
-    "frontend",
-    "backend"
-  ]
+    "build": "cd frontend && npm ci && npm run build",
+    "vercel-build": "cd frontend && npm ci && npm run build"
+  }
 }
