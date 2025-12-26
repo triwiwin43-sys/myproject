@@ -4,8 +4,7 @@ import { FiShoppingCart, FiPackage, FiTruck, FiCheck, FiClock, FiX, FiFilter, Fi
 const SellerOrders = () => {
   const [filterStatus, setFilterStatus] = useState('all');
   const [dateRange, setDateRange] = useState('30days');
-
-  const orders = [
+  const [orders, setOrders] = useState([
     {
       id: '#ORD-001',
       customer: 'John Doe',
@@ -54,7 +53,22 @@ const SellerOrders = () => {
       address: 'Jl. Kuningan No. 321, Jakarta',
       paymentMethod: 'Bank Transfer'
     }
-  ];
+  ]);
+
+  const updateOrderStatus = (orderId, newStatus) => {
+    setOrders(orders.map(order => 
+      order.id === orderId ? { ...order, status: newStatus } : order
+    ));
+    
+    // Show success message
+    const statusText = {
+      'processing': 'Order accepted and being processed',
+      'shipped': 'Order marked as shipped',
+      'delivered': 'Order marked as delivered'
+    };
+    
+    alert(`✅ ${statusText[newStatus]}`);
+  };
 
   const orderStats = [
     { label: 'Total Orders', value: orders.length, icon: FiShoppingCart, color: 'blue' },
@@ -235,12 +249,39 @@ const SellerOrders = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <div className="flex space-x-2">
-                      <button className="text-blue-600 hover:text-blue-800 p-1" title="View Details">
+                      <button 
+                        className="text-blue-600 hover:text-blue-800 p-1" 
+                        title="View Details"
+                      >
                         <FiEye className="w-4 h-4" />
                       </button>
-                      <button className="text-green-600 hover:text-green-800 p-1" title="Update Status">
-                        <FiEdit className="w-4 h-4" />
-                      </button>
+                      {order.status === 'pending' && (
+                        <button 
+                          onClick={() => updateOrderStatus(order.id, 'processing')}
+                          className="bg-blue-600 text-white px-3 py-1 rounded text-xs hover:bg-blue-700"
+                          title="Accept & Process Order"
+                        >
+                          Accept Order
+                        </button>
+                      )}
+                      {order.status === 'processing' && (
+                        <button 
+                          onClick={() => updateOrderStatus(order.id, 'shipped')}
+                          className="bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700"
+                          title="Mark as Shipped"
+                        >
+                          Ship Order
+                        </button>
+                      )}
+                      {order.status === 'shipped' && (
+                        <button 
+                          onClick={() => updateOrderStatus(order.id, 'delivered')}
+                          className="bg-purple-600 text-white px-3 py-1 rounded text-xs hover:bg-purple-700"
+                          title="Mark as Delivered"
+                        >
+                          Mark Delivered
+                        </button>
+                      )}
                     </div>
                   </td>
                 </tr>
