@@ -1,20 +1,16 @@
 {
   "name": "inter-media-ecommerce",
   "version": "1.0.0",
-  "description": "Full-stack e-commerce platform for Inter Medi-A",
+  "type": "module",
   "scripts": {
-    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "backend": "cd backend && npm run dev",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
     "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && npm run dev",
     "build": "cd frontend && npm run build",
-    "vercel-build": "cd frontend && npm install && npm run build",
-    "start": "cd backend && npm start"
+    "start": "cd backend && npm start",
+    "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install"
   },
-  "devDependencies": {
+  "dependencies": {
     "concurrently": "^8.2.2"
-  },
-  "keywords": ["ecommerce", "nodejs", "react", "mongodb"],
-  "author": "Inter Medi-A Team",
-  "license": "MIT"
+  }
 }

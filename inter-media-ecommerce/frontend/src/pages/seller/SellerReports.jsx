@@ -7,7 +7,7 @@ import {
   FiPackage,
   FiUsers,
   FiCalendar,
-  FiBarChart3,
+  FiBarChart,
   FiPieChart
 } from 'react-icons/fi';
 
@@ -219,7 +219,7 @@ const SellerReports = () => {
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-900">Monthly Revenue</h3>
-              <FiBarChart3 className="w-5 h-5 text-gray-400" />
+              <FiBarChart className="w-5 h-5 text-gray-400" />
             </div>
             <div className="h-64 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg flex items-center justify-center">
               <p className="text-gray-500">Revenue chart will be displayed here</p>

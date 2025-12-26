@@ -10,7 +10,8 @@ import {
   FiFilter,
   FiMoreVertical,
   FiToggleLeft,
-  FiToggleRight
+  FiToggleRight,
+  FiPackage
 } from 'react-icons/fi';
 
 const ManageProducts = () => {
