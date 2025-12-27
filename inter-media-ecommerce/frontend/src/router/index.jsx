@@ -15,6 +15,12 @@ import Services from '../pages/Services';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Categories from '../pages/Categories';
+import Help from '../pages/Help';
+import Shipping from '../pages/Shipping';
+import Returns from '../pages/Returns';
+import Warranty from '../pages/Warranty';
+import Privacy from '../pages/Privacy';
+import Terms from '../pages/Terms';
 import SellerLayout from '../pages/seller/SellerLayout';
 import SellerDashboard from '../pages/seller/SellerDashboard';
 import SellerDashboardContent from '../pages/seller/SellerDashboardContent';
@@ -77,6 +83,30 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <Contact />
+      },
+      {
+        path: 'help',
+        element: <Help />
+      },
+      {
+        path: 'shipping',
+        element: <Shipping />
+      },
+      {
+        path: 'returns',
+        element: <Returns />
+      },
+      {
+        path: 'warranty',
+        element: <Warranty />
+      },
+      {
+        path: 'privacy',
+        element: <Privacy />
+      },
+      {
+        path: 'terms',
+        element: <Terms />
       },
       {
         path: 'cart',
