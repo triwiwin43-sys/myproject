@@ -2,8 +2,8 @@
 
 **PERANCANGAN SISTEM E-COMMERCE BERBASIS WEB PADA INTER MEDI-A COMPUTER STORE MENGGUNAKAN REACT.JS DAN NODE.JS**
 
-**Nama Mahasiswa:** [Nama Lengkap]  
-**NIM:** [Nomor Induk Mahasiswa]  
+**Nama Mahasiswa:** SAPTO PRAWIRO UTOMO  
+**NIM:** 2112530064  
 **Program Studi:** Sistem Informasi  
 **Fakultas:** Teknik Informatika  
 
