@@ -40,10 +40,6 @@ const ProductDetail = () => {
     const loadProduct = () => {
       const foundProduct = getProductById(parseInt(id));
       
-      console.log('ProductDetail - Loading product ID:', id);
-      console.log('ProductDetail - Found product:', foundProduct);
-      console.log('ProductDetail - Product images:', foundProduct?.images);
-      
       if (!foundProduct) {
         setProduct(null);
       } else {
@@ -52,7 +48,6 @@ const ProductDetail = () => {
           ...foundProduct,
           specifications: getProductSpecifications(foundProduct)
         };
-        console.log('ProductDetail - Final product with specs:', productWithSpecs);
         setProduct(productWithSpecs);
       }
       setLoading(false);
@@ -189,6 +184,7 @@ const ProductDetail = () => {
             {/* Product Images */}
             <div className="order-1">
               <ProductImageCarousel
+                key={`${product.id}-${product.images?.length || 0}`}
                 images={product.images}
                 productName={product.name}
               />

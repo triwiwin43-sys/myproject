@@ -5,23 +5,22 @@ import ProductImage from './ProductImage';
 const ProductImageCarousel = ({ images, productName }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Debug logging
-  console.log('ProductImageCarousel - images:', images);
-  console.log('ProductImageCarousel - images length:', images?.length);
-
+  // Ensure images is always an array
+  const imageArray = Array.isArray(images) ? images : (images ? [images] : []);
+  
   const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setCurrentIndex((prev) => (prev + 1) % imageArray.length);
   };
 
   const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentIndex((prev) => (prev - 1 + imageArray.length) % imageArray.length);
   };
 
   const goToImage = (index) => {
     setCurrentIndex(index);
   };
 
-  if (!images || images.length === 0) {
+  if (!imageArray || imageArray.length === 0) {
     return (
       <div className="w-full h-64 sm:h-80 lg:h-96 bg-gray-200 rounded-lg flex items-center justify-center">
         <span className="text-gray-500 text-sm sm:text-base">No image available</span>
@@ -34,13 +33,13 @@ const ProductImageCarousel = ({ images, productName }) => {
       {/* Main Image */}
       <div className="relative group">
         <ProductImage
-          src={images[currentIndex]}
+          src={imageArray[currentIndex]}
           alt={`${productName} - Image ${currentIndex + 1}`}
           className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg"
         />
         
         {/* Navigation Arrows - Always visible on mobile, hover on desktop */}
-        {images.length > 1 && (
+        {imageArray.length > 1 && (
           <>
             <button
               onClick={prevImage}
@@ -59,17 +58,17 @@ const ProductImageCarousel = ({ images, productName }) => {
         )}
 
         {/* Image Counter */}
-        {images.length > 1 && (
+        {imageArray.length > 1 && (
           <div className="absolute bottom-2 right-2 bg-black/70 text-white px-2 py-1 rounded text-xs sm:text-sm">
-            {currentIndex + 1} / {images.length}
+            {currentIndex + 1} / {imageArray.length}
           </div>
         )}
       </div>
 
       {/* Thumbnail Navigation */}
-      {images.length > 1 && (
+      {imageArray.length > 1 && (
         <div className="flex space-x-2 mt-3 sm:mt-4 overflow-x-auto pb-2 scrollbar-hide">
-          {images.map((image, index) => (
+          {imageArray.map((image, index) => (
             <button
               key={index}
               onClick={() => goToImage(index)}
