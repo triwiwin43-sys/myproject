@@ -48,7 +48,7 @@ const Footer = () => {
       <div className="bg-primary-700 py-12">
         <div className="container-custom">
           <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">Tetap Terhubung</h3>
+            <h3 className="text-2xl font-bold mb-4">🇮🇩 TETAP TERHUBUNG - UPDATE 10:00</h3>
             <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
               Berlangganan newsletter kami untuk produk terbaru, penawaran eksklusif, dan wawasan teknologi.
             </p>
@@ -96,6 +96,7 @@ const Footer = () => {
                 <div className="flex items-center space-x-3">
                   <FiMapPin className="w-5 h-5 text-primary-400" />
                   <div className="text-gray-300">
+                    <div>🏪 ALAMAT TOKO TERBARU:</div>
                     <div>Jalan Klingkit Dalam Blok C No. 22</div>
                     <div>RT 010/RW 011, Rawa Buaya, Cengkareng</div>
                     <div>Jakarta Barat 11470</div>
