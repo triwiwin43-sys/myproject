@@ -6,5 +6,6 @@
     }
   ],
   "buildCommand": "cd frontend && npm install && npm run build",
-  "outputDirectory": "frontend/dist"
+  "outputDirectory": "frontend/dist",
+  "version": "2025-12-27-09-28"
 }
