@@ -95,9 +95,11 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <FiMapPin className="w-5 h-5 text-primary-400" />
-                  <span className="text-gray-300">
-                    Jalan Klingkit Dalam Blok C No. 22, RT 010/RW 011, Rawa Buaya, Cengkareng, Jakarta Barat 11470
-                  </span>
+                  <div className="text-gray-300">
+                    <div>Jalan Klingkit Dalam Blok C No. 22</div>
+                    <div>RT 010/RW 011, Rawa Buaya, Cengkareng</div>
+                    <div>Jakarta Barat 11470</div>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FiPhone className="w-5 h-5 text-primary-400" />
