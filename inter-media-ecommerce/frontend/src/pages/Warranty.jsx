@@ -2,25 +2,25 @@ const Warranty = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Warranty Information</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">Informasi Garansi</h1>
         <div className="bg-white rounded-lg shadow-sm p-8">
           <div className="space-y-6">
             <div>
-              <h2 className="text-xl font-semibold mb-3">Warranty Coverage</h2>
-              <p className="text-gray-600">All products come with official manufacturer warranty covering defects and malfunctions.</p>
+              <h2 className="text-xl font-semibold mb-3">Cakupan Garansi</h2>
+              <p className="text-gray-600">Semua produk dilengkapi dengan garansi resmi produsen yang mencakup cacat dan kerusakan.</p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold mb-3">Warranty Periods</h2>
+              <h2 className="text-xl font-semibold mb-3">Periode Garansi</h2>
               <ul className="text-gray-600 space-y-1">
-                <li>• Printers: 1-2 years depending on brand</li>
-                <li>• Computers & Laptops: 1-3 years</li>
-                <li>• Accessories: 6 months - 1 year</li>
-                <li>• Services: 30 days guarantee</li>
+                <li>• Printer: 1-2 tahun tergantung merek</li>
+                <li>• Komputer & Laptop: 1-3 tahun</li>
+                <li>• Aksesoris: 6 bulan - 1 tahun</li>
+                <li>• Layanan: Garansi 30 hari</li>
               </ul>
             </div>
             <div>
-              <h2 className="text-xl font-semibold mb-3">Warranty Claims</h2>
-              <p className="text-gray-600">Contact us with your purchase receipt and product serial number for warranty service.</p>
+              <h2 className="text-xl font-semibold mb-3">Klaim Garansi</h2>
+              <p className="text-gray-600">Hubungi kami dengan bukti pembelian dan nomor seri produk untuk layanan garansi.</p>
             </div>
           </div>
         </div>

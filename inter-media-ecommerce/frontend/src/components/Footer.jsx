@@ -14,31 +14,31 @@ const Footer = () => {
 
   const footerLinks = {
     company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Services', href: '/services' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'Press', href: '/press' },
+      { name: 'Tentang Kami', href: '/about' },
+      { name: 'Layanan Kami', href: '/services' },
+      { name: 'Karir', href: '/careers' },
+      { name: 'Pers', href: '/press' },
       { name: 'Blog', href: '/blog' }
     ],
     support: [
-      { name: 'Help Center', href: '/help' },
-      { name: 'Contact Us', href: '/contact' },
-      { name: 'Shipping Info', href: '/shipping' },
-      { name: 'Returns', href: '/returns' },
-      { name: 'Warranty', href: '/warranty' }
+      { name: 'Pusat Bantuan', href: '/help' },
+      { name: 'Hubungi Kami', href: '/contact' },
+      { name: 'Info Pengiriman', href: '/shipping' },
+      { name: 'Pengembalian', href: '/returns' },
+      { name: 'Garansi', href: '/warranty' }
     ],
     legal: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
-      { name: 'Cookie Policy', href: '/cookies' },
-      { name: 'Refund Policy', href: '/refund' }
+      { name: 'Kebijakan Privasi', href: '/privacy' },
+      { name: 'Syarat Layanan', href: '/terms' },
+      { name: 'Kebijakan Cookie', href: '/cookies' },
+      { name: 'Kebijakan Pengembalian Dana', href: '/refund' }
     ],
     categories: [
-      { name: 'Printers', href: '/products?category=printers' },
-      { name: 'Computers', href: '/products?category=computers' },
-      { name: 'Office Equipment', href: '/products?category=office' },
-      { name: 'Spare Parts', href: '/products?category=parts' },
-      { name: 'Services', href: '/services' }
+      { name: 'Printer', href: '/products?category=printers' },
+      { name: 'Komputer', href: '/products?category=computers' },
+      { name: 'Peralatan Kantor', href: '/products?category=office' },
+      { name: 'Suku Cadang', href: '/products?category=parts' },
+      { name: 'Layanan', href: '/services' }
     ]
   };
 
@@ -48,21 +48,21 @@ const Footer = () => {
       <div className="bg-primary-700 py-12">
         <div className="container-custom">
           <div className="text-center">
-            <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
+            <h3 className="text-2xl font-bold mb-4">Tetap Terhubung</h3>
             <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-              Subscribe to our newsletter for the latest products, exclusive deals, and tech insights.
+              Berlangganan newsletter kami untuk produk terbaru, penawaran eksklusif, dan wawasan teknologi.
             </p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Masukkan email Anda"
                 className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
               />
               <button
                 type="submit"
                 className="px-6 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
               >
-                Subscribe
+                Berlangganan
               </button>
             </form>
           </div>
@@ -86,9 +86,9 @@ const Footer = () => {
               </Link>
               
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Your trusted partner for premium office equipment, computer solutions, 
-                and professional services. We deliver quality products and exceptional 
-                service to businesses across Indonesia.
+                Mitra terpercaya Anda untuk peralatan kantor premium, solusi komputer, 
+                dan layanan profesional. Kami memberikan produk berkualitas dan layanan 
+                luar biasa untuk bisnis di seluruh Indonesia.
               </p>
 
               {/* Contact Info */}
@@ -140,7 +140,7 @@ const Footer = () => {
 
             {/* Company Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">Company</h3>
+              <h3 className="text-lg font-semibold mb-6">Perusahaan</h3>
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
@@ -157,7 +157,7 @@ const Footer = () => {
 
             {/* Support Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">Support</h3>
+              <h3 className="text-lg font-semibold mb-6">Dukungan</h3>
               <ul className="space-y-3">
                 {footerLinks.support.map((link) => (
                   <li key={link.name}>
@@ -174,7 +174,7 @@ const Footer = () => {
 
             {/* Categories */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">Categories</h3>
+              <h3 className="text-lg font-semibold mb-6">Kategori</h3>
               <ul className="space-y-3">
                 {footerLinks.categories.map((link) => (
                   <li key={link.name}>
