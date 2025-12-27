@@ -5,6 +5,10 @@ import ProductImage from './ProductImage';
 const ProductImageCarousel = ({ images, productName }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Debug logging
+  console.log('ProductImageCarousel - images:', images);
+  console.log('ProductImageCarousel - images length:', images?.length);
+
   const nextImage = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
   };

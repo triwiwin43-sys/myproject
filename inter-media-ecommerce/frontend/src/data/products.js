@@ -16,7 +16,11 @@ export const PRODUCTS_DATA = [
     seller: { name: 'Inter Medi-A Store', rating: 4.8, location: 'Jakarta' },
     features: ['Kecepatan 38 ppm', 'Resolusi 4800x600 dpi', 'Konektivitas USB & Ethernet'],
     createdAt: '2024-12-20',
-    images: ['https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=400&fit=crop']
+    images: [
+      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=400&fit=crop'
+    ]
   },
   {
     id: 2,
@@ -51,7 +55,12 @@ export const PRODUCTS_DATA = [
     seller: { name: 'Inter Medi-A Store', rating: 4.8, location: 'Jakarta' },
     features: ['Intel Core i5-12400', '16GB DDR4 RAM', '512GB NVMe SSD', 'GTX 1650'],
     createdAt: '2024-12-22',
-    images: ['https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=400&fit=crop']
+    images: [
+      'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&h=400&fit=crop'
+    ]
   },
   {
     id: 7,
@@ -87,7 +96,11 @@ export const PRODUCTS_DATA = [
     seller: { name: 'Inter Medi-A Store', rating: 4.8, location: 'Jakarta' },
     features: ['Intel Core i5', '8GB RAM', '512GB SSD', 'Windows 11'],
     createdAt: '2024-12-10',
-    images: ['https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop']
+    images: [
+      'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop'
+    ]
   },
   {
     id: 10,
@@ -123,7 +136,10 @@ export const PRODUCTS_DATA = [
     seller: { name: 'Inter Medi-A Store', rating: 4.8, location: 'Jakarta' },
     features: ['Ergonomic Design', 'Multi-device', '70-day Battery'],
     createdAt: '2024-12-20',
-    images: ['https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop']
+    images: [
+      'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400&h=400&fit=crop'
+    ]
   },
 
   // SERVICES
@@ -142,6 +158,31 @@ export const PRODUCTS_DATA = [
     features: ['Diagnosa Gratis', 'Garansi 30 Hari', 'Teknisi Berpengalaman'],
     createdAt: '2024-12-15',
     images: ['https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop']
+  },
+  
+  // SAMPLE PRODUCT WITH MULTIPLE IMAGES
+  {
+    id: 16,
+    name: 'MacBook Pro 14" M3',
+    description: 'Laptop premium dengan chip M3 untuk performa maksimal',
+    price: 32000000,
+    originalPrice: 35000000,
+    category: 'laptops',
+    brand: 'Apple',
+    condition: 'new',
+    rating: 4.9,
+    reviewCount: 89,
+    stock: 3,
+    seller: { name: 'Inter Medi-A Store', rating: 4.8, location: 'Jakarta' },
+    features: ['Apple M3 Chip', '16GB Unified Memory', '512GB SSD', 'Liquid Retina XDR Display'],
+    createdAt: '2024-12-25',
+    images: [
+      'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop'
+    ]
   }
 ];
 
