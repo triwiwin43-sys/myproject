@@ -1,9 +1,9 @@
-# 🚀 Vercel Deployment Guide
+# 🚀 Inter Medi-A Store - Vercel Deployment
 
 ## Quick Deploy to Vercel
 
 ### Option 1: One-Click Deploy
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/triwiwin43-sys/myproject&project-name=inter-media-ecommerce&repository-name=inter-media-ecommerce)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/triwiwin43-sys/myproject&project-name=intermedia-store&repository-name=intermedia-store)
 
 ### Option 2: Manual Deployment
 
@@ -17,22 +17,25 @@
    - Go to [vercel.com](https://vercel.com)
    - Click "New Project"
    - Import from GitHub: `triwiwin43-sys/myproject`
+   - **Project Name**: `intermedia-store`
    - Set root directory to: `inter-media-ecommerce`
    - Deploy!
 
 ## 🔗 Live Demo Links
 
 ### Current Deployment
-- **Live Site**: [https://myproject-triwiwin43-sys.vercel.app](https://myproject-triwiwin43-sys.vercel.app)
+- **Live Site**: [https://intermedia-store.vercel.app](https://intermedia-store.vercel.app)
+- **Alternative**: [https://intermedia-store-triwiwin43-sys.vercel.app](https://intermedia-store-triwiwin43-sys.vercel.app)
 - **GitHub Repo**: [https://github.com/triwiwin43-sys/myproject](https://github.com/triwiwin43-sys/myproject)
 
-### Alternative Vercel URLs
-- **Auto-generated**: `https://myproject-git-main-triwiwin43-sys.vercel.app`
-- **Branch-specific**: `https://myproject-ada55548-triwiwin43-sys.vercel.app`
+### Auto-Generated URLs
+- **Git Main**: `https://intermedia-store-git-main-triwiwin43-sys.vercel.app`
+- **Latest**: `https://intermedia-store-190c499e-triwiwin43-sys.vercel.app`
 
 ## ⚙️ Configuration
 
 The project is configured with:
+- ✅ **Project Name**: intermedia-store
 - ✅ **Framework**: Vite + React
 - ✅ **Build Command**: `cd frontend && npm ci && npm run build`
 - ✅ **Output Directory**: `frontend/dist`
