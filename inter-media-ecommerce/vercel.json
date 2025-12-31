@@ -1,18 +1,24 @@
 {
-  "functions": {
-    "frontend/dist/**": {
-      "headers": {
-        "cache-control": "s-maxage=0"
-      }
-    }
-  },
+  "version": 2,
+  "buildCommand": "cd frontend && npm ci && npm run build",
+  "outputDirectory": "frontend/dist",
+  "installCommand": "cd frontend && npm ci",
+  "framework": "vite",
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
-  "buildCommand": "cd frontend && rm -rf node_modules/.cache && rm -rf dist && npm ci && npm run build",
-  "outputDirectory": "frontend/dist",
-  "version": "2025-12-27-09-53-NO-CACHE"
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
 }
