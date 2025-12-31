@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FiStar, FiSearch, FiEye, FiTrash2, FiCheck, FiX, FiMessageSquare } from 'react-icons/fi';
 import toast from 'react-hot-toast';
+import BackButton from '../../components/BackButton';
 
 const AdminReviews = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -59,19 +60,19 @@ const AdminReviews = () => {
   ]);
 
   const handleApprove = (reviewId) => {
-    if (confirm('Approve this review?')) {
+    if (confirm('Setujui ulasan ini?')) {
       toast.success('Review approved successfully');
     }
   };
 
   const handleReject = (reviewId) => {
-    if (confirm('Reject this review?')) {
+    if (confirm('Tolak ulasan ini?')) {
       toast.success('Review rejected successfully');
     }
   };
 
   const handleDelete = (reviewId) => {
-    if (confirm('Delete this review permanently?')) {
+    if (confirm('Hapus ulasan ini secara permanen?')) {
       toast.success('Review deleted successfully');
     }
   };
@@ -120,6 +121,10 @@ const AdminReviews = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4">
+        <div className="mb-6">
+          <BackButton to="/admin/dashboard" />
+        </div>
+        
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-gray-900">Review Management</h1>
           <p className="text-gray-600">Moderate customer reviews and comments</p>

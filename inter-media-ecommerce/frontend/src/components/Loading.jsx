@@ -43,7 +43,7 @@ const LoadingPage = () => {
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
         <LoadingSpinner size="xl" className="mx-auto mb-4" />
-        <p className="text-gray-600">Loading...</p>
+        <p className="text-gray-600">Memuat...</p>
       </div>
     </div>
   );
@@ -55,7 +55,7 @@ const LoadingButton = ({ children, isLoading, ...props }) => {
       {isLoading ? (
         <div className="flex items-center justify-center">
           <LoadingSpinner size="sm" className="mr-2" />
-          Loading...
+          Memuat...
         </div>
       ) : (
         children

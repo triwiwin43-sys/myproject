@@ -20,15 +20,15 @@ import {
 
 const SellerDashboard = () => {
   const stats = [
-    { icon: FiUsers, label: 'Total Customers', value: '1,234', change: '+12%', color: 'blue' },
-    { icon: FiPackage, label: 'Total Products', value: '856', change: '+8%', color: 'green' },
-    { icon: FiDollarSign, label: 'Revenue', value: 'Rp 125M', change: '+15%', color: 'yellow' },
-    { icon: FiActivity, label: 'Active Orders', value: '89', change: '+5%', color: 'purple' }
+    { icon: FiUsers, label: 'Total Pelanggan', value: '1,234', change: '+12%', color: 'blue' },
+    { icon: FiPackage, label: 'Total Produk', value: '856', change: '+8%', color: 'green' },
+    { icon: FiDollarSign, label: 'Pendapatan', value: 'Rp 125M', change: '+15%', color: 'yellow' },
+    { icon: FiActivity, label: 'Pesanan Aktif', value: '89', change: '+5%', color: 'purple' }
   ];
 
   const quickActions = [
     { icon: FiActivity, title: 'Order Analytics', description: 'Monitor order trends', link: '/seller/reports', color: 'blue' },
-    { icon: FiPlus, title: 'Add Product', description: 'Add new products', link: '/seller/products/add', color: 'green' },
+    { icon: FiPlus, title: 'Tambah Produk', description: 'Tambahkan produk baru', link: '/seller/products/add', color: 'green' },
     { icon: FiShoppingCart, title: 'Manage Orders', description: 'Process customer orders', link: '/seller/orders', color: 'yellow' },
     { icon: FiSettings, title: 'Store Settings', description: 'Configure your store', link: '/seller/settings', color: 'purple' }
   ];
@@ -42,7 +42,7 @@ const SellerDashboard = () => {
 
   const orderStats = [
     { label: 'Pending Orders', value: 12, icon: FiClock, color: 'yellow' },
-    { label: 'Processing', value: 8, icon: FiActivity, color: 'blue' },
+    { label: 'Diproses', value: 8, icon: FiActivity, color: 'blue' },
     { label: 'Shipped', value: 15, icon: FiTrendingUp, color: 'green' },
     { label: 'Completed', value: 45, icon: FiCheckCircle, color: 'purple' }
   ];
@@ -70,7 +70,7 @@ const SellerDashboard = () => {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Seller Dashboard</h1>
+        <h1 className="text-3xl font-bold text-gray-900">Dasbor Penjual</h1>
         <p className="text-gray-600">Monitor dan kelola seluruh sistem toko Anda</p>
       </div>
 
@@ -124,7 +124,7 @@ const SellerDashboard = () => {
       {/* Quick Actions */}
       <div>
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Quick Actions</h2>
+          <h2 className="text-xl font-semibold text-gray-900">Aksi Cepat</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {quickActions.map((action, index) => {
@@ -152,12 +152,12 @@ const SellerDashboard = () => {
       {/* Recent Activities */}
       <div>
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Recent Activities</h2>
+          <h2 className="text-xl font-semibold text-gray-900">Aktivitas Terbaru</h2>
           <Link 
             to="/seller/reports" 
             className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center group"
           >
-            View All Activities
+            Lihat Semua Aktivitas
             <FiArrowUpRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

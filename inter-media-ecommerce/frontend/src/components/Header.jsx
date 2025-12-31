@@ -63,7 +63,7 @@ const Header = () => {
               <span>✉️ medyyes.krps@gmail.com</span>
             </div>
             <div className="flex items-center space-x-4">
-              <span>Free shipping on orders over Rp 500,000</span>
+              <span>Gratis ongkir untuk pembelian di atas Rp 500.000</span>
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ const Header = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search for printers, computers, office equipment..."
+                  placeholder="Cari printer, komputer, peralatan kantor..."
                   className="w-full pl-4 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
                 <button
@@ -167,7 +167,7 @@ const Header = () => {
                         'bg-green-100 text-green-800'
                       }`}>
                         {user?.role === 'admin' ? 'Admin' :
-                         user?.role === 'seller' ? 'Seller' : 'Customer'}
+                         user?.role === 'seller' ? 'Penjual' : 'Pelanggan'}
                       </span>
                     </div>
                     <Link
@@ -175,14 +175,14 @@ const Header = () => {
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
-                      My Profile
+                      Profil Saya
                     </Link>
                     <Link
                       to="/orders"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setIsUserMenuOpen(false)}
                     >
-                      My Orders
+                      Pesanan Saya
                     </Link>
                     {user?.role === 'seller' && (
                       <Link
@@ -190,7 +190,7 @@ const Header = () => {
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        Seller Dashboard
+                        Dasbor Penjual
                       </Link>
                     )}
                     {user?.role === 'admin' && (
@@ -199,7 +199,7 @@ const Header = () => {
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                         onClick={() => setIsUserMenuOpen(false)}
                       >
-                        Admin Dashboard
+                        Dasbor Admin
                       </Link>
                     )}
                     <hr className="my-2" />
@@ -207,7 +207,7 @@ const Header = () => {
                       onClick={handleLogout}
                       className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-50"
                     >
-                      Logout
+                      Keluar
                     </button>
                   </div>
                 )}
@@ -218,13 +218,13 @@ const Header = () => {
                   to="/login"
                   className="btn btn-secondary btn-sm"
                 >
-                  Login
+                  Masuk
                 </Link>
                 <Link
                   to="/register"
                   className="btn btn-primary btn-sm"
                 >
-                  Register
+                  Daftar
                 </Link>
               </div>
             )}

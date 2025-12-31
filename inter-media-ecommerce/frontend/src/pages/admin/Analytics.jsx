@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FiBarChart, FiTrendingUp, FiUsers, FiShoppingCart, FiDollarSign, FiPackage, FiEye, FiCalendar } from 'react-icons/fi';
+import BackButton from '../../components/BackButton';
 
 const AdminAnalytics = () => {
   const [timeRange, setTimeRange] = useState('30days');
@@ -45,10 +46,14 @@ const AdminAnalytics = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4">
+        <div className="mb-6">
+          <BackButton to="/admin/dashboard" />
+        </div>
+        
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Analytics Dashboard</h1>
-            <p className="text-gray-600">Business insights and performance metrics</p>
+        <h1 className="text-2xl font-bold text-gray-900">Dasbor Analitik</h1>
+            <p className="text-gray-600">Wawasan bisnis dan metrik performa</p>
           </div>
           <select
             value={timeRange}

@@ -182,7 +182,7 @@ const Profile = () => {
       { id: 'seller', name: 'Info Seller', icon: FiShoppingBag }
     ] : []),
     ...(user?.role === 'admin' ? [
-      { id: 'admin', name: 'Admin Settings', icon: FiSettings }
+      { id: 'admin', name: 'Pengaturan Admin', icon: FiSettings }
     ] : []),
     { id: 'security', name: 'Keamanan', icon: FiShield }
   ];
@@ -765,7 +765,7 @@ const Profile = () => {
                             Backup Database
                           </button>
                           <button className="btn btn-outline btn-sm text-red-600 border-red-600 hover:bg-red-50">
-                            System Maintenance Mode
+                            Mode Pemeliharaan Sistem
                           </button>
                         </div>
                       </div>

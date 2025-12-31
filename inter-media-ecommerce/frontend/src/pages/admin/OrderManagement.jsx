@@ -203,12 +203,12 @@ const OrderManagement = () => {
               className="input w-full sm:w-auto"
             >
               <option value="all">Semua Status</option>
-              <option value="pending">Pending</option>
-              <option value="confirmed">Confirmed</option>
-              <option value="processing">Processing</option>
-              <option value="shipped">Shipped</option>
-              <option value="delivered">Delivered</option>
-              <option value="cancelled">Cancelled</option>
+              <option value="pending">Menunggu</option>
+              <option value="confirmed">Dikonfirmasi</option>
+              <option value="processing">Diproses</option>
+              <option value="shipped">Dikirim</option>
+              <option value="delivered">Sampai</option>
+              <option value="cancelled">Dibatalkan</option>
             </select>
 
             {/* Payment Status Filter */}
@@ -316,7 +316,7 @@ const OrderManagement = () => {
                       >
                         <option value="pending">Pending</option>
                         <option value="confirmed">Confirmed</option>
-                        <option value="processing">Processing</option>
+                        <option value="processing">Diproses</option>
                         <option value="shipped">Shipped</option>
                         <option value="delivered">Delivered</option>
                         <option value="cancelled">Cancelled</option>

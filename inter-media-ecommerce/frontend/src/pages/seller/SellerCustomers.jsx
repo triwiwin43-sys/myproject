@@ -96,8 +96,8 @@ const SellerCustomers = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Customer Management</h1>
-          <p className="text-gray-600">Manage customers and analyze their behavior</p>
+        <h1 className="text-2xl font-bold text-gray-900">Manajemen Pelanggan</h1>
+          <p className="text-gray-600">Kelola pelanggan dan analisis perilaku mereka</p>
         </div>
         <div className="w-64">
           <input

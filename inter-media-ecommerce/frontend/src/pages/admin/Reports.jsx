@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FiFileText, FiDownload, FiCalendar, FiTrendingUp, FiDollarSign, FiUsers, FiPackage } from 'react-icons/fi';
 import toast from 'react-hot-toast';
+import BackButton from '../../components/BackButton';
 
 const AdminReports = () => {
   const [dateRange, setDateRange] = useState('last30days');
@@ -35,9 +36,13 @@ const AdminReports = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4">
+        <div className="mb-6">
+          <BackButton to="/admin/dashboard" />
+        </div>
+        
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-gray-900">Reports & Analytics</h1>
-          <p className="text-gray-600">Generate and download business reports</p>
+          <p className="text-gray-600">Buat dan unduh laporan bisnis</p>
         </div>
 
         {/* Quick Stats */}

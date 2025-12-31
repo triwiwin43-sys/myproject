@@ -12,6 +12,7 @@ import {
   FiDollarSign
 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import BackButton from '../../components/BackButton';
 
 const AdminOrders = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -68,8 +69,8 @@ const AdminOrders = () => {
   const getStatusBadge = (status) => {
     const badges = {
       pending: { color: 'yellow', icon: FiClock, text: 'Pending' },
-      processing: { color: 'blue', icon: FiPackage, text: 'Processing' },
-      shipped: { color: 'purple', icon: FiTruck, text: 'Shipped' },
+      processing: { color: 'blue', icon: FiPackage, text: 'Diproses' },
+      shipped: { color: 'purple', icon: FiTruck, text: 'Dikirim' },
       completed: { color: 'green', icon: FiCheck, text: 'Completed' },
       cancelled: { color: 'red', icon: FiX, text: 'Cancelled' }
     };
@@ -119,6 +120,10 @@ const AdminOrders = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4">
+        <div className="mb-6">
+          <BackButton to="/admin/dashboard" />
+        </div>
+        
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-gray-900">Order Management</h1>
           <p className="text-gray-600">Monitor dan kelola semua pesanan</p>
@@ -150,7 +155,7 @@ const AdminOrders = () => {
             <div className="flex items-center">
               <FiTruck className="w-8 h-8 text-blue-600 mr-3" />
               <div>
-                <p className="text-sm text-gray-600">Processing</p>
+                <p className="text-sm text-gray-600">Diproses</p>
                 <p className="text-xl font-bold">{stats.processing}</p>
               </div>
             </div>

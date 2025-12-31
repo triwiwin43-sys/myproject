@@ -57,7 +57,7 @@ const Login = () => {
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email Address
+                Alamat Email
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -65,15 +65,15 @@ const Login = () => {
                 </div>
                 <input
                   {...register('email', {
-                    required: 'Email is required',
+                    required: 'Email wajib diisi',
                     pattern: {
                       value: /^\S+@\S+$/i,
-                      message: 'Invalid email address'
+                      message: 'Format email tidak valid'
                     }
                   })}
                   type="email"
                   className="input pl-10"
-                  placeholder="Enter your email"
+                  placeholder="Masukkan email Anda"
                 />
               </div>
               {errors.email && (
@@ -84,7 +84,7 @@ const Login = () => {
             {/* Password */}
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                Password
+                Kata Sandi
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -92,15 +92,15 @@ const Login = () => {
                 </div>
                 <input
                   {...register('password', {
-                    required: 'Password is required',
+                    required: 'Kata sandi wajib diisi',
                     minLength: {
                       value: 6,
-                      message: 'Password must be at least 6 characters'
+                      message: 'Kata sandi minimal 6 karakter'
                     }
                   })}
                   type={showPassword ? 'text' : 'password'}
                   className="input pl-10 pr-10"
-                  placeholder="Enter your password"
+                  placeholder="Masukkan kata sandi Anda"
                 />
                 <button
                   type="button"
@@ -130,7 +130,7 @@ const Login = () => {
                 className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
               />
               <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
-                Remember me
+                Ingat saya
               </label>
             </div>
 
@@ -138,7 +138,7 @@ const Login = () => {
               to="/forgot-password"
               className="text-sm text-primary-600 hover:text-primary-500"
             >
-              Forgot password?
+              Lupa kata sandi?
             </Link>
           </div>
 
@@ -148,7 +148,7 @@ const Login = () => {
             isLoading={isLoading}
             className="w-full btn btn-primary btn-lg"
           >
-            Sign In
+            Masuk
           </LoadingButton>
 
           {/* Divider */}
@@ -157,7 +157,7 @@ const Login = () => {
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gray-50 text-gray-500">Quick Login (Demo)</span>
+              <span className="px-2 bg-gray-50 text-gray-500">Login Cepat (Demo)</span>
             </div>
           </div>
 
@@ -189,12 +189,12 @@ const Login = () => {
           {/* Sign up link */}
           <div className="text-center">
             <p className="text-sm text-gray-600">
-              Don't have an account?{' '}
+              Belum punya akun?{' '}
               <Link
                 to="/register"
                 className="font-medium text-primary-600 hover:text-primary-500"
               >
-                Sign up now
+                Daftar sekarang
               </Link>
             </p>
           </div>

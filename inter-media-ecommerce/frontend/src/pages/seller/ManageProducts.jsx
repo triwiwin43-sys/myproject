@@ -41,7 +41,7 @@ const ManageProducts = () => {
   };
 
   const handleDeleteProduct = (productId) => {
-    if (window.confirm('Are you sure you want to delete this product?')) {
+    if (window.confirm('Yakin ingin menghapus produk ini?')) {
       deleteProduct(productId);
     }
   };
@@ -68,7 +68,7 @@ const ManageProducts = () => {
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center"
           >
             <FiPlus className="w-4 h-4 mr-2" />
-            Add Product
+            Tambah Produk
           </Link>
         </div>
       </div>
@@ -188,14 +188,14 @@ const ManageProducts = () => {
       {filteredProducts.length === 0 && (
         <div className="text-center py-12">
           <FiPackage className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 mb-2">No products found</h3>
-          <p className="text-gray-500 mb-4">Get started by adding your first product.</p>
+          <h3 className="text-lg font-medium text-gray-900 mb-2">Tidak ada produk ditemukan</h3>
+          <p className="text-gray-500 mb-4">Mulai dengan menambahkan produk pertama Anda.</p>
           <Link
             to="/seller/products/add"
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 inline-flex items-center"
           >
             <FiPlus className="w-4 h-4 mr-2" />
-            Add Product
+            Tambah Produk
           </Link>
         </div>
       )}

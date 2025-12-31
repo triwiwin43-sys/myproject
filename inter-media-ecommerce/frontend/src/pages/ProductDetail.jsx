@@ -92,7 +92,7 @@ const ProductDetail = () => {
             'Brand': product.brand || 'N/A',
             'Condition': product.condition || 'New',
             'Warranty': '1 Year',
-            'Stock': `${product.stock} units available`
+            'Stok': `${product.stock} unit tersedia`
           };
       }
     };
@@ -113,7 +113,7 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading product...</p>
+          <p className="text-gray-600">Memuat produk...</p>
         </div>
       </div>
     );
@@ -123,10 +123,10 @@ const ProductDetail = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h2>
-          <p className="text-gray-600 mb-6">The product you're looking for doesn't exist.</p>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Produk Tidak Ditemukan</h2>
+          <p className="text-gray-600 mb-6">Produk yang Anda cari tidak ada.</p>
           <Link to="/products" className="btn btn-primary">
-            Back to Products
+            Kembali ke Produk
           </Link>
         </div>
       </div>
@@ -138,7 +138,7 @@ const ProductDetail = () => {
 
   const handleAddToCart = () => {
     if (!isAuthenticated) {
-      toast.error('Please login to add items to cart');
+      toast.error('Silakan masuk untuk menambahkan item ke keranjang');
       return;
     }
     
@@ -150,21 +150,21 @@ const ProductDetail = () => {
 
   const handleWishlistToggle = () => {
     if (!isAuthenticated) {
-      toast.error('Please login to use wishlist');
+      toast.error('Silakan masuk untuk menggunakan wishlist');
       return;
     }
     
     if (!isCustomer) {
-      toast.error('Wishlist only available for customers');
+      toast.error('Wishlist hanya tersedia untuk pelanggan');
       return;
     }
     
     if (inWishlist) {
       removeFromWishlist(product.id);
-      toast.success('Removed from wishlist');
+      toast.success('Dihapus dari wishlist');
     } else {
       addToWishlist(product);
-      toast.success('Added to wishlist');
+      toast.success('Ditambahkan ke wishlist');
     }
   };
 
@@ -176,7 +176,7 @@ const ProductDetail = () => {
           className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-4 sm:mb-6 touch-manipulation"
         >
           <FiArrowLeft className="w-4 h-4 mr-2" />
-          Back to Products
+          Kembali ke Produk
         </Link>
 
         <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
@@ -250,7 +250,7 @@ const ProductDetail = () => {
                     className="btn btn-primary flex-1 py-3 text-sm sm:text-base touch-manipulation"
                   >
                     <FiShoppingCart className="w-4 h-4 mr-2" />
-                    Add to Cart
+                    Tambah ke Keranjang
                   </button>
                   
                   {isAuthenticated && isCustomer && (
@@ -281,9 +281,9 @@ const ProductDetail = () => {
               <div className="flex items-center text-xs sm:text-sm text-gray-600 mb-4">
                 <FiTruck className="w-4 h-4 mr-2 flex-shrink-0" />
                 {product.stock > 0 ? (
-                  <span>{product.stock} items in stock</span>
+                  <span>{product.stock} item tersedia</span>
                 ) : (
-                  <span className="text-red-600">Out of stock</span>
+                  <span className="text-red-600">Stok habis</span>
                 )}
               </div>
             </div>

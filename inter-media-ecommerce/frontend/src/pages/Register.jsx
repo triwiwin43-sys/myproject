@@ -40,9 +40,9 @@ const Register = () => {
             <span className="text-2xl font-bold text-gradient">Inter Medi-A</span>
           </Link>
           
-          <h2 className="text-3xl font-bold text-gray-900">Create your account</h2>
+          <h2 className="text-3xl font-bold text-gray-900">Buat Akun Anda</h2>
           <p className="mt-2 text-gray-600">
-            Join thousands of satisfied customers
+            Bergabung dengan ribuan pelanggan yang puas
           </p>
         </div>
 
@@ -52,7 +52,7 @@ const Register = () => {
             {/* Name */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Full Name
+                Nama Lengkap
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -60,19 +60,19 @@ const Register = () => {
                 </div>
                 <input
                   {...register('name', {
-                    required: 'Name is required',
+                    required: 'Nama wajib diisi',
                     minLength: {
                       value: 2,
-                      message: 'Name must be at least 2 characters'
+                      message: 'Nama minimal 2 karakter'
                     },
                     maxLength: {
                       value: 50,
-                      message: 'Name cannot exceed 50 characters'
+                      message: 'Nama maksimal 50 karakter'
                     }
                   })}
                   type="text"
                   className="input pl-10"
-                  placeholder="Enter your full name"
+                  placeholder="Masukkan nama lengkap Anda"
                 />
               </div>
               {errors.name && (
@@ -83,7 +83,7 @@ const Register = () => {
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email Address
+                Alamat Email
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -91,15 +91,15 @@ const Register = () => {
                 </div>
                 <input
                   {...register('email', {
-                    required: 'Email is required',
+                    required: 'Email wajib diisi',
                     pattern: {
                       value: /^\S+@\S+$/i,
-                      message: 'Invalid email address'
+                      message: 'Format email tidak valid'
                     }
                   })}
                   type="email"
                   className="input pl-10"
-                  placeholder="Enter your email"
+                  placeholder="Masukkan email Anda"
                 />
               </div>
               {errors.email && (
@@ -110,7 +110,7 @@ const Register = () => {
             {/* Phone */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                Phone Number
+                Nomor Telepon
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -118,15 +118,15 @@ const Register = () => {
                 </div>
                 <input
                   {...register('phone', {
-                    required: 'Phone number is required',
+                    required: 'Nomor telepon wajib diisi',
                     pattern: {
                       value: /^[0-9]{10,15}$/,
-                      message: 'Invalid phone number (10-15 digits)'
+                      message: 'Nomor telepon tidak valid (10-15 digit)'
                     }
                   })}
                   type="tel"
                   className="input pl-10"
-                  placeholder="Enter your phone number"
+                  placeholder="Masukkan nomor telepon Anda"
                 />
               </div>
               {errors.phone && (
@@ -137,15 +137,15 @@ const Register = () => {
             {/* Role */}
             <div>
               <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">
-                Account Type
+                Jenis Akun
               </label>
               <select
-                {...register('role', { required: 'Please select account type' })}
+                {...register('role', { required: 'Pilih jenis akun' })}
                 className="input"
               >
-                <option value="">Select account type</option>
-                <option value="customer">Customer</option>
-                <option value="seller">Seller</option>
+                <option value="">Pilih jenis akun</option>
+                <option value="customer">Pelanggan</option>
+                <option value="seller">Penjual</option>
               </select>
               {errors.role && (
                 <p className="mt-1 text-sm text-red-600">{errors.role.message}</p>
@@ -155,7 +155,7 @@ const Register = () => {
             {/* Password */}
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-                Password
+                Kata Sandi
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -163,15 +163,15 @@ const Register = () => {
                 </div>
                 <input
                   {...register('password', {
-                    required: 'Password is required',
+                    required: 'Kata sandi wajib diisi',
                     minLength: {
                       value: 6,
-                      message: 'Password must be at least 6 characters'
+                      message: 'Kata sandi minimal 6 karakter'
                     }
                   })}
                   type={showPassword ? 'text' : 'password'}
                   className="input pl-10 pr-10"
-                  placeholder="Create a password"
+                  placeholder="Buat kata sandi"
                 />
                 <button
                   type="button"
@@ -193,7 +193,7 @@ const Register = () => {
             {/* Confirm Password */}
             <div>
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
-                Confirm Password
+                Konfirmasi Kata Sandi
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -201,13 +201,13 @@ const Register = () => {
                 </div>
                 <input
                   {...register('confirmPassword', {
-                    required: 'Please confirm your password',
+                    required: 'Konfirmasi kata sandi wajib diisi',
                     validate: value =>
-                      value === password || 'Passwords do not match'
+                      value === password || 'Kata sandi tidak cocok'
                   })}
                   type={showConfirmPassword ? 'text' : 'password'}
                   className="input pl-10 pr-10"
-                  placeholder="Confirm your password"
+                  placeholder="Konfirmasi kata sandi Anda"
                 />
                 <button
                   type="button"
@@ -231,20 +231,20 @@ const Register = () => {
           <div className="flex items-center">
             <input
               {...register('acceptTerms', {
-                required: 'You must accept the terms and conditions'
+                required: 'Anda harus menyetujui syarat dan ketentuan'
               })}
               id="accept-terms"
               type="checkbox"
               className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
             />
             <label htmlFor="accept-terms" className="ml-2 block text-sm text-gray-700">
-              I agree to the{' '}
+              Saya setuju dengan{' '}
               <Link to="/terms" className="text-primary-600 hover:text-primary-500">
-                Terms and Conditions
+                Syarat dan Ketentuan
               </Link>{' '}
-              and{' '}
+              dan{' '}
               <Link to="/privacy" className="text-primary-600 hover:text-primary-500">
-                Privacy Policy
+                Kebijakan Privasi
               </Link>
             </label>
           </div>
@@ -258,7 +258,7 @@ const Register = () => {
             isLoading={isLoading}
             className="w-full btn btn-primary btn-lg"
           >
-            Create Account
+            Buat Akun
           </LoadingButton>
 
           {/* Divider */}
@@ -267,7 +267,7 @@ const Register = () => {
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gray-50 text-gray-500">Or continue with</span>
+              <span className="px-2 bg-gray-50 text-gray-500">Atau lanjutkan dengan</span>
             </div>
           </div>
 
@@ -312,12 +312,12 @@ const Register = () => {
           {/* Sign in link */}
           <div className="text-center">
             <p className="text-sm text-gray-600">
-              Already have an account?{' '}
+              Sudah punya akun?{' '}
               <Link
                 to="/login"
                 className="font-medium text-primary-600 hover:text-primary-500"
               >
-                Sign in here
+                Masuk di sini
               </Link>
             </p>
           </div>

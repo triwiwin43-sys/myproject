@@ -23,7 +23,7 @@ const ProductImageCarousel = ({ images, productName }) => {
   if (!imageArray || imageArray.length === 0) {
     return (
       <div className="w-full h-64 sm:h-80 lg:h-96 bg-gray-200 rounded-lg flex items-center justify-center">
-        <span className="text-gray-500 text-sm sm:text-base">No image available</span>
+        <span className="text-gray-500 text-sm sm:text-base">Tidak ada gambar tersedia</span>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FiShield, FiLock, FiEye, FiAlertTriangle, FiCheck } from 'react-icons/fi';
 import toast from 'react-hot-toast';
+import BackButton from '../../components/BackButton';
 
 const AdminSecurity = () => {
   const [settings, setSettings] = useState({
@@ -13,7 +14,7 @@ const AdminSecurity = () => {
   });
 
   const handleSave = () => {
-    toast.success('Security settings updated');
+    toast.success('Pengaturan keamanan diperbarui');
   };
 
   const securityLogs = [
@@ -25,6 +26,10 @@ const AdminSecurity = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-6xl mx-auto px-4">
+        <div className="mb-6">
+          <BackButton to="/admin/dashboard" />
+        </div>
+        
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-gray-900">Security Settings</h1>
           <p className="text-gray-600">Manage system security and access controls</p>
@@ -77,7 +82,7 @@ const AdminSecurity = () => {
               </div>
 
               <button onClick={handleSave} className="btn btn-primary w-full">
-                Save Security Settings
+                Simpan Pengaturan Keamanan
               </button>
             </div>
           </div>

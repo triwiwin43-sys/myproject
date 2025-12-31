@@ -35,13 +35,13 @@ const Home = () => {
   const features = [
     {
       icon: FiTruck,
-      title: 'Free Shipping',
+      title: 'Gratis Ongkir',
       description: 'Free delivery on orders over Rp 500,000'
     },
     {
       icon: FiShield,
       title: 'Secure Payment',
-      description: '100% secure payment processing'
+      description: 'Proses pembayaran 100% aman'
     },
     {
       icon: FiHeadphones,
@@ -87,7 +87,7 @@ const Home = () => {
                   to="/products"
                   className="btn btn-lg bg-white text-primary-700 hover:bg-gray-100 font-semibold"
                 >
-                  Shop Now
+                  Belanja Sekarang
                   <FiArrowRight className="ml-2 w-5 h-5" />
                 </Link>
                 <Link
@@ -182,7 +182,7 @@ const Home = () => {
               to="/categories"
               className="btn btn-outline btn-lg"
             >
-              View All Categories
+              Lihat Semua Kategori
               <FiArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </div>
@@ -215,7 +215,7 @@ const Home = () => {
               to="/products"
               className="btn btn-primary btn-lg"
             >
-              View All Products
+              Lihat Semua Produk
               <FiArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </div>

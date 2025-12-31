@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FiUsers, FiSearch, FiEdit, FiTrash2, FiPlus, FiShield, FiKey } from 'react-icons/fi';
 import toast from 'react-hot-toast';
+import BackButton from '../../components/BackButton';
 
 const AdminUsers = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -31,8 +32,8 @@ const AdminUsers = () => {
   };
 
   const handleDelete = (userId) => {
-    if (confirm('Delete this user?')) {
-      toast.success('User deleted successfully');
+    if (confirm('Hapus pengguna ini?')) {
+      toast.success('Pengguna berhasil dihapus');
     }
   };
 
@@ -58,7 +59,7 @@ const AdminUsers = () => {
   const handleAddUser = (e) => {
     e.preventDefault();
     if (!newUser.name || !newUser.email || !newUser.password) {
-      toast.error('Please fill all required fields');
+      toast.error('Mohon lengkapi semua field yang wajib diisi');
       return;
     }
     
@@ -120,6 +121,10 @@ const AdminUsers = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4">
+        <div className="mb-6">
+          <BackButton to="/admin/dashboard" />
+        </div>
+        
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">User Management</h1>

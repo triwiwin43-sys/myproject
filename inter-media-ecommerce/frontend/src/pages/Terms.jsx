@@ -7,7 +7,7 @@ const Terms = () => {
           <div className="space-y-6">
             <div>
               <h2 className="text-xl font-semibold mb-3">Penerimaan Syarat</h2>
-              <p className="text-gray-600">Dengan menggunakan website dan layanan kami, Anda menyetujui syarat dan ketentuan ini.</p>
+              <p className="text-gray-600">Dengan menggunakan situs web dan layanan kami, Anda menyetujui syarat dan ketentuan ini.</p>
             </div>
             <div>
               <h2 className="text-xl font-semibold mb-3">Tanggung Jawab Pengguna</h2>

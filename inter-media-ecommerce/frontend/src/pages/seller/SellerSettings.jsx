@@ -69,7 +69,7 @@ const SellerSettings = () => {
       }
 
       if (!file.type.startsWith('image/')) {
-        setSaveStatus({ type: 'error', message: 'Please select a valid image file' });
+        setSaveStatus({ type: 'error', message: 'Mohon pilih file gambar yang valid' });
         return;
       }
 
@@ -96,7 +96,7 @@ const SellerSettings = () => {
 
   const handleUpdatePassword = () => {
     if (!passwordData.currentPassword || !passwordData.newPassword || !passwordData.confirmPassword) {
-      setSaveStatus({ type: 'error', message: 'Please fill in all password fields' });
+      setSaveStatus({ type: 'error', message: 'Mohon isi semua field kata sandi' });
       return;
     }
 
@@ -144,8 +144,8 @@ const SellerSettings = () => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Store Settings</h1>
-        <p className="text-gray-600">Manage your store profile and account settings</p>
+        <h1 className="text-2xl font-bold text-gray-900">Pengaturan Toko</h1>
+        <p className="text-gray-600">Kelola profil toko dan pengaturan akun Anda</p>
       </div>
 
       {/* Status Messages */}
@@ -190,7 +190,7 @@ const SellerSettings = () => {
           <div className="space-y-6">
             {/* Store Logo */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">Store Logo</label>
+              <label className="block text-sm font-medium text-gray-700 mb-3">Logo Toko</label>
               <div className="flex items-center space-x-6">
                 <div className="w-24 h-24 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden">
                   {logoPreview ? (
@@ -214,7 +214,7 @@ const SellerSettings = () => {
                     }`}
                   >
                     <FiUpload className="w-4 h-4 mr-2" />
-                    {isUploading ? 'Uploading...' : 'Upload Logo'}
+                    {isUploading ? 'Mengupload...' : 'Upload Logo'}
                   </label>
                   <p className="text-xs text-gray-500 mt-1">Max 5MB, JPG/PNG only</p>
                 </div>
@@ -224,7 +224,7 @@ const SellerSettings = () => {
             {/* Store Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Store Name</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Nama Toko</label>
                 <input
                   type="text"
                   name="storeName"

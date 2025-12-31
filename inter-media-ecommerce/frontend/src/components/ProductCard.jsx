@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
     e.stopPropagation();
     
     if (!isAuthenticated) {
-      toast.error('Please login to add items to cart');
+      toast.error('Silakan masuk untuk menambahkan item ke keranjang');
       return;
     }
     
@@ -31,21 +31,21 @@ const ProductCard = ({ product }) => {
     e.stopPropagation();
     
     if (!isAuthenticated) {
-      toast.error('Please login to use wishlist');
+      toast.error('Silakan masuk untuk menggunakan wishlist');
       return;
     }
     
     if (!isCustomer) {
-      toast.error('Wishlist only available for customers');
+      toast.error('Wishlist hanya tersedia untuk pelanggan');
       return;
     }
     
     if (inWishlist) {
       removeFromWishlist(product.id);
-      toast.success('Removed from wishlist');
+      toast.success('Dihapus dari wishlist');
     } else {
       addToWishlist(product);
-      toast.success('Added to wishlist');
+      toast.success('Ditambahkan ke wishlist');
     }
   };
 
@@ -96,7 +96,7 @@ const ProductCard = ({ product }) => {
             )}
             {product.stock === 0 && (
               <span className="bg-gray-500 text-white text-xs font-semibold px-2 py-1 rounded">
-                Out of Stock
+                Stok Habis
               </span>
             )}
           </div>
@@ -133,7 +133,7 @@ const ProductCard = ({ product }) => {
               className="w-full btn btn-primary btn-sm disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <FiShoppingCart className="w-4 h-4 mr-2" />
-              {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+              {product.stock === 0 ? 'Stok Habis' : 'Tambah ke Keranjang'}
             </button>
           </div>
         </div>
@@ -183,7 +183,7 @@ const ProductCard = ({ product }) => {
             {/* Stock indicator */}
             <div className="text-right">
               <p className="text-xs text-gray-500">
-                {product.stock > 0 ? `${product.stock} left` : 'Out of stock'}
+                {product.stock > 0 ? `${product.stock} tersisa` : 'Stok habis'}
               </p>
             </div>
           </div>

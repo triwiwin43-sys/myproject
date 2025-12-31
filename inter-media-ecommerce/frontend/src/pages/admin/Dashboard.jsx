@@ -25,9 +25,9 @@ const AdminDashboard = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   
   const stats = [
-    { icon: FiUsers, label: 'Total Users', value: '1,234', change: '+12%', color: 'blue' },
-    { icon: FiPackage, label: 'Total Orders', value: '856', change: '+8%', color: 'green' },
-    { icon: FiDollarSign, label: 'Revenue', value: 'Rp 125M', change: '+15%', color: 'yellow' },
+    { icon: FiUsers, label: 'Total Pengguna', value: '1,234', change: '+12%', color: 'blue' },
+    { icon: FiPackage, label: 'Total Pesanan', value: '856', change: '+8%', color: 'green' },
+    { icon: FiDollarSign, label: 'Pendapatan', value: 'Rp 125M', change: '+15%', color: 'yellow' },
     { icon: FiActivity, label: 'Active Sessions', value: '89', change: '+5%', color: 'purple' }
   ];
 
@@ -145,7 +145,7 @@ const AdminDashboard = () => {
                     <FiMenu className="w-6 h-6" />
                   </button>
                   <div>
-                    <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+                    <h1 className="text-3xl font-bold text-gray-900">Dasbor Admin</h1>
                     <p className="text-gray-600">Monitor dan kelola seluruh sistem platform</p>
                   </div>
                 </div>
@@ -176,7 +176,7 @@ const AdminDashboard = () => {
 
         {/* Quick Actions */}
         <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-6">Quick Actions</h2>
+          <h2 className="text-lg font-semibold text-gray-900 mb-6">Aksi Cepat</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {quickActions.map((action, index) => {
               const IconComponent = action.icon;
@@ -202,7 +202,7 @@ const AdminDashboard = () => {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-semibold text-gray-900">Recent System Activity</h2>
             <Link to="/admin/logs" className="text-blue-600 hover:text-blue-700 text-sm">
-              View All Logs
+              Lihat Semua Log
             </Link>
           </div>
           
