@@ -14,6 +14,7 @@ import useAuthStore from '../context/authStore';
 import useCartStore from '../context/cartStore';
 import useWishlistStore from '../context/wishlistStore';
 import QuickTrackingModal from './QuickTrackingModal';
+import useResponsive from '../hooks/useResponsive';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,6 +26,7 @@ const Header = () => {
   const { user, isAuthenticated, logout } = useAuthStore();
   const { getCartItemCount } = useCartStore();
   const { getWishlistCount } = useWishlistStore();
+  const { isMobile, isTablet, isDesktop } = useResponsive();
   
   const cartItemCount = getCartItemCount();
   const wishlistCount = getWishlistCount();

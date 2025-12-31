@@ -7,6 +7,7 @@ import PWAInstallBanner from './components/PWAInstallBanner';
 import performanceMonitor from './utils/performanceMonitor';
 import { organizationStructuredData, addStructuredData } from './utils/seo';
 import './index.css';
+import './styles/responsive.css';
 
 // Add organization structured data
 addStructuredData(organizationStructuredData);
