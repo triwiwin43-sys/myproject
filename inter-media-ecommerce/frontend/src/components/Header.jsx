@@ -75,13 +75,13 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-700 to-blue-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">IM</span>
+          <Link to="/" className="flex items-center space-x-2 flex-shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm sm:text-lg">IM</span>
             </div>
-            <div>
-              <h1 className="text-xl font-bold text-gradient">Inter Medi-A</h1>
-              <p className="text-xs text-gray-500">Office Solutions</p>
+            <div className="hidden sm:block">
+              <h1 className="text-lg sm:text-xl font-bold text-gray-900">Inter Medi-A</h1>
+              <p className="text-xs text-gray-500 hidden md:block">Office Solutions</p>
             </div>
           </Link>
 
