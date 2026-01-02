@@ -1,5 +1,0 @@
-#!/bin/bash
-# Project shortcuts
-alias project="cd /workspaces/myproject/inter-media-ecommerce"
-alias npm-project="cd /workspaces/myproject/inter-media-ecommerce && npm"
-alias start-project="cd /workspaces/myproject/inter-media-ecommerce && ./start.sh"
