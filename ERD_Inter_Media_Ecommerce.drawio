@@ -1,0 +1,232 @@
+<mxfile host="app.diagrams.net" modified="2026-01-03T10:01:00.000Z" agent="5.0" etag="drawio" version="22.1.16" type="device">
+  <diagram name="ERD Inter Media E-Commerce" id="erd-inter-media">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="ENTITY RELATIONSHIP DIAGRAM (ERD)&#xa;SISTEM E-COMMERCE INTER MEDI-A" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="400" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Users Entity -->
+        <mxCell id="users" value="USERS" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d4edda;strokeColor=#28a745;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="users-attr" value="PK user_id&#xa;email&#xa;password&#xa;full_name&#xa;phone&#xa;address&#xa;role&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="users">
+          <mxGeometry y="26" width="160" height="154" as="geometry" />
+        </mxCell>
+        
+        <!-- Categories Entity -->
+        <mxCell id="categories" value="CATEGORIES" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#fff3cd;strokeColor=#ffc107;" vertex="1" parent="1">
+          <mxGeometry x="320" y="100" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="categories-attr" value="PK category_id&#xa;category_name&#xa;description&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="categories">
+          <mxGeometry y="26" width="160" height="94" as="geometry" />
+        </mxCell>
+        
+        <!-- Products Entity -->
+        <mxCell id="products" value="PRODUCTS" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="1">
+          <mxGeometry x="560" y="100" width="160" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="products-attr" value="PK product_id&#xa;FK category_id&#xa;product_name&#xa;description&#xa;price&#xa;stock_quantity&#xa;image_url&#xa;weight&#xa;dimensions&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="products">
+          <mxGeometry y="26" width="160" height="174" as="geometry" />
+        </mxCell>
+        
+        <!-- Cart Entity -->
+        <mxCell id="cart" value="CART" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8d7da;strokeColor=#dc3545;" vertex="1" parent="1">
+          <mxGeometry x="80" y="350" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cart-attr" value="PK cart_id&#xa;FK user_id&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cart">
+          <mxGeometry y="26" width="160" height="74" as="geometry" />
+        </mxCell>
+        
+        <!-- Cart Items Entity -->
+        <mxCell id="cart-items" value="CART_ITEMS" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#f8d7da;strokeColor=#dc3545;" vertex="1" parent="1">
+          <mxGeometry x="320" y="350" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cart-items-attr" value="PK cart_item_id&#xa;FK cart_id&#xa;FK product_id&#xa;quantity&#xa;added_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="cart-items">
+          <mxGeometry y="26" width="160" height="94" as="geometry" />
+        </mxCell>
+        
+        <!-- Orders Entity -->
+        <mxCell id="orders" value="ORDERS" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e2e3e5;strokeColor=#6c757d;" vertex="1" parent="1">
+          <mxGeometry x="80" y="520" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="orders-attr" value="PK order_id&#xa;FK user_id&#xa;order_number&#xa;total_amount&#xa;status&#xa;order_date&#xa;shipping_address&#xa;created_at&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="orders">
+          <mxGeometry y="26" width="160" height="154" as="geometry" />
+        </mxCell>
+        
+        <!-- Order Items Entity -->
+        <mxCell id="order-items" value="ORDER_ITEMS" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e2e3e5;strokeColor=#6c757d;" vertex="1" parent="1">
+          <mxGeometry x="320" y="520" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="order-items-attr" value="PK order_item_id&#xa;FK order_id&#xa;FK product_id&#xa;quantity&#xa;unit_price&#xa;subtotal" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="order-items">
+          <mxGeometry y="26" width="160" height="114" as="geometry" />
+        </mxCell>
+        
+        <!-- Payments Entity -->
+        <mxCell id="payments" value="PAYMENTS" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d1ecf1;strokeColor=#17a2b8;" vertex="1" parent="1">
+          <mxGeometry x="560" y="520" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="payments-attr" value="PK payment_id&#xa;FK order_id&#xa;payment_method&#xa;amount&#xa;status&#xa;payment_date&#xa;transaction_id&#xa;created_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="payments">
+          <mxGeometry y="26" width="160" height="134" as="geometry" />
+        </mxCell>
+        
+        <!-- Shipping Entity -->
+        <mxCell id="shipping" value="SHIPPING" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffeaa7;strokeColor=#fdcb6e;" vertex="1" parent="1">
+          <mxGeometry x="800" y="520" width="160" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="shipping-attr" value="PK shipping_id&#xa;FK order_id&#xa;courier&#xa;tracking_number&#xa;status&#xa;shipped_date&#xa;delivered_date&#xa;shipping_cost&#xa;created_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="shipping">
+          <mxGeometry y="26" width="160" height="154" as="geometry" />
+        </mxCell>
+        
+        <!-- Reports Entity -->
+        <mxCell id="reports" value="REPORTS" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e7e9fc;strokeColor=#6f42c1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="350" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="reports-attr" value="PK report_id&#xa;FK generated_by&#xa;report_type&#xa;date_from&#xa;date_to&#xa;generated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="reports">
+          <mxGeometry y="26" width="160" height="114" as="geometry" />
+        </mxCell>
+        
+        <!-- Inventory Entity -->
+        <mxCell id="inventory" value="INVENTORY" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#d4edda;strokeColor=#28a745;" vertex="1" parent="1">
+          <mxGeometry x="800" y="100" width="160" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="inventory-attr" value="PK inventory_id&#xa;FK product_id&#xa;stock_in&#xa;stock_out&#xa;current_stock&#xa;updated_at" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="inventory">
+          <mxGeometry y="26" width="160" height="114" as="geometry" />
+        </mxCell>
+        
+        <!-- Relationships -->
+        
+        <!-- Users -> Cart (1:1) -->
+        <mxCell id="rel-user-cart" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="users" target="cart">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="300" as="sourcePoint" />
+            <mxPoint x="160" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-user-cart-label" value="1:1 has" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="310" width="40" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Cart -> Cart Items (1:M) -->
+        <mxCell id="rel-cart-items" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="cart" target="cart-items">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="400" as="sourcePoint" />
+            <mxPoint x="320" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-cart-items-label" value="1:M contains" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="380" width="60" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Categories -> Products (1:M) -->
+        <mxCell id="rel-cat-products" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="categories" target="products">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="160" as="sourcePoint" />
+            <mxPoint x="560" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-cat-products-label" value="1:M belongs" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="490" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Products -> Cart Items (1:M) -->
+        <mxCell id="rel-prod-cart-items" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="products" target="cart-items">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="300" as="sourcePoint" />
+            <mxPoint x="480" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-prod-cart-items-label" value="1:M" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="320" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Users -> Orders (1:M) -->
+        <mxCell id="rel-user-orders" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="cart" target="orders">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="450" as="sourcePoint" />
+            <mxPoint x="160" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-user-orders-label" value="1:M places" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="120" y="480" width="50" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Orders -> Order Items (1:M) -->
+        <mxCell id="rel-order-items" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="orders" target="order-items">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="600" as="sourcePoint" />
+            <mxPoint x="320" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-order-items-label" value="1:M contains" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="250" y="580" width="60" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Products -> Order Items (1:M) -->
+        <mxCell id="rel-prod-order-items" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="products" target="order-items">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560" y="300" as="sourcePoint" />
+            <mxPoint x="480" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-prod-order-items-label" value="1:M" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="500" y="400" width="30" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Orders -> Payments (1:1) -->
+        <mxCell id="rel-order-payment" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="orders" target="payments">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="700" as="sourcePoint" />
+            <mxPoint x="560" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-order-payment-label" value="1:1 has" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="650" width="40" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Orders -> Shipping (1:1) -->
+        <mxCell id="rel-order-shipping" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="payments" target="shipping">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="600" as="sourcePoint" />
+            <mxPoint x="800" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-order-shipping-label" value="1:1 ships" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="730" y="580" width="50" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Products -> Inventory (1:1) -->
+        <mxCell id="rel-prod-inventory" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="products" target="inventory">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="200" as="sourcePoint" />
+            <mxPoint x="800" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-prod-inventory-label" value="1:1 tracks" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="730" y="150" width="50" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Users -> Reports (1:M) -->
+        <mxCell id="rel-user-reports" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="users" target="reports">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="100" as="sourcePoint" />
+            <mxPoint x="1040" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel-user-reports-label" value="1:M generates" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="300" width="70" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="KETERANGAN ENTITAS:&#xa;Users Management (Green)&#xa;Product Classification (Yellow)&#xa;Product Management (Blue)&#xa;Shopping Cart (Red)&#xa;Order Management (Gray)&#xa;Payment Processing (Cyan)&#xa;Delivery Management (Orange)&#xa;Business Intelligence (Purple)&#xa;&#xa;Total: 10 Entitas dengan 15+ Relasi" style="text;html=1;strokeColor=#6c757d;fillColor=#f8f9fa;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="520" width="280" height="180" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

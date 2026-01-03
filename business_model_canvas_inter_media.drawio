@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net" modified="2026-01-02T17:43:03.254Z" agent="5.0" etag="business-model-canvas" version="24.7.17">
+  <diagram name="Business Model Canvas - Inter Medi-A" id="business-model-canvas">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="BUSINESS MODEL CANVAS - INTER MEDI-A COMPUTER STORE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="700" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Key Partners -->
+        <mxCell id="key-partners" value="KEY PARTNERS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="70" width="180" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key-partners-content" value="• Supplier printer &amp; komputer&#xa;• Distributor resmi brand&#xa;• Jasa kurir pengiriman&#xa;• Bank untuk payment gateway&#xa;• Teknisi service partner&#xa;• Vendor software&#xa;• Supplier spare parts&#xa;• Asuransi pengiriman" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="90" y="100" width="160" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Key Activities -->
+        <mxCell id="key-activities" value="KEY ACTIVITIES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="70" width="180" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key-activities-content" value="• Penjualan produk IT&#xa;• Manajemen inventory&#xa;• Customer service&#xa;• Technical support&#xa;• Pengiriman produk&#xa;• Marketing digital&#xa;• Maintenance sistem&#xa;• Quality control&#xa;• Training karyawan" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="100" width="160" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Key Resources -->
+        <mxCell id="key-resources" value="KEY RESOURCES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="70" width="180" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="key-resources-content" value="• Sistem e-commerce&#xa;• Database customer&#xa;• Inventory stock&#xa;• SDM terlatih&#xa;• Brand reputation&#xa;• Gudang &amp; showroom&#xa;• Peralatan teknisi&#xa;• Modal kerja&#xa;• Jaringan supplier" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="490" y="100" width="160" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Value Propositions -->
+        <mxCell id="value-propositions" value="VALUE PROPOSITIONS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff0000;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="70" width="180" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="value-propositions-content" value="• Produk IT berkualitas&#xa;• Harga kompetitif&#xa;• Garansi resmi&#xa;• Layanan after-sales&#xa;• Pengiriman cepat&#xa;• Technical support 24/7&#xa;• Konsultasi gratis&#xa;• Sistem terintegrasi&#xa;• User experience optimal" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="690" y="100" width="160" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Customer Relationships -->
+        <mxCell id="customer-relationships" value="CUSTOMER RELATIONSHIPS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="70" width="180" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="customer-relationships-content" value="• Personal assistance&#xa;• Self-service portal&#xa;• Automated services&#xa;• Community support&#xa;• Loyalty program&#xa;• Regular follow-up&#xa;• Feedback system&#xa;• Social media engagement&#xa;• Newsletter &amp; promo" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="100" width="160" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Channels -->
+        <mxCell id="channels" value="CHANNELS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="290" width="180" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="channels-content" value="• Website e-commerce&#xa;• Mobile application&#xa;• WhatsApp Business&#xa;• Social media&#xa;• Toko fisik&#xa;• Marketplace&#xa;• Email marketing&#xa;• Referral program" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="320" width="160" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Customer Segments -->
+        <mxCell id="customer-segments" value="CUSTOMER SEGMENTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="290" width="180" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="customer-segments-content" value="• Perusahaan/kantor&#xa;• UMKM &amp; startup&#xa;• Institusi pendidikan&#xa;• Individual consumers&#xa;• Reseller &amp; distributor&#xa;• Government agencies&#xa;• Home office users&#xa;• Gaming enthusiasts" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="690" y="320" width="160" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Cost Structure -->
+        <mxCell id="cost-structure" value="COST STRUCTURE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="290" width="380" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cost-structure-content" value="• Pembelian inventory (60-70%)&#xa;• Gaji karyawan (15-20%)&#xa;• Operational costs (5-10%)&#xa;• Marketing &amp; advertising (3-5%)&#xa;• Technology infrastructure (2-3%)&#xa;• Shipping &amp; logistics (2-3%)&#xa;• Rent &amp; utilities (2-3%)&#xa;• Insurance &amp; legal (1-2%)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="90" y="320" width="360" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Revenue Streams -->
+        <mxCell id="revenue-streams" value="REVENUE STREAMS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="290" width="180" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="revenue-streams-content" value="• Penjualan produk (80%)&#xa;• Service &amp; maintenance (10%)&#xa;• Extended warranty (3%)&#xa;• Training &amp; consultation (2%)&#xa;• Rental equipment (2%)&#xa;• Installation services (2%)&#xa;• Spare parts (1%)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="490" y="320" width="160" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- BMC Framework Lines -->
+        <mxCell id="line1" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#cccccc;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="270" y="70" as="sourcePoint" />
+            <mxPoint x="270" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="line2" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#cccccc;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="470" y="70" as="sourcePoint" />
+            <mxPoint x="470" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="line3" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#cccccc;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="70" as="sourcePoint" />
+            <mxPoint x="670" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="line4" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#cccccc;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="870" y="70" as="sourcePoint" />
+            <mxPoint x="870" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="line5" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#cccccc;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="80" y="280" as="sourcePoint" />
+            <mxPoint x="1060" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Date and Version -->
+        <mxCell id="date-version" value="Dibuat: 2 Januari 2026 | Versi: 1.0 | Inter Medi-A Computer Store" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="460" width="400" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Key Insights Box -->
+        <mxCell id="insights-box" value="KEY INSIGHTS BMC:" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6f3ff;strokeColor=#0066cc;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="500" width="980" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="insights-content" value="• Model bisnis B2B &amp; B2C dengan fokus pada solusi IT terintegrasi • Value proposition utama: kualitas produk + layanan after-sales excellent&#xa;• Revenue stream diversifikasi: 80% penjualan produk, 20% layanan • Cost structure didominasi inventory (60-70%) dengan margin 25-30%&#xa;• Customer relationship berbasis personal assistance + digital self-service • Multi-channel approach: online platform + offline presence" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="90" y="530" width="960" height="40" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

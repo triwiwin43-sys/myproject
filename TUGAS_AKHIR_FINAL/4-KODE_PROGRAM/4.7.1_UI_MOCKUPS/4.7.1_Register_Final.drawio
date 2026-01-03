@@ -1,0 +1,126 @@
+<mxfile host="app.diagrams.net" modified="2026-01-03T07:00:45.338Z" agent="5.0" etag="register-final" version="24.7.17">
+  <diagram name="Register - Accurate" id="register">
+    <mxGraphModel dx="1200" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Browser: 1200×1000px -->
+        <mxCell id="browser" value="1200×1000px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="1000" as="geometry" />
+        </mxCell>
+        
+        <!-- Container: 500×900px -->
+        <mxCell id="container" value="Register Container&#xa;500×900px&#xa;max-w-lg" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;shadow=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="350" y="50" width="500" height="900" as="geometry" />
+        </mxCell>
+        
+        <!-- Logo: 48×48px -->
+        <mxCell id="logo" value="IM&#xa;48×48px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d32f2f;strokeColor=#c62828;fontColor=#ffffff;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="576" y="80" width="48" height="48" as="geometry" />
+        </mxCell>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Daftar Akun Baru&#xa;24px font-bold" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="400" y="140" width="400" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Subtitle -->
+        <mxCell id="subtitle" value="Bergabunglah dengan Inter Medi-A&#xa;14px" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#757575;" vertex="1" parent="1">
+          <mxGeometry x="400" y="170" width="400" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Role Selection -->
+        <mxCell id="role-title" value="Pilih Jenis Akun:&#xa;14px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="370" y="210" width="150" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Role Buttons: 120×40px each -->
+        <mxCell id="role-customer" value="🛒 Customer&#xa;120×40px&#xa;Selected" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d32f2f;strokeColor=#c62828;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="240" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="role-seller" value="🏪 Seller&#xa;120×40px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="510" y="240" width="120" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Personal Info Title -->
+        <mxCell id="personal-title" value="Informasi Pribadi&#xa;16px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="370" y="300" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Name Inputs: 200×44px each -->
+        <mxCell id="firstname" value="Nama Depan&#xa;200×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="340" width="200" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lastname" value="Nama Belakang&#xa;200×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="590" y="340" width="200" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Email Input: 420×44px -->
+        <mxCell id="email" value="📧 Email&#xa;420×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=35;" vertex="1" parent="1">
+          <mxGeometry x="370" y="400" width="420" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Phone Input: 420×44px -->
+        <mxCell id="phone" value="📱 Nomor Telepon&#xa;420×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=35;" vertex="1" parent="1">
+          <mxGeometry x="370" y="460" width="420" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Password Inputs: 200×44px each -->
+        <mxCell id="password" value="🔒 Password&#xa;200×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=35;" vertex="1" parent="1">
+          <mxGeometry x="370" y="520" width="200" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="confirm-password" value="🔒 Konfirmasi&#xa;200×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=35;" vertex="1" parent="1">
+          <mxGeometry x="590" y="520" width="200" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Address Title -->
+        <mxCell id="address-title" value="Alamat&#xa;16px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="370" y="580" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Address Input: 420×60px -->
+        <mxCell id="address" value="Alamat Lengkap&#xa;420×60px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="620" width="420" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- City, Province, Postal: 130×44px each -->
+        <mxCell id="city" value="Kota&#xa;130×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="700" width="130" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="province" value="Provinsi&#xa;130×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="700" width="130" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="postal" value="Kode Pos&#xa;120×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="670" y="700" width="120" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Terms Checkbox -->
+        <mxCell id="terms" value="☐ Saya setuju dengan Syarat &amp; Ketentuan&#xa;12px" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="370" y="760" width="420" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Register Button: 420×48px -->
+        <mxCell id="register-btn" value="Daftar Sekarang&#xa;420×48px&#xa;bg-success #10b981" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10b981;strokeColor=#059669;fontColor=#ffffff;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="800" width="420" height="48" as="geometry" />
+        </mxCell>
+        
+        <!-- Login Link -->
+        <mxCell id="login-link" value="Sudah punya akun? Masuk di sini&#xa;12px text-primary" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#d32f2f;" vertex="1" parent="1">
+          <mxGeometry x="400" y="870" width="400" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Measurements -->
+        <mxCell id="measurements" value="PIXEL MEASUREMENTS:&#xa;• Container: 500×900px&#xa;• Logo: 48×48px&#xa;• Role buttons: 120×40px&#xa;• Name inputs: 200×44px&#xa;• Email/Phone: 420×44px&#xa;• Password: 200×44px&#xa;• Address: 420×60px&#xa;• City/Province: 130×44px&#xa;• Postal: 120×44px&#xa;• Register button: 420×48px&#xa;&#xa;COLORS:&#xa;• Primary: #d32f2f (selected role)&#xa;• Success: #10b981 (register button)&#xa;• Inputs: #f5f5f5 background" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="20" y="50" width="300" height="250" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

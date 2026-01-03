@@ -1,0 +1,232 @@
+<mxfile host="app.diagrams.net" modified="2026-01-02T17:21:32.053Z" agent="5.0" etag="fishbone-diagram" version="24.7.17">
+  <diagram name="Fishbone Diagram - Analisis Masalah" id="fishbone-diagram">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="FISHBONE DIAGRAM - ANALISIS MASALAH SISTEM MANUAL INTER MEDI-A" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="700" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Main Spine -->
+        <mxCell id="main-spine" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=4;strokeColor=#000000;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="400" as="sourcePoint" />
+            <mxPoint x="800" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Problem Head -->
+        <mxCell id="problem-head" value="TIDAK ADA SISTEM&#xa;INFORMASI&#xa;TERINTEGRASI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff0000;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="360" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- MANUSIA Category -->
+        <mxCell id="manusia-bone" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="400" as="sourcePoint" />
+            <mxPoint x="300" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="manusia-label" value="MANUSIA" style="text;html=1;strokeColor=none;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="220" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Manusia Issues -->
+        <mxCell id="manusia-issue1" value="Kurang terlatih&#xa;teknologi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="180" y="160" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manusia-issue2" value="Human error&#xa;tinggi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="280" y="180" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manusia-issue3" value="Beban kerja&#xa;berlebih" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="140" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- METODE Category -->
+        <mxCell id="metode-bone" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="400" as="sourcePoint" />
+            <mxPoint x="450" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="metode-label" value="METODE" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="220" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Metode Issues -->
+        <mxCell id="metode-issue1" value="Proses tidak&#xa;terstandar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="330" y="160" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metode-issue2" value="Dokumentasi&#xa;tidak lengkap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="430" y="180" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="metode-issue3" value="Workflow&#xa;tidak efisien" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="470" y="140" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- TEKNOLOGI Category -->
+        <mxCell id="teknologi-bone" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="400" as="sourcePoint" />
+            <mxPoint x="600" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="teknologi-label" value="TEKNOLOGI" style="text;html=1;strokeColor=none;fillColor=#fff2cc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="570" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Teknologi Issues -->
+        <mxCell id="teknologi-issue1" value="Tidak ada&#xa;database" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="620" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="teknologi-issue2" value="Sistem tidak&#xa;terintegrasi" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="580" y="600" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="teknologi-issue3" value="Infrastruktur&#xa;IT kurang" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="620" y="560" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- MANAJEMEN Category -->
+        <mxCell id="manajemen-bone" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=3;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="400" as="sourcePoint" />
+            <mxPoint x="750" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="manajemen-label" value="MANAJEMEN" style="text;html=1;strokeColor=none;fillColor=#e1d5e7;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="570" width="80" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Manajemen Issues -->
+        <mxCell id="manajemen-issue1" value="Kontrol kualitas&#xa;lemah" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="630" y="620" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manajemen-issue2" value="Pelaporan&#xa;tidak akurat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="730" y="600" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manajemen-issue3" value="Monitoring&#xa;tidak real-time" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="770" y="560" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Sub-bones for issues -->
+        <!-- Manusia sub-bones -->
+        <mxCell id="manusia-sub1" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="320" as="sourcePoint" />
+            <mxPoint x="220" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="manusia-sub2" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="270" y="300" as="sourcePoint" />
+            <mxPoint x="320" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="manusia-sub3" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#6c8ebf;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="280" as="sourcePoint" />
+            <mxPoint x="360" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Metode sub-bones -->
+        <mxCell id="metode-sub1" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="320" as="sourcePoint" />
+            <mxPoint x="370" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="metode-sub2" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="300" as="sourcePoint" />
+            <mxPoint x="470" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="metode-sub3" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="280" as="sourcePoint" />
+            <mxPoint x="510" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Teknologi sub-bones -->
+        <mxCell id="teknologi-sub1" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="480" as="sourcePoint" />
+            <mxPoint x="520" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="teknologi-sub2" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="570" y="500" as="sourcePoint" />
+            <mxPoint x="620" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="teknologi-sub3" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#d79b00;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="520" as="sourcePoint" />
+            <mxPoint x="660" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Manajemen sub-bones -->
+        <mxCell id="manajemen-sub1" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="480" as="sourcePoint" />
+            <mxPoint x="670" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="manajemen-sub2" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="720" y="500" as="sourcePoint" />
+            <mxPoint x="770" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="manajemen-sub3" value="" style="endArrow=none;html=1;rounded=0;strokeWidth=1;strokeColor=#9673a6;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740" y="520" as="sourcePoint" />
+            <mxPoint x="810" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend-box" value="ANALISIS PENYEBAB MASALAH:" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="400" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-text" value="• MANUSIA: Kurangnya skill teknologi, human error tinggi&#xa;• METODE: Proses tidak terstandar, dokumentasi kurang&#xa;• TEKNOLOGI: Tidak ada database, sistem tidak terintegrasi&#xa;• MANAJEMEN: Kontrol lemah, pelaporan tidak akurat" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="90" y="110" width="380" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Root Cause -->
+        <mxCell id="root-cause" value="AKAR MASALAH:&#xa;BELUM ADA SISTEM INFORMASI&#xa;TERINTEGRASI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#ff0000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="200" height="60" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

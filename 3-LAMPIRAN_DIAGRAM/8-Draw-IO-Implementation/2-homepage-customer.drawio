@@ -1,0 +1,139 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Homepage Customer">
+    <mxGraphModel dx="1422" dy="1200" grid="1" gridSize="10" guides="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Browser Frame -->
+        <mxCell id="browser" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1200" height="1000" as="geometry"/>
+        </mxCell>
+        
+        <!-- Top Bar -->
+        <mxCell id="topBar" value="📞 0895-3339-61424    ✉️ medyyes.krps@gmail.com                                                                                    Gratis ongkir untuk pembelian di atas Rp 500.000" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d32f2f;fontColor=#ffffff;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1200" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Main Header -->
+        <mxCell id="mainHeader" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="1200" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Logo -->
+        <mxCell id="logo" value="IM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1976d2;fontColor=#ffffff;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="80" y="75" width="40" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="logoText" value="Inter Medi-A&#xa;Office Solutions" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="130" y="80" width="120" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Search Bar -->
+        <mxCell id="searchBar" value="Cari printer, komputer, peralatan kantor..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#bdbdbd;align=left;fontSize=12" vertex="1" parent="1">
+          <mxGeometry x="350" y="80" width="400" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Navigation Icons -->
+        <mxCell id="wishlist" value="♡&#xa;Wishlist" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="900" y="75" width="50" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cart" value="🛒 3&#xa;Cart" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="970" y="75" width="50" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="profile" value="👤&#xa;Profile" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10" vertex="1" parent="1">
+          <mxGeometry x="1040" y="75" width="50" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Hero Section -->
+        <mxCell id="heroSection" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d32f2f;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="130" width="1200" height="400" as="geometry"/>
+        </mxCell>
+        
+        <!-- Hero Content -->
+        <mxCell id="heroTitle1" value="Premium Office" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=36;fontStyle=1;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="100" y="180" width="300" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="heroTitle2" value="Solutions" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=36;fontStyle=1;fontColor=#ffeb3b" vertex="1" parent="1">
+          <mxGeometry x="100" y="230" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="heroDesc" value="Your trusted partner for printers, computers, office equipment,&#xa;and professional services. Quality products, expert support." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontColor=#ffcdd2" vertex="1" parent="1">
+          <mxGeometry x="100" y="290" width="400" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Hero Buttons -->
+        <mxCell id="shopBtn" value="Belanja Sekarang" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;fontColor=#d32f2f;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="150" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="serviceBtn" value="Our Services" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ffffff;fontColor=#ffffff;fontSize=14;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="270" y="350" width="120" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Hero Stats -->
+        <mxCell id="stat1" value="10,000+&#xa;Happy Customers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=rgba(255,255,255,0.1);strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="stat2" value="50,000+&#xa;Products Delivered" style="rounded=1;whiteSpace=wrap;html=1;fillColor=rgba(255,255,255,0.1);strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="stat3" value="4.9/5&#xa;Customer Rating" style="rounded=1;whiteSpace=wrap;html=1;fillColor=rgba(255,255,255,0.1);strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="340" y="420" width="100" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="stat4" value="15+&#xa;Years Experience" style="rounded=1;whiteSpace=wrap;html=1;fillColor=rgba(255,255,255,0.1);strokeColor=none;fontColor=#ffffff;fontSize=12;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="460" y="420" width="100" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- Hero Right Card -->
+        <mxCell id="heroCard" value="Modern Office Setup&#xa;&#xa;Complete solutions for your modern office needs with premium equipment and professional services." style="rounded=2;whiteSpace=wrap;html=1;fillColor=rgba(255,255,255,0.1);strokeColor=rgba(255,255,255,0.2);fontColor=#ffffff;fontSize=14;align=center;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="700" y="200" width="400" height="250" as="geometry"/>
+        </mxCell>
+        
+        <!-- Features Section -->
+        <mxCell id="featuresSection" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="530" width="1200" height="150" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="featuresTitle" value="Why Choose Inter Medi-A" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="560" width="250" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Feature Cards -->
+        <mxCell id="feature1" value="🚚&#xa;Gratis Ongkir&#xa;Free delivery on orders over Rp 500,000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;align=center;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="100" y="600" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature2" value="🔒&#xa;Secure Payment&#xa;Proses pembayaran 100% aman" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;align=center;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="320" y="600" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature3" value="🎧&#xa;24/7 Support&#xa;Dedicated customer support team" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;align=center;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="540" y="600" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature4" value="🏆&#xa;Quality Guarantee&#xa;Premium products with warranty" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;align=center;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="760" y="600" width="200" height="70" as="geometry"/>
+        </mxCell>
+        
+        <!-- Categories Section -->
+        <mxCell id="categoriesTitle" value="Shop by Category" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=24;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="100" y="720" width="250" height="30" as="geometry"/>
+        </mxCell>
+        
+        <!-- Category Cards -->
+        <mxCell id="category1" value="🖨️&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Printers&#xa;HP, Canon, Epson" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;align=center;verticalAlign=bottom" vertex="1" parent="1">
+          <mxGeometry x="100" y="760" width="150" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="category2" value="💻&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Computers&#xa;Dell, Lenovo, HP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;align=center;verticalAlign=bottom" vertex="1" parent="1">
+          <mxGeometry x="270" y="760" width="150" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="category3" value="📠&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Office Equipment&#xa;Scanners, Projectors" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;align=center;verticalAlign=bottom" vertex="1" parent="1">
+          <mxGeometry x="440" y="760" width="150" height="150" as="geometry"/>
+        </mxCell>
+        
+        <!-- Dimensions -->
+        <mxCell id="dim1" value="1200px" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#757575" vertex="1" parent="1">
+          <mxGeometry x="620" y="10" width="60" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="dim2" value="1000px" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#757575;rotation=90" vertex="1" parent="1">
+          <mxGeometry x="20" y="510" width="60" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,182 @@
+<mxfile host="app.diagrams.net" modified="2026-01-03T09:33:00.000Z" agent="5.0" etag="drawio" version="22.1.16" type="device">
+  <diagram name="Use Case Diagram" id="use-case-inter-media">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="USE CASE DIAGRAM&#xa;SISTEM E-COMMERCE INTER MEDI-A" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="360" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- System Boundary -->
+        <mxCell id="system-boundary" value="SISTEM E-COMMERCE INTER MEDI-A" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;startSize=30;fillColor=#f8f9fa;strokeColor=#6c757d;" vertex="1" parent="1">
+          <mxGeometry x="300" y="80" width="600" height="680" as="geometry" />
+        </mxCell>
+        
+        <!-- Customer Use Cases -->
+        <mxCell id="uc-c01" value="Melakukan&#xa;Pendaftaran" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;" vertex="1" parent="system-boundary">
+          <mxGeometry x="50" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-c02" value="Lihat-lihat&#xa;Produk" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;" vertex="1" parent="system-boundary">
+          <mxGeometry x="50" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-c03" value="Tambahkan ke&#xa;Keranjang Belanja" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;" vertex="1" parent="system-boundary">
+          <mxGeometry x="50" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-c04" value="Lakukan Pembayaran/&#xa;Konfirmasi Pembayaran" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;" vertex="1" parent="system-boundary">
+          <mxGeometry x="50" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-c05" value="Input Data&#xa;Pengiriman Produk" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d4edda;strokeColor=#28a745;" vertex="1" parent="system-boundary">
+          <mxGeometry x="50" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Admin Use Cases -->
+        <mxCell id="uc-a01" value="Input&#xa;Produk" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="system-boundary">
+          <mxGeometry x="430" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-a02" value="Konfirmasi&#xa;Pembayaran" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="system-boundary">
+          <mxGeometry x="430" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-a03" value="Konfirmasi&#xa;Pengiriman" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="system-boundary">
+          <mxGeometry x="430" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-a04" value="Cetak Laporan&#xa;Pemesanan" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="system-boundary">
+          <mxGeometry x="430" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-a05" value="Cetak Laporan&#xa;Penjualan/Pembayaran" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="system-boundary">
+          <mxGeometry x="430" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-a06" value="Cetak Laporan&#xa;Pengiriman Barang" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="system-boundary">
+          <mxGeometry x="430" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-a07" value="Cetak Laporan&#xa;Barang Terlaris" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="system-boundary">
+          <mxGeometry x="430" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="uc-a08" value="Kelola Stok&#xa;Produk" style="ellipse;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#007bff;" vertex="1" parent="system-boundary">
+          <mxGeometry x="430" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Actors -->
+        <mxCell id="customer" value="CUSTOMER&#xa;(Pelanggan)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#28a745;strokeColor=#1e7e34;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="300" width="60" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="admin" value="ADMIN/SELLER&#xa;(Pengelola)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#007bff;strokeColor=#0056b3;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="300" width="60" height="120" as="geometry" />
+        </mxCell>
+        
+        <!-- Customer Connections -->
+        <mxCell id="conn-c01" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="customer" target="uc-c01">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="360" as="sourcePoint" />
+            <mxPoint x="350" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-c02" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="customer" target="uc-c02">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="360" as="sourcePoint" />
+            <mxPoint x="350" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-c03" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="customer" target="uc-c03">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="360" as="sourcePoint" />
+            <mxPoint x="350" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-c04" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="customer" target="uc-c04">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="360" as="sourcePoint" />
+            <mxPoint x="350" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-c05" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="customer" target="uc-c05">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="360" as="sourcePoint" />
+            <mxPoint x="350" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Admin Connections -->
+        <mxCell id="conn-a01" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc-a01">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="360" as="sourcePoint" />
+            <mxPoint x="850" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-a02" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc-a02">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="360" as="sourcePoint" />
+            <mxPoint x="850" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-a03" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc-a03">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="360" as="sourcePoint" />
+            <mxPoint x="850" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-a04" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc-a04">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="360" as="sourcePoint" />
+            <mxPoint x="850" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-a05" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc-a05">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="360" as="sourcePoint" />
+            <mxPoint x="850" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-a06" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc-a06">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="360" as="sourcePoint" />
+            <mxPoint x="850" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-a07" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc-a07">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="360" as="sourcePoint" />
+            <mxPoint x="850" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="conn-a08" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="admin" target="uc-a08">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="360" as="sourcePoint" />
+            <mxPoint x="850" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Legend -->
+        <mxCell id="legend" value="KETERANGAN:&#xa;🟢 Customer Use Cases (5)&#xa;🔵 Admin Use Cases (8)&#xa;Total: 13 Use Cases" style="text;html=1;strokeColor=#6c757d;fillColor=#f8f9fa;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="780" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,137 @@
+<mxfile host="app.diagrams.net" modified="2026-01-03T07:00:45.338Z" agent="5.0" etag="checkout-final" version="24.7.17">
+  <diagram name="Checkout - Accurate" id="checkout">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Browser: 1200×900px -->
+        <mxCell id="browser" value="1200×900px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        
+        <!-- Header: 1200×64px -->
+        <mxCell id="header" value="Header 1200×64px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="64" as="geometry" />
+        </mxCell>
+        
+        <!-- Progress Steps: 1200×40px -->
+        <mxCell id="progress" value="1. Keranjang ✓ → 2. Checkout ● → 3. Pembayaran → 4. Selesai&#xa;1200×40px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e9ecef;strokeColor=#adb5bd;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="64" width="1200" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Left Column - Order Summary: 400×760px -->
+        <mxCell id="left-column" value="Order Summary&#xa;400×760px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="124" width="400" height="760" as="geometry" />
+        </mxCell>
+        
+        <!-- Order Items -->
+        <mxCell id="order-item-1" value="Order Item 1&#xa;360×80px&#xa;HP LaserJet Pro&#xa;Rp 2.500.000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;fontSize=12;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="360" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="order-item-2" value="Order Item 2&#xa;360×80px&#xa;ASUS VivoBook&#xa;Rp 7.500.000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;fontSize=12;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="360" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Price Summary: 360×120px -->
+        <mxCell id="price-summary" value="Price Summary&#xa;360×120px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="360" width="360" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="summary-details" value="Subtotal: Rp 10.000.000&#xa;Ongkir: Rp 25.000&#xa;Pajak: Rp 100.000&#xa;Total: Rp 10.125.000" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="80" y="380" width="320" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Right Column - Checkout Form: 700×760px -->
+        <mxCell id="right-column" value="Checkout Form&#xa;700×760px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="460" y="124" width="700" height="760" as="geometry" />
+        </mxCell>
+        
+        <!-- Shipping Address Title -->
+        <mxCell id="shipping-title" value="Alamat Pengiriman&#xa;16px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="480" y="150" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Name Input: 320×44px -->
+        <mxCell id="name-input" value="Nama Lengkap&#xa;320×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="190" width="320" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Phone Input: 320×44px -->
+        <mxCell id="phone-input" value="Nomor Telepon&#xa;320×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="820" y="190" width="320" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Address Input: 660×60px -->
+        <mxCell id="address-input" value="Alamat Lengkap&#xa;660×60px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="254" width="660" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- City, Province, Postal -->
+        <mxCell id="city-input" value="Kota&#xa;200×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="334" width="200" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="province-input" value="Provinsi&#xa;200×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="334" width="200" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="postal-input" value="Kode Pos&#xa;220×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="920" y="334" width="220" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Payment Method Title -->
+        <mxCell id="payment-title" value="Metode Pembayaran&#xa;16px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="480" y="398" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Payment Options: 660×200px -->
+        <mxCell id="payment-options" value="Payment Options&#xa;660×200px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="438" width="660" height="200" as="geometry" />
+        </mxCell>
+        
+        <!-- Payment Method Cards: 200×60px each -->
+        <mxCell id="bank-transfer" value="🏦 Transfer Bank&#xa;200×60px&#xa;Selected" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d32f2f;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#d32f2f;" vertex="1" parent="1">
+          <mxGeometry x="500" y="458" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ewallet" value="📱 E-Wallet&#xa;200×60px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="720" y="458" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="cod" value="💰 Cash on Delivery&#xa;200×60px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="940" y="458" width="180" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="credit-card" value="💳 Kartu Kredit&#xa;200×60px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="500" y="538" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="installment" value="📅 Cicilan 0%&#xa;200×60px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="720" y="538" width="200" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Order Notes: 660×60px -->
+        <mxCell id="notes-input" value="Catatan Pesanan (Opsional)&#xa;660×60px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="480" y="658" width="660" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- Action Buttons -->
+        <mxCell id="back-btn" value="← Kembali&#xa;200×48px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c757d;strokeColor=#545b62;fontColor=#ffffff;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="738" width="200" height="48" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="place-order-btn" value="Buat Pesanan - Rp 10.125.000&#xa;440×48px&#xa;bg-success" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10b981;strokeColor=#059669;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="738" width="440" height="48" as="geometry" />
+        </mxCell>
+        
+        <!-- Measurements -->
+        <mxCell id="measurements" value="PIXEL MEASUREMENTS:&#xa;• Left column: 400×760px&#xa;• Right column: 700×760px&#xa;• Order items: 360×80px&#xa;• Form inputs: 320×44px, 660×60px&#xa;• Payment cards: 200×60px&#xa;• Back button: 200×48px&#xa;• Place order: 440×48px&#xa;&#xa;COLORS:&#xa;• Primary: #d32f2f (selected payment)&#xa;• Success: #10b981 (place order)&#xa;• Gray: #6c757d (back button)&#xa;• Background: #f5f5f5 (inputs)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="60" y="500" width="300" height="200" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

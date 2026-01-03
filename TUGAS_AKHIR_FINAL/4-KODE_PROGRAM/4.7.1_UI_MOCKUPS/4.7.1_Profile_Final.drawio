@@ -1,0 +1,160 @@
+<mxfile host="app.diagrams.net" modified="2026-01-03T07:00:45.338Z" agent="5.0" etag="profile-final" version="24.7.17">
+  <diagram name="Profile - Accurate" id="profile">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Browser: 1200×900px -->
+        <mxCell id="browser" value="1200×900px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="900" as="geometry" />
+        </mxCell>
+        
+        <!-- Header: 1200×64px -->
+        <mxCell id="header" value="Header 1200×64px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="64" as="geometry" />
+        </mxCell>
+        
+        <!-- Navigation Tabs: 1200×40px -->
+        <mxCell id="nav-tabs" value="👤 Profile | 📦 Pesanan | ❤️ Wishlist | 📍 Alamat | 🔒 Keamanan&#xa;1200×40px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e9ecef;strokeColor=#adb5bd;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="64" width="1200" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Left Sidebar: 300×780px -->
+        <mxCell id="left-sidebar" value="Profile Sidebar&#xa;300×780px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="124" width="300" height="756" as="geometry" />
+        </mxCell>
+        
+        <!-- Profile Picture: 100×100px -->
+        <mxCell id="profile-pic" value="👤&#xa;100×100px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d32f2f;strokeColor=#c62828;fontColor=#ffffff;fontSize=40;" vertex="1" parent="1">
+          <mxGeometry x="140" y="154" width="100" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Upload Button: 100×30px -->
+        <mxCell id="upload-pic" value="📷 Ubah Foto&#xa;100×30px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10b981;strokeColor=#059669;fontColor=#ffffff;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="140" y="264" width="100" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- User Info -->
+        <mxCell id="user-name" value="John Doe&#xa;18px font-bold" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="60" y="304" width="260" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="user-email" value="john.doe@email.com&#xa;12px" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#757575;" vertex="1" parent="1">
+          <mxGeometry x="60" y="334" width="260" height="20" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="member-since" value="Member sejak: Januari 2024&#xa;10px" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#9e9e9e;" vertex="1" parent="1">
+          <mxGeometry x="60" y="354" width="260" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Quick Stats: 260×120px -->
+        <mxCell id="quick-stats" value="Quick Stats&#xa;260×120px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="394" width="260" height="120" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="stats-content" value="Statistik Saya&#xa;📦 Total Pesanan: 12&#xa;💰 Total Belanja: Rp 15.2M&#xa;❤️ Wishlist: 8 item" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="80" y="414" width="220" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Menu Items: 260×40px each -->
+        <mxCell id="menu-profile" value="👤 Edit Profile&#xa;260×40px&#xa;Active" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d32f2f;strokeColor=#c62828;fontColor=#ffffff;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="60" y="534" width="260" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="menu-orders" value="📦 Riwayat Pesanan&#xa;260×40px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="60" y="584" width="260" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="menu-addresses" value="📍 Alamat Saya&#xa;260×40px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="60" y="634" width="260" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="menu-security" value="🔒 Keamanan&#xa;260×40px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=20;" vertex="1" parent="1">
+          <mxGeometry x="60" y="684" width="260" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Main Profile Form: 820×756px -->
+        <mxCell id="profile-form" value="Profile Form&#xa;820×756px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="360" y="124" width="820" height="756" as="geometry" />
+        </mxCell>
+        
+        <!-- Form Title -->
+        <mxCell id="form-title" value="Edit Profile&#xa;24px font-bold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="380" y="144" width="200" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Personal Info Title -->
+        <mxCell id="personal-info-title" value="Informasi Pribadi&#xa;16px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="380" y="194" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Name Inputs: 300×44px each -->
+        <mxCell id="firstname-input" value="Nama Depan&#xa;300×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="234" width="300" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="lastname-input" value="Nama Belakang&#xa;300×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="234" width="300" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Email Input: 620×44px -->
+        <mxCell id="email-input" value="Email&#xa;620×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="294" width="620" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Phone Input: 620×44px -->
+        <mxCell id="phone-input" value="Nomor Telepon&#xa;620×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="354" width="620" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Birth Date & Gender: 300×44px each -->
+        <mxCell id="birthdate-input" value="Tanggal Lahir&#xa;300×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="414" width="300" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="gender-input" value="Jenis Kelamin&#xa;300×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="414" width="300" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Address Title -->
+        <mxCell id="address-info-title" value="Alamat Utama&#xa;16px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="380" y="474" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Address Input: 620×60px -->
+        <mxCell id="address-input" value="Alamat Lengkap&#xa;620×60px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="514" width="620" height="60" as="geometry" />
+        </mxCell>
+        
+        <!-- City, Province, Postal: 180×44px, 200×44px, 200×44px -->
+        <mxCell id="city-input" value="Kota&#xa;180×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="380" y="594" width="180" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="province-input" value="Provinsi&#xa;200×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="580" y="594" width="200" height="44" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="postal-input" value="Kode Pos&#xa;200×44px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;align=left;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="800" y="594" width="200" height="44" as="geometry" />
+        </mxCell>
+        
+        <!-- Action Buttons: 150×48px each -->
+        <mxCell id="cancel-btn" value="Batal&#xa;150×48px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c757d;strokeColor=#545b62;fontColor=#ffffff;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="380" y="674" width="150" height="48" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="save-btn" value="Simpan Perubahan&#xa;150×48px&#xa;bg-success" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10b981;strokeColor=#059669;fontColor=#ffffff;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="674" width="150" height="48" as="geometry" />
+        </mxCell>
+        
+        <!-- Measurements -->
+        <mxCell id="measurements" value="PIXEL MEASUREMENTS:&#xa;• Left sidebar: 300×756px&#xa;• Profile form: 820×756px&#xa;• Profile pic: 100×100px&#xa;• Upload button: 100×30px&#xa;• Menu items: 260×40px&#xa;• Name inputs: 300×44px&#xa;• Email/Phone: 620×44px&#xa;• Address: 620×60px&#xa;• City: 180×44px&#xa;• Province/Postal: 200×44px&#xa;• Action buttons: 150×48px&#xa;&#xa;COLORS:&#xa;• Primary: #d32f2f (active menu)&#xa;• Success: #10b981 (save button)&#xa;• Gray: #6c757d (cancel button)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="20" y="400" width="300" height="300" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

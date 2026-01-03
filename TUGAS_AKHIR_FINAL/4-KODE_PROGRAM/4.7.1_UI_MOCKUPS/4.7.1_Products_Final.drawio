@@ -1,0 +1,108 @@
+<mxfile host="app.diagrams.net" modified="2026-01-03T07:00:45.338Z" agent="5.0" etag="products-final" version="24.7.17">
+  <diagram name="Products - Accurate" id="products">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Browser: 1200×800px -->
+        <mxCell id="browser" value="1200×800px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="800" as="geometry" />
+        </mxCell>
+        
+        <!-- Header: 1200×64px -->
+        <mxCell id="header" value="Header 1200×64px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1200" height="64" as="geometry" />
+        </mxCell>
+        
+        <!-- Search Bar: 400×40px -->
+        <mxCell id="search" value="🔍 Cari produk...&#xa;400×40px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#e0e0e0;align=left;spacingLeft=35;" vertex="1" parent="1">
+          <mxGeometry x="40" y="84" width="400" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Filter Sidebar: 280×680px -->
+        <mxCell id="sidebar" value="Filter Sidebar&#xa;280×680px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="280" height="640" as="geometry" />
+        </mxCell>
+        
+        <!-- Filter Title -->
+        <mxCell id="filter-title" value="Filter Produk&#xa;18px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="200" height="30" as="geometry" />
+        </mxCell>
+        
+        <!-- Category Filters -->
+        <mxCell id="categories-filter" value="Kategori:&#xa;☐ Printer&#xa;☐ Komputer&#xa;☐ Laptop&#xa;☐ Aksesoris&#xa;☐ Service" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="240" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Price Filters -->
+        <mxCell id="price-filter" value="Harga:&#xa;☐ &lt; Rp 500rb&#xa;☐ Rp 500rb - 2jt&#xa;☐ Rp 2jt - 5jt&#xa;☐ Rp 5jt - 10jt&#xa;☐ &gt; Rp 10jt" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="60" y="320" width="240" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Brand Filters -->
+        <mxCell id="brand-filter" value="Brand:&#xa;☐ HP&#xa;☐ Canon&#xa;☐ ASUS&#xa;☐ Acer&#xa;☐ Lenovo" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="60" y="440" width="240" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- Product Grid: 840×640px -->
+        <mxCell id="product-grid" value="Product Grid&#xa;840×640px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="140" width="840" height="640" as="geometry" />
+        </mxCell>
+        
+        <!-- Product Card 1: 280×300px -->
+        <mxCell id="product-1" value="Product Card 1&#xa;280×300px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;shadow=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="360" y="160" width="280" height="300" as="geometry" />
+        </mxCell>
+        
+        <!-- Product Image: 260×160px -->
+        <mxCell id="product-1-img" value="Product Image&#xa;260×160px" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="370" y="180" width="260" height="160" as="geometry" />
+        </mxCell>
+        
+        <!-- Product Info -->
+        <mxCell id="product-1-name" value="HP LaserJet Pro M404dn&#xa;16px font-semibold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="370" y="350" width="260" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="product-1-price" value="Rp 2.500.000&#xa;18px font-bold text-primary" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontColor=#d32f2f;" vertex="1" parent="1">
+          <mxGeometry x="370" y="380" width="150" height="30" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="product-1-rating" value="⭐⭐⭐⭐⭐ (4.5)&#xa;12px" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=12;fontColor=#757575;" vertex="1" parent="1">
+          <mxGeometry x="370" y="410" width="150" height="20" as="geometry" />
+        </mxCell>
+        
+        <!-- Action Buttons -->
+        <mxCell id="product-1-cart" value="🛒 Beli&#xa;80×32px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#10b981;strokeColor=#059669;fontColor=#ffffff;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="420" width="80" height="32" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="product-1-heart" value="♡&#xa;32×32px" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#e0e0e0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="590" y="380" width="32" height="32" as="geometry" />
+        </mxCell>
+        
+        <!-- Product Card 2: Same dimensions -->
+        <mxCell id="product-2" value="Product Card 2&#xa;280×300px&#xa;ASUS VivoBook&#xa;Rp 7.500.000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;shadow=1;fontSize=14;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="660" y="160" width="280" height="300" as="geometry" />
+        </mxCell>
+        
+        <!-- Product Card 3 -->
+        <mxCell id="product-3" value="Product Card 3&#xa;280×300px&#xa;Canon PIXMA&#xa;Rp 1.200.000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;shadow=1;fontSize=14;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="360" y="480" width="280" height="300" as="geometry" />
+        </mxCell>
+        
+        <!-- Product Card 4 -->
+        <mxCell id="product-4" value="Product Card 4&#xa;280×300px&#xa;Service Request&#xa;Rp 150.000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#e0e0e0;shadow=1;fontSize=14;fontStyle=1;fontColor=#212121;" vertex="1" parent="1">
+          <mxGeometry x="660" y="480" width="280" height="300" as="geometry" />
+        </mxCell>
+        
+        <!-- Measurements -->
+        <mxCell id="measurements" value="PIXEL MEASUREMENTS:&#xa;• Sidebar: 280×640px&#xa;• Product grid: 840×640px&#xa;• Product cards: 280×300px&#xa;• Product images: 260×160px&#xa;• Cart button: 80×32px&#xa;• Heart button: 32×32px&#xa;• Search bar: 400×40px&#xa;&#xa;COLORS:&#xa;• Primary: #d32f2f&#xa;• Success: #10b981&#xa;• Cards: white with #e0e0e0 border&#xa;• Background: #fafafa" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#616161;" vertex="1" parent="1">
+          <mxGeometry x="960" y="160" width="220" height="200" as="geometry" />
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
